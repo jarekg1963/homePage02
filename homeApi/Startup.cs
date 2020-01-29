@@ -29,14 +29,14 @@ namespace homeApi
         {
             services.AddDbContext<linkContext>(options =>
               options.UseSqlite("Data Source=c:\\programowanie\\home02\\homeApi\\db.db"));
-            
-             services.AddMvc();
-            
-              services.AddCors(opt =>
-        {
-            opt.AddPolicy("CorsPolicy",
-                c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
-        });
+
+            services.AddMvc();
+
+            services.AddCors(opt =>
+      {
+          opt.AddPolicy("CorsPolicy",
+              c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+      });
             services.AddControllers();
         }
 
@@ -48,8 +48,9 @@ namespace homeApi
                 app.UseDeveloperExceptionPage();
             }
 
-        //    app.UseHttpsRedirection();
+            //    app.UseHttpsRedirection();
 
+            app.UseCors("CorsPolicy");
             app.UseRouting();
 
             app.UseAuthorization();

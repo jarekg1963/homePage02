@@ -1,0 +1,65 @@
+
+  <form [formGroup]="adForm" autocomplete="off" (ngSubmit)="onFormSubmit(adForm.value)" novalidate>
+
+    <mat-grid-list cols="3" row="4" [style.background]="'white'" rowHeight="130px">
+
+      <mat-grid-tile>
+        <mat-form-field appearance="standard" style="width: 300px;" floatlabel="never">
+          <mat-label>url</mat-label>
+          <input matInput placeholder="action" required [formControl]="url" >
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="standard" style="width: 300px;" floatlabel="never">
+          <mat-label>description</mat-label>
+          <input matInput placeholder="action" required [formControl]="description">
+          <!-- <mat-error *ngIf="description.invalid">{{getErrorMessageAction()}}</mat-error> -->
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field style="width: 300px;">
+          <mat-label>remarks</mat-label>
+          <input matInput placeholder="remarks" required formControlName="remarks" class="form-control">
+        </mat-form-field>
+      </mat-grid-tile>
+
+
+      <mat-grid-tile>
+        <mat-form-field style="width: 350px;">
+          <mat-label>createddate</mat-label>
+          <input matInput placeholder="createddate" required formControlName="createddate" class="form-control">
+        </mat-form-field>
+      </mat-grid-tile>
+
+
+      <mat-grid-tile>
+        <mat-form-field style="width: 300px;">
+          <mat-label>note</mat-label>
+          <input matInput placeholder="note" formControlName="note" class="form-control">
+        </mat-form-field>
+      </mat-grid-tile>
+
+
+
+      <mat-grid-tile>
+        <mat-form-field style="width: 300px;">
+          <mat-label>group</mat-label>
+          <input matInput placeholder="group" formControlName="group" class="form-control">
+        </mat-form-field>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+
+    <button type="button" class="btn btn-secondary" [disabled]="!adForm.valid" (click)="onFormSubmit()">Save</button>
+    <button type="button" class="btn btn-secondary ml-4" (click)="onNoClick()">Cancel</button>
+
+    <p>Form value: {{ adForm.valid  }}</p>
+    <!-- <mat-error *ngIf="action.invalid">{{getErrorMessageAction()}}</mat-error> -->
+
+
+  </form>
+  <!-- Actual content starts from here -->
+
+<button mat-button color="primary" (click)="onCloseClick()">Close</button>
