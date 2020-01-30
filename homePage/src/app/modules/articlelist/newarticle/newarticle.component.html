@@ -1,37 +1,44 @@
+<mat-toolbar color="primary">
+  <span>New arcicle links</span>
+  <span class="example-fill-remaining-space"></span>
+  <span>--</span>
+</mat-toolbar>
 
-  <form [formGroup]="adForm" autocomplete="off" (ngSubmit)="onFormSubmit(adForm.value)" novalidate>
+  <form [formGroup]="adForm" autocomplete="off" novalidate>
 
-    <mat-grid-list cols="3" row="4" [style.background]="'white'" rowHeight="130px">
+    <mat-grid-list cols="1" row="1" [style.background]="'white'" rowHeight="100px">
 
       <mat-grid-tile>
-        <mat-form-field appearance="standard" style="width: 300px;" floatlabel="never">
+        <mat-form-field appearance="standard" style="width: 600px;" floatlabel="never">
           <mat-label>url</mat-label>
-          <input matInput placeholder="action" required [formControl]="url" >
+          <input matInput placeholder="url" required [formControl]="url" >
         </mat-form-field>
       </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-list cols="1" row="1" [style.background]="'white'" rowHeight="100px">
 
       <mat-grid-tile>
-        <mat-form-field appearance="standard" style="width: 300px;" floatlabel="never">
+        <mat-form-field appearance="standard" style="width: 600px;" floatlabel="never">
           <mat-label>description</mat-label>
-          <input matInput placeholder="action" required [formControl]="description">
+          <input matInput placeholder="description" required [formControl]="description">
           <!-- <mat-error *ngIf="description.invalid">{{getErrorMessageAction()}}</mat-error> -->
         </mat-form-field>
       </mat-grid-tile>
 
+    </mat-grid-list>
+
+    <mat-grid-list cols="2" row="1" [style.background]="'white'" rowHeight="130px" >
       <mat-grid-tile>
-        <mat-form-field style="width: 300px;">
-          <mat-label>remarks</mat-label>
-          <input matInput placeholder="remarks" required formControlName="remarks" class="form-control">
+
+        <mat-form-field appearance="standard" style="width: 300px;" floatlabel="never">
+          <mat-label>Created date</mat-label>
+          <input matInput placeholder="created date"  [formControl]="createddate" readonly="true">
         </mat-form-field>
       </mat-grid-tile>
 
 
-      <mat-grid-tile>
-        <mat-form-field style="width: 350px;">
-          <mat-label>createddate</mat-label>
-          <input matInput placeholder="createddate" required formControlName="createddate" class="form-control">
-        </mat-form-field>
-      </mat-grid-tile>
+
 
 
       <mat-grid-tile>
@@ -41,21 +48,33 @@
         </mat-form-field>
       </mat-grid-tile>
 
+    </mat-grid-list>
+    <mat-grid-list cols="2" row="1" [style.background]="'white'" rowHeight="130px">
 
 
       <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Article group</mat-label>
+        <mat-select formControlName="group" class="form-control" >
+          <mat-option *ngFor="let group of groups" [value]="group.value">
+            {{group.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      </mat-grid-tile>
+
+          <mat-grid-tile>
         <mat-form-field style="width: 300px;">
-          <mat-label>group</mat-label>
-          <input matInput placeholder="group" formControlName="group" class="form-control">
+          <mat-label>remarks</mat-label>
+          <input matInput placeholder="remarks" required formControlName="remarks" class="form-control">
         </mat-form-field>
       </mat-grid-tile>
 
     </mat-grid-list>
 
-    <button type="button" class="btn btn-secondary" [disabled]="!adForm.valid" (click)="onFormSubmit()">Save</button>
-    <button type="button" class="btn btn-secondary ml-4" (click)="onNoClick()">Cancel</button>
+    <p>Form valid: {{ adForm.valid  }}</p>
+    <!-- <p>Form value: {{ adForm.value | json}}</p> -->
 
-    <p>Form value: {{ adForm.valid  }}</p>
     <!-- <mat-error *ngIf="action.invalid">{{getErrorMessageAction()}}</mat-error> -->
 
 
@@ -63,3 +82,5 @@
   <!-- Actual content starts from here -->
 
 <button mat-button color="primary" (click)="onCloseClick()">Close</button>
+<!-- <button mat-button color="primary" [disabled]="!adForm.valid" (click)="onFormSubmit()">Save</button> -->
+<button mat-button color="primary"  (click)="addNewArticle()">Save</button>

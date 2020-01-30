@@ -13,6 +13,10 @@ import { ArticleComponent } from './modules/article/article.component';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { ServerErrorComponent } from './error-pages/server-error/server-error.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DatePipe } from '@angular/common';
+import { ConfirmationdialogComponent } from './shared/tools/confirmationdialog/confirmationdialog.component';
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 @NgModule({
@@ -23,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NewarticleComponent,
     NotFoundComponent,
     ServerErrorComponent,
+    ConfirmationdialogComponent
   ],
   imports: [
     BrowserModule,
@@ -33,10 +38,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
- FlexLayoutModule
+ FlexLayoutModule,
+ ToastrModule.forRoot(),
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
-  entryComponents:[ArticlelistComponent, NewarticleComponent]
+  entryComponents:[ArticlelistComponent, NewarticleComponent,  ConfirmationdialogComponent]
 })
 export class AppModule { }

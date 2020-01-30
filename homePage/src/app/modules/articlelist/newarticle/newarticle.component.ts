@@ -1,37 +1,64 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component, OnInit } from "@angular/core";
+import { MatDialogRef, MatDialog } from "@angular/material";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+
+import {
+  DateAdapter,
+  MAT_DATE_FORMATS,
+  MAT_DATE_LOCALE
+} from "@angular/material/core";
+import { DatePipe } from "@angular/common";
+import { ConfirmationdialogComponent } from "src/app/shared/tools/confirmationdialog/confirmationdialog.component";
+import { RepositoryService } from "src/app/shared/services/repository.service";
+import { ToastrService } from "ngx-toastr";
+
+export interface Grupa {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
-  selector: 'app-newarticle',
-  templateUrl: './newarticle.component.html',
-  styleUrls: ['./newarticle.component.scss']
+  selector: "app-newarticle",
+  templateUrl: "./newarticle.component.html",
+  styleUrls: ["./newarticle.component.scss"]
 })
 export class NewarticleComponent implements OnInit {
   adForm: FormGroup;
+  groups: Grupa[] = [
+    { value: "Agular", viewValue: "Agular" },
+    { value: "C#", viewValue: "C#" },
+    { value: "Development", viewValue: "Development" },
+    { value: "Sport", viewValue: "Sport" },
+    { value: "Others", viewValue: "Others" }
+  ];
 
-
-  constructor(public dialogRef: MatDialogRef<NewarticleComponent>) { }
+  constructor(
+    public dialogRef: MatDialogRef<NewarticleComponent>,
+    private datePipe: DatePipe,
+    private dialog: MatDialog,
+    private repoService: RepositoryService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit() {
+    let ddMMyyyy = this.datePipe.transform(new Date(), "yyyy-MM-dd");
 
     this.adForm = new FormGroup({
       url: new FormControl("", Validators.required),
       description: new FormControl("", Validators.required),
       remarks: new FormControl("", Validators.required),
-      createddate: new FormControl(""),
+      createddate: new FormControl(ddMMyyyy),
       note: new FormControl(""),
-      group: new FormControl(0, Validators.required),
-
+      group: new FormControl(0, Validators.required)
     });
 
     this.adForm.patchValue({
       url: "",
       description: "",
       remarks: "",
-      createddate: "",
+      createddate: ddMMyyyy,
       note: "",
-      group: "",
+      group: ""
     });
   }
 
@@ -47,8 +74,6 @@ export class NewarticleComponent implements OnInit {
     return this.adForm.get("remarks");
   }
 
-
-
   get createddate() {
     return this.adForm.get("createddate");
   }
@@ -61,9 +86,21 @@ export class NewarticleComponent implements OnInit {
     return this.adForm.get("group");
   }
 
-
   onCloseClick() {
     this.dialogRef.close();
   }
 
+
+
+  addNewArticle() {
+    this.repoService.Addnew("api/link", this.adForm.value).subscribe(
+      data => {
+        this.toastr.success("Saved ", "OK");
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    this.dialogRef.close();
+  }
 }

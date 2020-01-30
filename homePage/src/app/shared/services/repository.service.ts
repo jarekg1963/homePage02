@@ -24,7 +24,7 @@ export class RepositoryService {
     )
   }
 
-  public create = (route: string, body) => {
+  public Addnew = (route: string, body) => {
     return this.http.post(this.createCompleteRoute(route, environment.urlAddress), body, this.generateHeaders());
   }
 
