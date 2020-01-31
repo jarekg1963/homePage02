@@ -16,6 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { ConfirmationdialogComponent } from './shared/tools/confirmationdialog/confirmationdialog.component';
 import { ToastrModule } from 'ngx-toastr';
+import { UpdatearticleComponent } from './modules/articlelist/updatearticle/updatearticle.component';
+
 
 
 
@@ -27,7 +29,9 @@ import { ToastrModule } from 'ngx-toastr';
     NewarticleComponent,
     NotFoundComponent,
     ServerErrorComponent,
-    ConfirmationdialogComponent
+    ConfirmationdialogComponent,
+ UpdatearticleComponent
+
   ],
   imports: [
     BrowserModule,
@@ -43,6 +47,6 @@ import { ToastrModule } from 'ngx-toastr';
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],
-  entryComponents:[ArticlelistComponent, NewarticleComponent,  ConfirmationdialogComponent]
+  entryComponents:[ArticlelistComponent, NewarticleComponent,  ConfirmationdialogComponent, UpdatearticleComponent]
 })
 export class AppModule { }

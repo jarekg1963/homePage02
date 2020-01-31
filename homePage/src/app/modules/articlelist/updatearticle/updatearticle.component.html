@@ -1,0 +1,86 @@
+<mat-toolbar color="primary">
+  <span>New arcicle links</span>
+  <span class="example-fill-remaining-space"></span>
+  <span>--</span>
+</mat-toolbar>
+
+  <form [formGroup]="adForm" autocomplete="off" novalidate>
+
+    <mat-grid-list cols="1" row="1" [style.background]="'white'" rowHeight="100px">
+
+      <mat-grid-tile>
+        <mat-form-field appearance="standard" style="width: 600px;" floatlabel="never">
+          <mat-label>url</mat-label>
+          <input matInput placeholder="url" required [formControl]="url" >
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-grid-list cols="1" row="1" [style.background]="'white'" rowHeight="100px">
+
+      <mat-grid-tile>
+        <mat-form-field appearance="standard" style="width: 600px;" floatlabel="never">
+          <mat-label>description</mat-label>
+          <input matInput placeholder="description" required [formControl]="description">
+          <!-- <mat-error *ngIf="description.invalid">{{getErrorMessageAction()}}</mat-error> -->
+        </mat-form-field>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+
+    <mat-grid-list cols="2" row="1" [style.background]="'white'" rowHeight="130px" >
+      <mat-grid-tile>
+
+        <mat-form-field appearance="standard" style="width: 300px;" floatlabel="never">
+          <mat-label>Created date</mat-label>
+          <input matInput placeholder="created date"  [formControl]="createddate" >
+        </mat-form-field>
+      </mat-grid-tile>
+
+
+
+
+
+      <mat-grid-tile>
+        <mat-form-field style="width: 300px;">
+          <mat-label>note</mat-label>
+          <input matInput placeholder="note" formControlName="note" class="form-control">
+        </mat-form-field>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+    <mat-grid-list cols="2" row="1" [style.background]="'white'" rowHeight="130px">
+
+
+      <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Article group</mat-label>
+        <mat-select formControlName="group" class="form-control"  >
+          <mat-option *ngFor="let group of groups" [value]="group.value">
+            {{group.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      </mat-grid-tile>
+
+          <mat-grid-tile>
+        <mat-form-field style="width: 300px;">
+          <mat-label>remarks</mat-label>
+          <input matInput placeholder="remarks" required formControlName="remarks" class="form-control">
+        </mat-form-field>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+
+    <p>Form valid: {{ adForm.valid  }}</p>
+    <!-- <p>Form value: {{ adForm.value | json}}</p> -->
+
+    <!-- <mat-error *ngIf="action.invalid">{{getErrorMessageAction()}}</mat-error> -->
+
+
+  </form>
+  <!-- Actual content starts from here -->
+
+<button mat-button color="primary" (click)="onCloseClick()">Close</button>
+<!-- <button mat-button color="primary" [disabled]="!adForm.valid" (click)="onFormSubmit()">Save</button> -->
+<button mat-button color="primary"  (click)="updateArticle()">Save</button>

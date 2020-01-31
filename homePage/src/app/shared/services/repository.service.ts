@@ -33,6 +33,7 @@ export class RepositoryService {
   }
 
   public delete = (route: string) => {
+    console.log('from service ' + this.createCompleteRoute(route, environment.urlAddress));
     return this.http.delete(this.createCompleteRoute(route, environment.urlAddress));
   }
 

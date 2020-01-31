@@ -44,6 +44,7 @@ export class NewarticleComponent implements OnInit {
     let ddMMyyyy = this.datePipe.transform(new Date(), "yyyy-MM-dd");
 
     this.adForm = new FormGroup({
+
       url: new FormControl("", Validators.required),
       description: new FormControl("", Validators.required),
       remarks: new FormControl("", Validators.required),

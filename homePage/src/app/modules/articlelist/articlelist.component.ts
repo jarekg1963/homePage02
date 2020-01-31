@@ -13,6 +13,8 @@ import { RepositoryService } from "src/app/shared/services/repository.service";
 import { NewarticleComponent } from "./newarticle/newarticle.component";
 import { ErrorHandlerService } from "src/app/shared/services/error-handler.service";
 import { ConfirmationdialogComponent } from 'src/app/shared/tools/confirmationdialog/confirmationdialog.component';
+import { UpdatearticleComponent } from './updatearticle/updatearticle.component';
+
 
 @Component({
   selector: "app-articlelist",
@@ -38,6 +40,7 @@ export class ArticlelistComponent implements OnInit {
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
 
   data: any = [];
+  dataForUpdate: Article;
 
   public dataSource = new MatTableDataSource<Article>();
 
@@ -62,7 +65,7 @@ export class ArticlelistComponent implements OnInit {
         this.errorService.handleError(error);
       }
     );
-  };
+  }
 
   onCloseClick(): void {
     this.dialogRef.close();
@@ -107,5 +110,27 @@ export class ArticlelistComponent implements OnInit {
 
       }
     });
+  }
+
+  updateArticle(pid , purl, pdescription, premarks, pcreateddate, pnote, pgroup) {
+
+    this.dataForUpdate = { id:  pid , url: purl ,  description: pdescription,
+       createddate: pcreateddate, note: pnote, group: pgroup, remarks: premarks};
+
+    console.log(this.dataForUpdate);
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.width = "1150px";
+    dialogConfig.height = "680px";
+    dialogConfig.autoFocus = true;
+    // dane transportowane do formularza
+    dialogConfig.data = this.dataForUpdate;
+    let dialogRef = this.dialog.open(UpdatearticleComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+      this.getAllArticles();
+    });
+
   }
 }

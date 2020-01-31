@@ -54,10 +54,10 @@ namespace homeApi.Controllers
             return Ok();
          }
 
-      [HttpPut("{id}")]
-        public IActionResult UpdateItem(int id ,  [FromBody]link di)
+      [HttpPut]
+        public IActionResult UpdateItem( [FromBody]link di)
         {
-            var entity = _ctx.Links.FirstOrDefault(e => e.id == id);
+            var entity = _ctx.Links.FirstOrDefault(e => e.id == di.id);
             if (entity == null)
             {
                 return (BadRequest("Item was mot found "));
