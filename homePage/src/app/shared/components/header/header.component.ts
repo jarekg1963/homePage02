@@ -28,8 +28,8 @@ export class HeaderComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
-    dialogConfig.width = "1150px";
-    dialogConfig.height = "680px";
+    dialogConfig.width = "1200px";
+    dialogConfig.height = "700px";
     dialogConfig.autoFocus = true;
     // dane transportowane do formularza
     // dialogConfig.data = this.data;

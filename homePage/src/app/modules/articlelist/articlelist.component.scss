@@ -4,12 +4,12 @@ table {
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
-//    min-width: 500px;
+
 }
 
 th.mat-header-cell {
     text-align: left;
-    // max-width: 300px;
+
 }
 
 .mat-column-id {
@@ -36,11 +36,9 @@ th.mat-header-cell {
 td , th {
   white-space: normal;
   word-wrap: break-word;
-  // max-width: 200px;
+
 }
 
 .example-fill-remaining-space {
-  /* This fills the remaining space, by using flexbox.
-     Every toolbar row uses a flexbox row layout. */
   flex: 1 1 auto;
 }

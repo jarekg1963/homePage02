@@ -1,26 +1,27 @@
-<div fxFlex fxLayout="column"  fxLayoutGap="10px" style="height: 300px" >
+<div fxFlex fxLayout="column"  fxLayoutGap="5px" style="height: 300px" >
   <div fxLayout="row wrap">
-    <div
+    <div class="karta"
       *ngFor="let card of cardList"
       fxFlex="25"
       fxFlex.md="33"
       fxFlex.sm="50"
       fxFlex.xs="100"
       fxLayout="column"
-      style="padding: 5px;"
+      style="padding: 20px;"
     >
       <mat-card class="mat-elevation-z1" style="height: 300px">
         <img
-        mat-card-image
+        mat-card-image class="image"
         src= "{{ card.remarks}}"
         alt="foto"
       />
 
         <mat-card-title> {{ card.note }} </mat-card-title>
         <mat-card-content> {{ card.description }} </mat-card-content>
-        <mat-card-footer >
-        <a href="{{ card.url }}" mat-menu-item>Go to page</a>
-        </mat-card-footer>
+         <!-- <mat-card-footer > -->
+        <a class ="linkUrl" href="{{ card.url }}" mat-menu-item>Go to page</a>
+        <!-- </mat-card-footer> -->
+
       </mat-card>
     </div>
   </div>
