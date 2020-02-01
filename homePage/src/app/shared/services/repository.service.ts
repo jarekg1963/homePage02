@@ -10,14 +10,16 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class RepositoryService {
 
+  urlAddress = '.';
+
   constructor(private http: HttpClient) { }
 
   public getData = (route: string) => {
-    return this.http.get(this.createCompleteRoute(route, environment.urlAddress));
+    return this.http.get(this.createCompleteRoute(route, this.urlAddress));
   }
 
   GetDatapipe(): Observable<Article> {
-    return this.http.get<Article>(environment.urlAddress + '/api/link/')
+    return this.http.get<Article>(this.urlAddress + '/api/link/')
     .pipe(
       retry(1),
       catchError(this.errorHandl)
@@ -25,16 +27,16 @@ export class RepositoryService {
   }
 
   public Addnew = (route: string, body) => {
-    return this.http.post(this.createCompleteRoute(route, environment.urlAddress), body, this.generateHeaders());
+    return this.http.post(this.createCompleteRoute(route, this.urlAddress), body, this.generateHeaders());
   }
 
   public update = (route: string, body) => {
-    return this.http.put(this.createCompleteRoute(route, environment.urlAddress), body, this.generateHeaders());
+    return this.http.put(this.createCompleteRoute(route,this.urlAddress), body, this.generateHeaders());
   }
 
   public delete = (route: string) => {
-    console.log('from service ' + this.createCompleteRoute(route, environment.urlAddress));
-    return this.http.delete(this.createCompleteRoute(route, environment.urlAddress));
+    console.log('from service ' + this.createCompleteRoute(route, this.urlAddress));
+    return this.http.delete(this.createCompleteRoute(route, this.urlAddress));
   }
 
   private createCompleteRoute = (route: string, envAddress: string) => {

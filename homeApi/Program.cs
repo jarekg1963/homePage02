@@ -20,7 +20,8 @@ namespace homeApi
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                  webBuilder.UseStartup<Startup>().UseUrls(new[] { "http://+:80" }); // now the Kestrel server will listen on port 5001!
+                  // webBuilder.UseStartup<Startup>();
                 });
     }
 }

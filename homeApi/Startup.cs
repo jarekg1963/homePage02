@@ -30,6 +30,7 @@ namespace homeApi
             services.AddDbContext<linkContext>(options =>
               options.UseSqlite("Data Source=c:\\programowanie\\home02\\homeApi\\db.db"));
 
+
             services.AddMvc();
 
             services.AddCors(opt =>
@@ -49,12 +50,13 @@ namespace homeApi
             }
 
             //    app.UseHttpsRedirection();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
 
             app.UseCors("CorsPolicy");
             app.UseRouting();
 
-                app.UseDefaultFiles();
-                 app.UseStaticFiles();
 
             app.UseAuthorization();
 
