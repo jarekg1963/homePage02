@@ -7,9 +7,10 @@ import { ArticleComponent } from './modules/article/article.component';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { ServerErrorComponent } from './error-pages/server-error/server-error.component';
 
-const routes: Routes = [{
+const routes: Routes = [
 
-  path: '',
+
+{ path: '',
   component: DefaultComponent,
   children: [{
     path: '',
@@ -31,7 +32,7 @@ const routes: Routes = [{
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],  // refresf zaczuna dziac
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
 namespace homeApi
 {
@@ -31,6 +32,8 @@ namespace homeApi
               options.UseSqlite("Data Source=c:\\programowanie\\home02\\homeApi\\db.db"));
 
 
+
+
             services.AddMvc();
 
             services.AddCors(opt =>
@@ -39,6 +42,11 @@ namespace homeApi
               c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
       });
             services.AddControllers();
+            services.AddSwaggerGen(c =>
+                {
+                    c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+                });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +56,8 @@ namespace homeApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+
 
             //    app.UseHttpsRedirection();
             app.UseDefaultFiles();
@@ -59,6 +69,13 @@ namespace homeApi
 
 
             app.UseAuthorization();
+            app.UseSwagger();
+
+       
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
 
             app.UseEndpoints(endpoints =>
             {
