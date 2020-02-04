@@ -31,8 +31,6 @@
                     </button>
 
                   </mat-menu>
-
-
                 </li>
                 <li>
                     <button mat-icon-button >
@@ -44,10 +42,15 @@
                         <mat-icon>person_outline</mat-icon>
                     </button>
                     <mat-menu #menu="matMenu">
-                        <button mat-menu-item>
-                            <mat-icon>exit_to_app</mat-icon>
+                      <button mat-menu-item (click)="login()">
+                        <mat-icon>input</mat-icon>
+                        login
+                    </button>
+                      <button mat-menu-item>
+                            <mat-icon>backspace</mat-icon>
                             Sign out
                         </button>
+
                     </mat-menu>
 
                 </li>

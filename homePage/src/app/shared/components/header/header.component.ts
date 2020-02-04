@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDialogConfig, MatDialog } from '@angular/material';
 import { ArticlelistComponent } from 'src/app/modules/articlelist/articlelist.component';
+import { LoginComponent } from '../../login/login.component';
 
 @Component({
   selector: 'app-header',
@@ -37,5 +38,21 @@ export class HeaderComponent implements OnInit {
     this.dialog.open(ArticlelistComponent, dialogConfig);
 
   }
+
+  login() {
+console.log("klikaj login ");
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.width = "500px";
+    dialogConfig.height = "400px";
+    dialogConfig.autoFocus = true;
+    // dane transportowane do formularza
+    // dialogConfig.data = this.data;
+
+    this.dialog.open(LoginComponent, dialogConfig);
+
+  }
+
 
 }

@@ -13,6 +13,7 @@ import { CardComponent } from './widgets/card/card.component';
 import { PieComponent } from './widgets/pie/pie.component';
 
 
+
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -21,6 +22,7 @@ import { PieComponent } from './widgets/pie/pie.component';
     AreaComponent,
     CardComponent,
     PieComponent,
+
 
   ],
   imports: [
@@ -42,6 +44,7 @@ import { PieComponent } from './widgets/pie/pie.component';
     AreaComponent,
     CardComponent,
     PieComponent
-  ]
+  ],
+
 })
 export class SharedModule { }

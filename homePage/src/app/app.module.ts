@@ -1,3 +1,4 @@
+import { LoginComponent } from './shared/login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +22,7 @@ import { UpdatearticleComponent } from './modules/articlelist/updatearticle/upda
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,8 @@ import { UpdatearticleComponent } from './modules/articlelist/updatearticle/upda
     NotFoundComponent,
     ServerErrorComponent,
     ConfirmationdialogComponent,
- UpdatearticleComponent
+ UpdatearticleComponent,
+ LoginComponent
 
   ],
   imports: [
@@ -47,6 +50,7 @@ import { UpdatearticleComponent } from './modules/articlelist/updatearticle/upda
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],
-  entryComponents:[ArticlelistComponent, NewarticleComponent,  ConfirmationdialogComponent, UpdatearticleComponent]
+  entryComponents: [ArticlelistComponent, NewarticleComponent,  ConfirmationdialogComponent,
+    UpdatearticleComponent, LoginComponent]
 })
 export class AppModule { }

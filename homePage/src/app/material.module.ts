@@ -23,6 +23,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatProgressBarModule } from '@angular/material';
 import {MatProgressSpinnerModule } from '@angular/material';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import {MatProgressSpinnerModule } from '@angular/material';
       MatSortModule,
       MatTabsModule,
       MatProgressBarModule,
-      MatProgressSpinnerModule
+      MatProgressSpinnerModule,
+      MatButtonToggleModule
 
    ],
    exports: [
@@ -67,7 +69,8 @@ import {MatProgressSpinnerModule } from '@angular/material';
      MatSortModule,
      MatTabsModule,
      MatProgressBarModule,
-     MatProgressSpinnerModule
+     MatProgressSpinnerModule,
+     MatButtonToggleModule
    ],
    providers: [
     {

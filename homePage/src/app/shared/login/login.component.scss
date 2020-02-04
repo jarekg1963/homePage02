@@ -1,0 +1,25 @@
+// mat-form-field {
+//   width: 100%!important;
+// }
+
+
+// .boot {
+//   width: 100%!important;
+//   min-width: unset!important;
+// }
+
+.example-form {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.example-form > * {
+  width: 100%;
+}
+
+.close{
+  width: 100%;
+}
+
+
