@@ -1,7 +1,16 @@
 <form class="example-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
 
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
 
-  <h3>Login </h3>
+      <mat-icon>input</mat-icon>
+      <P> LOGIN </P>
+      </mat-toolbar-row>
+</mat-toolbar>
+
+
+<h2></h2>
+
 
 
       <mat-form-field>
@@ -13,6 +22,7 @@
         </mat-error>
       </mat-form-field>
 
+      <h2></h2>
 
       <mat-form-field>
         <mat-label>Enter Password</mat-label>
@@ -23,6 +33,7 @@
           Password is required
         </mat-error>
       </mat-form-field>
+
 
 
 
