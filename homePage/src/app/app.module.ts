@@ -20,7 +20,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { UpdatearticleComponent } from './modules/articlelist/updatearticle/updatearticle.component';
 import { BlogPostComponent } from './modules/posts/blog-post/blog-post.component';
 import { BlogPostAddEditComponent } from './modules/posts/blog-post-add-edit/blog-post-add-edit.component';
-import { RoutingModule } from './modules/posts/post-routing.module';
+
 
 
 
@@ -44,7 +44,7 @@ import { RoutingModule } from './modules/posts/post-routing.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    //RoutingModule,
+
     BrowserAnimationsModule,
     DefaultModule,
     MaterialModule,

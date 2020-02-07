@@ -40,7 +40,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })], // refresf zaczuna dziac
+  imports: [RouterModule.forRoot(routes, { useHash: true })], // refresh zaczuna dziac
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

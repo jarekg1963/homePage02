@@ -1,21 +1,13 @@
 <h1>Blog posts</h1>
 
-
-
 <p *ngIf="!(blogPosts$ | async)"><em>Loading...</em></p>
-
 <p>
-
   <a [routerLink]="['/add']" class="btn btn-primary float-right mb-3">New post</a>
-
 </p>
 
-
 <table class="table table-sm table-hover" *ngIf="(blogPosts$ | async)?.length>0">
-
   <thead>
     <tr>
-
       <th>#</th>
       <th>Title</th>
       <th>Subject</th>

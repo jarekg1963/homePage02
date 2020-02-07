@@ -3,6 +3,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { BlogPost } from 'src/app/shared/models/BlogPost';
 import { BlogPostService } from 'src/app/shared/services/blog-post.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-blog-post-add-edit',
@@ -11,10 +12,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class BlogPostAddEditComponent implements OnInit {
 
+  dataStr: string;
   form: FormGroup;
   actionType: string;
   formTitle: string;
   formBody: string;
+  formCreator: string;
   id: number;
   errorMessage: any;
   existingBlogPost: BlogPost;
@@ -26,6 +29,7 @@ export class BlogPostAddEditComponent implements OnInit {
     this.actionType = 'Add';
     this.formTitle = 'title';
     this.formBody = 'body';
+    this.formCreator = 'creator';
     if (this.avRoute.snapshot.params[idParam]) {
       this.id = this.avRoute.snapshot.params[idParam];
     }
@@ -35,11 +39,14 @@ export class BlogPostAddEditComponent implements OnInit {
         id: 0,
         title: ['', [Validators.required]],
         body: ['', [Validators.required]],
+        creator: ['', [Validators.required]]
       }
     )
   }
 
   ngOnInit() {
+
+    this.dataStr = new Date().toLocaleDateString();
 
     if (this.id > 0) {
       this.actionType = 'Edit';
@@ -47,7 +54,8 @@ export class BlogPostAddEditComponent implements OnInit {
         .subscribe(data => (
           this.existingBlogPost = data,
           this.form.controls[this.formTitle].setValue(data.title),
-          this.form.controls[this.formBody].setValue(data.body)
+          this.form.controls[this.formBody].setValue(data.body),
+          this.form.controls[this.formCreator].setValue(data.creator)
         ));
     }
   }
@@ -61,9 +69,9 @@ export class BlogPostAddEditComponent implements OnInit {
 
       let blogPost: BlogPost = {
 
-        dt: "01/01/2020",
+        dt: this.dataStr,
 
-        creator: 'Martin',
+        creator: this.form.get(this.formCreator).value,
 
         title: this.form.get(this.formTitle).value,
 
@@ -89,8 +97,8 @@ export class BlogPostAddEditComponent implements OnInit {
 
       let blogPost: BlogPost = {
         id: this.existingBlogPost.id,
-        dt: this.existingBlogPost.dt,
-        creator: this.existingBlogPost.creator,
+        dt: this.dataStr,
+        creator:  this.form.get(this.formCreator).value,
         title: this.form.get(this.formTitle).value,
         body: this.form.get(this.formBody).value
       };
@@ -103,10 +111,11 @@ export class BlogPostAddEditComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/posts']);
   }
 
   get title() { return this.form.get(this.formTitle); }
   get body() { return this.form.get(this.formBody); }
+  get creator() { return this.form.get(this.formBody); }
 
 }

@@ -129,7 +129,7 @@ module.exports = "<div>\n    <app-widget-area [data]=\"bigChart\"></app-widget-a
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<h1>{{actionType}} blog post</h1>\n<form [formGroup]=\"form\" (ngSubmit)=\"save()\" #formDir=\"ngForm\" novalidate>\n  <div class=\"form-group row\">\n    <label class=\" control-label col-md-12\">Title</label>\n    <div class=\"col-md-12\">\n      <input class=\"form-control\" type=\"text\" formControlName=\"title\">\n    </div>\n    <span class=\"text-danger ml-3\" *ngIf=\"title.invalid && formDir.submitted\">\n      Title is required.\n    </span>\n  </div>\n  <div class=\"form-group row\">\n    <label class=\"control-label col-md-12\" for=\"Body\">Body text</label>\n    <div class=\"col-md-12\">\n      <textarea class=\"form-control\" rows=\"15\" formControlName=\"body\"></textarea>\n    </div>\n    <span class=\"text-danger ml-3\" *ngIf=\"body.invalid && formDir.submitted\">\n      Body is required.\n    </span>\n  </div>\n  <div class=\"form-group\">\n    <button type=\"submit\" class=\"btn btn-success float-right\">Save</button>\n    <button class=\"btn btn-secondary float-left\" (click)=\"cancel()\">Cancel</button>\n  </div>\n</form>\n"
+module.exports = "\n<h1>{{actionType}} blog post</h1>\n<form [formGroup]=\"form\" (ngSubmit)=\"save()\" #formDir=\"ngForm\" novalidate>\n  <div class=\"form-group row\">\n    <label class=\" control-label col-md-12\">Title</label>\n    <div class=\"col-md-12\">\n      <input class=\"form-control\" type=\"text\" formControlName=\"title\">\n    </div>\n    <span class=\"text-danger ml-3\" *ngIf=\"title.invalid && formDir.submitted\">\n      Title is required.\n    </span>\n  </div>\n\n  <div class=\"form-group row\">\n    <label class=\" control-label col-md-12\">Subject</label>\n    <div class=\"col-md-12\">\n      <input class=\"form-control\" type=\"text\" formControlName=\"creator\">\n    </div>\n    <span class=\"text-danger ml-3\" *ngIf=\"creator.invalid && formDir.submitted\">\n      Subject is required.\n    </span>\n\n\n  </div>\n  <div class=\"form-group row\">\n    <label class=\"control-label col-md-12\" for=\"Body\">Body text</label>\n    <div class=\"col-md-12\">\n      <textarea class=\"form-control\" rows=\"15\" formControlName=\"body\"></textarea>\n    </div>\n    <span class=\"text-danger ml-3\" *ngIf=\"body.invalid && formDir.submitted\">\n      Body is required.\n    </span>\n  </div>\n  <div class=\"form-group\">\n    <button type=\"submit\" class=\"btn btn-success float-right\">Save</button>\n    <button class=\"btn btn-secondary float-left\" (click)=\"cancel()\">Cancel</button>\n  </div>\n</form>\n"
 
 /***/ }),
 
@@ -151,7 +151,7 @@ module.exports = "<ng-container *ngIf=\"(blogPost$ | async) as blogPost; else lo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Blog posts</h1>\n\n\n\n<p *ngIf=\"!(blogPosts$ | async)\"><em>Loading...</em></p>\n\n<p>\n\n  <a [routerLink]=\"['/add']\" class=\"btn btn-primary float-right mb-3\">New post</a>\n\n</p>\n\n\n<table class=\"table table-sm table-hover\" *ngIf=\"(blogPosts$ | async)?.length>0\">\n\n  <thead>\n    <tr>\n\n      <th>#</th>\n      <th>Title</th>\n      <th>Subject</th>\n      <th>Date</th>\n      <th></th>\n      <th></th>\n    </tr>\n  </thead>\n  <tbody>\n\n    <tr *ngFor=\"let blogPost of (blogPosts$ | async)\">\n      <td>{{ blogPost.id }}</td>\n      <td><a [routerLink]=\"['/blogpost/', blogPost.id]\">{{ blogPost.title }}</a></td>\n      <td>{{ blogPost.creator }}</td>\n      <td>{{ blogPost.dt | date: \"dd.MM.y\" }}</td>\n      <td><a [routerLink]=\"['/blogpost/edit/', blogPost.id]\" class=\"btn btn-primary btn-sm float-right\">Edit</a></td>\n      <td><a [routerLink]=\"\" (click)=\"delete(blogPost.id)\" class=\"btn btn-danger btn-sm float-right\">Delete</a></td>\n\n    </tr>\n\n  </tbody>\n\n</table>\n"
+module.exports = "<h1>Blog posts</h1>\n\n<p *ngIf=\"!(blogPosts$ | async)\"><em>Loading...</em></p>\n<p>\n  <a [routerLink]=\"['/add']\" class=\"btn btn-primary float-right mb-3\">New post</a>\n</p>\n\n<table class=\"table table-sm table-hover\" *ngIf=\"(blogPosts$ | async)?.length>0\">\n  <thead>\n    <tr>\n      <th>#</th>\n      <th>Title</th>\n      <th>Subject</th>\n      <th>Date</th>\n      <th></th>\n      <th></th>\n    </tr>\n  </thead>\n  <tbody>\n\n    <tr *ngFor=\"let blogPost of (blogPosts$ | async)\">\n      <td>{{ blogPost.id }}</td>\n      <td><a [routerLink]=\"['/blogpost/', blogPost.id]\">{{ blogPost.title }}</a></td>\n      <td>{{ blogPost.creator }}</td>\n      <td>{{ blogPost.dt | date: \"dd.MM.y\" }}</td>\n      <td><a [routerLink]=\"['/blogpost/edit/', blogPost.id]\" class=\"btn btn-primary btn-sm float-right\">Edit</a></td>\n      <td><a [routerLink]=\"\" (click)=\"delete(blogPost.id)\" class=\"btn btn-danger btn-sm float-right\">Delete</a></td>\n\n    </tr>\n\n  </tbody>\n\n</table>\n"
 
 /***/ }),
 
@@ -432,7 +432,6 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
-            //RoutingModule,
             _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__["BrowserAnimationsModule"],
             _layouts_default_default_module__WEBPACK_IMPORTED_MODULE_7__["DefaultModule"],
             _material_module__WEBPACK_IMPORTED_MODULE_9__["MaterialModule"],
@@ -1464,6 +1463,7 @@ let BlogPostAddEditComponent = class BlogPostAddEditComponent {
         this.actionType = 'Add';
         this.formTitle = 'title';
         this.formBody = 'body';
+        this.formCreator = 'creator';
         if (this.avRoute.snapshot.params[idParam]) {
             this.id = this.avRoute.snapshot.params[idParam];
         }
@@ -1471,15 +1471,18 @@ let BlogPostAddEditComponent = class BlogPostAddEditComponent {
             id: 0,
             title: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
             body: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
+            creator: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]]
         });
     }
     ngOnInit() {
+        this.dataStr = new Date().toLocaleDateString();
         if (this.id > 0) {
             this.actionType = 'Edit';
             this.blogPostService.getBlogPost(this.id)
                 .subscribe(data => (this.existingBlogPost = data,
                 this.form.controls[this.formTitle].setValue(data.title),
-                this.form.controls[this.formBody].setValue(data.body)));
+                this.form.controls[this.formBody].setValue(data.body),
+                this.form.controls[this.formCreator].setValue(data.creator)));
         }
     }
     save() {
@@ -1488,8 +1491,8 @@ let BlogPostAddEditComponent = class BlogPostAddEditComponent {
         }
         if (this.actionType === 'Add') {
             let blogPost = {
-                dt: "01/01/2020",
-                creator: 'Martin',
+                dt: this.dataStr,
+                creator: this.form.get(this.formCreator).value,
                 title: this.form.get(this.formTitle).value,
                 body: this.form.get(this.formBody).value
             };
@@ -1501,8 +1504,8 @@ let BlogPostAddEditComponent = class BlogPostAddEditComponent {
         if (this.actionType === 'Edit') {
             let blogPost = {
                 id: this.existingBlogPost.id,
-                dt: this.existingBlogPost.dt,
-                creator: this.existingBlogPost.creator,
+                dt: this.dataStr,
+                creator: this.form.get(this.formCreator).value,
                 title: this.form.get(this.formTitle).value,
                 body: this.form.get(this.formBody).value
             };
@@ -1513,10 +1516,11 @@ let BlogPostAddEditComponent = class BlogPostAddEditComponent {
         }
     }
     cancel() {
-        this.router.navigate(['/']);
+        this.router.navigate(['/posts']);
     }
     get title() { return this.form.get(this.formTitle); }
     get body() { return this.form.get(this.formBody); }
+    get creator() { return this.form.get(this.formBody); }
 };
 BlogPostAddEditComponent.ctorParameters = () => [
     { type: src_app_shared_services_blog_post_service__WEBPACK_IMPORTED_MODULE_3__["BlogPostService"] },
