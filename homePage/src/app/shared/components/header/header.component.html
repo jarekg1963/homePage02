@@ -14,8 +14,11 @@
         </span>
 
         <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
-            <ul fxLayout="row" fxLayoutGap="20px">
-                <li>
+          <p> {{ userName }} </p>
+          <ul fxLayout="row" fxLayoutGap="20px">
+
+              <li>
+
 
                     <button mat-button [matMenuTriggerFor]="menuS">
                       <mat-icon>settings</mat-icon>
@@ -33,7 +36,7 @@
                   </mat-menu>
                 </li>
                 <li>
-                    <button mat-icon-button >
+                    <button mat-icon-button (click)="help()">
                         <mat-icon>help_outline</mat-icon>
                     </button>
                 </li>
@@ -46,7 +49,7 @@
                         <mat-icon>input</mat-icon>
                         login
                     </button>
-                      <button mat-menu-item>
+                      <button mat-menu-item (click)="logout()">
                             <mat-icon>backspace</mat-icon>
                             Sign out
                         </button>

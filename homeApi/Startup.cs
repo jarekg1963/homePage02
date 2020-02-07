@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using homeApi.Data;
 using homeApi.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -41,6 +42,8 @@ namespace homeApi
           opt.AddPolicy("CorsPolicy",
               c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
       });
+
+      services.AddScoped(typeof(IDataRepository<>), typeof(DataRepository<>));
             services.AddControllers();
             services.AddSwaggerGen(c =>
                 {

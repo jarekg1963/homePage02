@@ -18,6 +18,9 @@ import { DatePipe } from '@angular/common';
 import { ConfirmationdialogComponent } from './shared/tools/confirmationdialog/confirmationdialog.component';
 import { ToastrModule } from 'ngx-toastr';
 import { UpdatearticleComponent } from './modules/articlelist/updatearticle/updatearticle.component';
+import { BlogPostComponent } from './modules/posts/blog-post/blog-post.component';
+import { BlogPostAddEditComponent } from './modules/posts/blog-post-add-edit/blog-post-add-edit.component';
+import { RoutingModule } from './modules/posts/post-routing.module';
 
 
 
@@ -33,12 +36,15 @@ import { UpdatearticleComponent } from './modules/articlelist/updatearticle/upda
     ServerErrorComponent,
     ConfirmationdialogComponent,
  UpdatearticleComponent,
- LoginComponent
+ LoginComponent,
+ BlogPostComponent,
+ BlogPostAddEditComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    //RoutingModule,
     BrowserAnimationsModule,
     DefaultModule,
     MaterialModule,

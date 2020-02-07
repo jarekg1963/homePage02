@@ -1,9 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 
 namespace homeApi.Model
-{
-
-    public class linkContext : DbContext
+{    public class linkContext : DbContext
     {
         public linkContext()
         {
@@ -16,6 +14,8 @@ namespace homeApi.Model
         }
 
         public DbSet<link> Links { get; set; }
+
+          public DbSet<BlogPost> BlogPosts { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
