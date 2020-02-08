@@ -1,10 +1,20 @@
+<mat-card>
 <ng-container *ngIf="(blogPost$ | async) as blogPost; else loading">
+  <mat-card-title>
   <h1>{{ blogPost.title }}</h1>
+</mat-card-title>
+<mat-card-content>
   <div>{{ blogPost.body }}</div>
+</mat-card-content>
+<hr>
+<mat-card-footer>
+
   <ul>
     <li>{{ blogPost.creator }}</li>
     <li>{{ blogPost.dt }}</li>
   </ul>
+</mat-card-footer>
 </ng-container>
 
 <ng-template #loading>Loading…</ng-template>
+</mat-card>

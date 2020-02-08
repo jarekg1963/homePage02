@@ -66,35 +66,20 @@ export class BlogPostAddEditComponent implements OnInit {
     }
 
     if (this.actionType === 'Add') {
-
       let blogPost: BlogPost = {
-
         dt: this.dataStr,
-
         creator: this.form.get(this.formCreator).value,
-
         title: this.form.get(this.formTitle).value,
-
         body: this.form.get(this.formBody).value
-
       };
-
-
-
       this.blogPostService.saveBlogPost(blogPost)
-
         .subscribe((data) => {
-
           this.router.navigate(['/blogpost', data.id]);
-
         });
-
     }
 
 
-
     if (this.actionType === 'Edit') {
-
       let blogPost: BlogPost = {
         id: this.existingBlogPost.id,
         dt: this.dataStr,
@@ -117,5 +102,4 @@ export class BlogPostAddEditComponent implements OnInit {
   get title() { return this.form.get(this.formTitle); }
   get body() { return this.form.get(this.formBody); }
   get creator() { return this.form.get(this.formBody); }
-
 }

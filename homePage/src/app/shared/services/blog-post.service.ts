@@ -20,13 +20,13 @@ export class BlogPostService {
   };
 
   constructor(private http: HttpClient) {
-    this.myAppUrl = environment.urlAddress;
-    this.myApiUrl = 'http://localhost:80/api/BlogPosts/';
+    // this.myAppUrl = environment.urlAddress;
+    this.myApiUrl = '.';
    }
 
    getBlogPosts(): Observable<BlogPost[]> {
 
-    return this.http.get<BlogPost[]>(this.myApiUrl)
+    return this.http.get<BlogPost[]>(this.myApiUrl + '/api/BlogPosts/')
     .pipe(
       retry(1),
       catchError(this.errorHandler)
@@ -34,7 +34,7 @@ export class BlogPostService {
     }
 
     getBlogPost(postId: number): Observable<BlogPost> {
-      return this.http.get<BlogPost>(this.myApiUrl + postId)
+      return this.http.get<BlogPost>(this.myApiUrl + '/api/BlogPosts/' + postId)
       .pipe(
         retry(1),
         catchError(this.errorHandler)
@@ -44,7 +44,7 @@ export class BlogPostService {
 
 
   saveBlogPost(blogPost): Observable<BlogPost> {
-    return this.http.post<BlogPost>(this.myApiUrl, JSON.stringify(blogPost), this.httpOptions)
+    return this.http.post<BlogPost>(this.myApiUrl + '/api/BlogPosts/', JSON.stringify(blogPost), this.httpOptions)
     .pipe(
       retry(1),
       catchError(this.errorHandler)
@@ -52,7 +52,7 @@ export class BlogPostService {
 }
 
 updateBlogPost(postId: number, blogPost): Observable<BlogPost> {
-  return this.http.put<BlogPost>(this.myApiUrl + postId, JSON.stringify(blogPost), this.httpOptions)
+  return this.http.put<BlogPost>(this.myApiUrl + '/api/BlogPosts/' + postId, JSON.stringify(blogPost), this.httpOptions)
   .pipe(
     retry(1),
     catchError(this.errorHandler)
@@ -61,15 +61,13 @@ updateBlogPost(postId: number, blogPost): Observable<BlogPost> {
 
 
 deleteBlogPost(postId: number): Observable<BlogPost> {
-  return this.http.delete<BlogPost>(this.myApiUrl + postId)
+  return this.http.delete<BlogPost>(this.myApiUrl + '/api/BlogPosts/' + postId)
   .pipe(
     retry(1),
     catchError(this.errorHandler)
   );
 
 }
-
-
 
     errorHandler(error) {
       let errorMessage = '';
@@ -83,9 +81,4 @@ deleteBlogPost(postId: number): Observable<BlogPost> {
       console.log(errorMessage);
       return throwError(errorMessage);
     }
-
-
-
-
-
 }

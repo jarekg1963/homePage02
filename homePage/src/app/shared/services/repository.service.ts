@@ -10,7 +10,7 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class RepositoryService {
 
-  urlAddress = '.';
+  public urlAddress  = ".";
 
   constructor(private http: HttpClient) { }
 

@@ -129,7 +129,7 @@ module.exports = "<div>\n    <app-widget-area [data]=\"bigChart\"></app-widget-a
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<h1>{{actionType}} blog post</h1>\n<form [formGroup]=\"form\" (ngSubmit)=\"save()\" #formDir=\"ngForm\" novalidate>\n  <div class=\"form-group row\">\n    <label class=\" control-label col-md-12\">Title</label>\n    <div class=\"col-md-12\">\n      <input class=\"form-control\" type=\"text\" formControlName=\"title\">\n    </div>\n    <span class=\"text-danger ml-3\" *ngIf=\"title.invalid && formDir.submitted\">\n      Title is required.\n    </span>\n  </div>\n\n  <div class=\"form-group row\">\n    <label class=\" control-label col-md-12\">Subject</label>\n    <div class=\"col-md-12\">\n      <input class=\"form-control\" type=\"text\" formControlName=\"creator\">\n    </div>\n    <span class=\"text-danger ml-3\" *ngIf=\"creator.invalid && formDir.submitted\">\n      Subject is required.\n    </span>\n\n\n  </div>\n  <div class=\"form-group row\">\n    <label class=\"control-label col-md-12\" for=\"Body\">Body text</label>\n    <div class=\"col-md-12\">\n      <textarea class=\"form-control\" rows=\"15\" formControlName=\"body\"></textarea>\n    </div>\n    <span class=\"text-danger ml-3\" *ngIf=\"body.invalid && formDir.submitted\">\n      Body is required.\n    </span>\n  </div>\n  <div class=\"form-group\">\n    <button type=\"submit\" class=\"btn btn-success float-right\">Save</button>\n    <button class=\"btn btn-secondary float-left\" (click)=\"cancel()\">Cancel</button>\n  </div>\n</form>\n"
+module.exports = "\n<h1>{{actionType}} blog post</h1>\n<form [formGroup]=\"form\" (ngSubmit)=\"save()\" #formDir=\"ngForm\" novalidate>\n  <mat-card>\n    <mat-card-title>\n  <div class=\"form-group row\">\n    <label class=\" control-label col-md-12\">Title</label>\n    <div class=\"col-md-12\">\n      <input class=\"form-control\" type=\"text\" formControlName=\"title\">\n    </div>\n    <span class=\"text-danger ml-3\" *ngIf=\"title.invalid && formDir.submitted\">\n      Title is required.\n    </span>\n  </div>\n</mat-card-title>\n<mat-card-subtitle>\n  <div class=\"form-group row\">\n    <label class=\" control-label col-md-12\">Subject</label>\n    <div class=\"col-md-12\">\n      <input class=\"form-control\" type=\"text\" formControlName=\"creator\">\n    </div>\n    <span class=\"text-danger ml-3\" *ngIf=\"creator.invalid && formDir.submitted\">\n      Subject is required.\n    </span>\n  </div>\n</mat-card-subtitle>\n<mat-card-content>\n  <div class=\"form-group row\">\n    <label class=\"control-label col-md-12\" for=\"Body\">Body text</label>\n    <div class=\"col-md-12\">\n      <textarea class=\"form-control\" rows=\"15\" formControlName=\"body\"></textarea>\n    </div>\n    <span class=\"text-danger ml-3\" *ngIf=\"body.invalid && formDir.submitted\">\n      Body is required.\n    </span>\n  </div>\n</mat-card-content>\n<mat-card-actions>\n\n    <button type=\"submit\" class=\"btn btn-success float-right\">Save</button>\n    <button class=\"btn btn-secondary float-left\" (click)=\"cancel()\">Cancel</button>\n\n</mat-card-actions>\n</mat-card>\n</form>\n\n"
 
 /***/ }),
 
@@ -140,7 +140,7 @@ module.exports = "\n<h1>{{actionType}} blog post</h1>\n<form [formGroup]=\"form\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ng-container *ngIf=\"(blogPost$ | async) as blogPost; else loading\">\n  <h1>{{ blogPost.title }}</h1>\n  <div>{{ blogPost.body }}</div>\n  <ul>\n    <li>{{ blogPost.creator }}</li>\n    <li>{{ blogPost.dt }}</li>\n  </ul>\n</ng-container>\n\n<ng-template #loading>Loading…</ng-template>\n"
+module.exports = "<mat-card>\n<ng-container *ngIf=\"(blogPost$ | async) as blogPost; else loading\">\n  <mat-card-title>\n  <h1>{{ blogPost.title }}</h1>\n</mat-card-title>\n<mat-card-content>\n  <div>{{ blogPost.body }}</div>\n</mat-card-content>\n<hr>\n<mat-card-footer>\n\n  <ul>\n    <li>{{ blogPost.creator }}</li>\n    <li>{{ blogPost.dt }}</li>\n  </ul>\n</mat-card-footer>\n</ng-container>\n\n<ng-template #loading>Loading…</ng-template>\n</mat-card>\n"
 
 /***/ }),
 
@@ -151,7 +151,7 @@ module.exports = "<ng-container *ngIf=\"(blogPost$ | async) as blogPost; else lo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Blog posts</h1>\n\n<p *ngIf=\"!(blogPosts$ | async)\"><em>Loading...</em></p>\n<p>\n  <a [routerLink]=\"['/add']\" class=\"btn btn-primary float-right mb-3\">New post</a>\n</p>\n\n<table class=\"table table-sm table-hover\" *ngIf=\"(blogPosts$ | async)?.length>0\">\n  <thead>\n    <tr>\n      <th>#</th>\n      <th>Title</th>\n      <th>Subject</th>\n      <th>Date</th>\n      <th></th>\n      <th></th>\n    </tr>\n  </thead>\n  <tbody>\n\n    <tr *ngFor=\"let blogPost of (blogPosts$ | async)\">\n      <td>{{ blogPost.id }}</td>\n      <td><a [routerLink]=\"['/blogpost/', blogPost.id]\">{{ blogPost.title }}</a></td>\n      <td>{{ blogPost.creator }}</td>\n      <td>{{ blogPost.dt | date: \"dd.MM.y\" }}</td>\n      <td><a [routerLink]=\"['/blogpost/edit/', blogPost.id]\" class=\"btn btn-primary btn-sm float-right\">Edit</a></td>\n      <td><a [routerLink]=\"\" (click)=\"delete(blogPost.id)\" class=\"btn btn-danger btn-sm float-right\">Delete</a></td>\n\n    </tr>\n\n  </tbody>\n\n</table>\n"
+module.exports = "<h1>Blog posts</h1>\n\n<mat-card>\n<p *ngIf=\"!(blogPosts$ | async)\"><em>Loading...</em></p>\n<p>\n  <a [routerLink]=\"['/add']\" class=\"btn btn-primary float-right mb-3\">New post</a>\n</p>\n\n<table class=\"table table-sm table-hover\" *ngIf=\"(blogPosts$ | async)?.length>0\">\n  <thead>\n    <tr>\n      <th>#</th>\n      <th>Title</th>\n      <th>Subject</th>\n      <th>Date</th>\n      <th></th>\n      <th></th>\n    </tr>\n  </thead>\n  <tbody>\n\n    <tr *ngFor=\"let blogPost of (blogPosts$ | async)\">\n      <td>{{ blogPost.id }}</td>\n      <td><a [routerLink]=\"['/blogpost/', blogPost.id]\">{{ blogPost.title }}</a></td>\n      <td>{{ blogPost.creator }}</td>\n      <td>{{ blogPost.dt | date: \"dd.MM.y\" }}</td>\n      <td><a [routerLink]=\"['/blogpost/edit/', blogPost.id]\" class=\"btn btn-primary btn-sm float-right\">Edit</a></td>\n      <td><a [routerLink]=\"\" (click)=\"delete(blogPost.id)\" class=\"btn btn-danger btn-sm float-right\">Delete</a></td>\n\n    </tr>\n\n  </tbody>\n\n</table>\n</mat-card>\n"
 
 /***/ }),
 
@@ -264,6 +264,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _error_pages_server_error_server_error_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./error-pages/server-error/server-error.component */ "./src/app/error-pages/server-error/server-error.component.ts");
 /* harmony import */ var _modules_posts_blog_post_add_edit_blog_post_add_edit_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/posts/blog-post-add-edit/blog-post-add-edit.component */ "./src/app/modules/posts/blog-post-add-edit/blog-post-add-edit.component.ts");
 /* harmony import */ var _modules_posts_blog_post_blog_post_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/posts/blog-post/blog-post.component */ "./src/app/modules/posts/blog-post/blog-post.component.ts");
+/* harmony import */ var _shared_services_auth_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./shared/services/auth.service */ "./src/app/shared/services/auth.service.ts");
+
 
 
 
@@ -287,6 +289,7 @@ const routes = [
             {
                 path: "posts",
                 component: _modules_posts_posts_component__WEBPACK_IMPORTED_MODULE_5__["PostsComponent"],
+                canActivate: [_shared_services_auth_service__WEBPACK_IMPORTED_MODULE_11__["AuthService"]],
                 children: []
             },
             {
@@ -1961,17 +1964,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthService", function() { return AuthService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+
 
 
 let AuthService = class AuthService {
-    constructor() { }
+    constructor(toastr) {
+        this.toastr = toastr;
+    }
     canActivate() {
         const user = localStorage.getItem('currentUser');
         if (user == null) {
+            this.toastr.error("Please first login", "No access");
             return false;
         }
         else {
-            console.log("json z serwisu parsowany " + user);
             return true;
         }
     }
@@ -1979,6 +1986,9 @@ let AuthService = class AuthService {
         return localStorage.getItem("currentUser");
     }
 };
+AuthService.ctorParameters = () => [
+    { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_2__["ToastrService"] }
+];
 AuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
         providedIn: 'root'
@@ -2002,10 +2012,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/environments/environment */ "./src/environments/environment.ts");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
-
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 
 
 
@@ -2019,28 +2027,28 @@ let BlogPostService = class BlogPostService {
                 'Content-Type': 'application/json; charset=utf-8'
             })
         };
-        this.myAppUrl = src_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].urlAddress;
-        this.myApiUrl = 'http://localhost:80/api/BlogPosts/';
+        // this.myAppUrl = environment.urlAddress;
+        this.myApiUrl = '.';
     }
     getBlogPosts() {
-        return this.http.get(this.myApiUrl)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(this.errorHandler));
+        return this.http.get(this.myApiUrl + '/api/BlogPosts/')
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.errorHandler));
     }
     getBlogPost(postId) {
-        return this.http.get(this.myApiUrl + postId)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(this.errorHandler));
+        return this.http.get(this.myApiUrl + '/api/BlogPosts/' + postId)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.errorHandler));
     }
     saveBlogPost(blogPost) {
-        return this.http.post(this.myApiUrl, JSON.stringify(blogPost), this.httpOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(this.errorHandler));
+        return this.http.post(this.myApiUrl + '/api/BlogPosts/', JSON.stringify(blogPost), this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.errorHandler));
     }
     updateBlogPost(postId, blogPost) {
-        return this.http.put(this.myApiUrl + postId, JSON.stringify(blogPost), this.httpOptions)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(this.errorHandler));
+        return this.http.put(this.myApiUrl + '/api/BlogPosts/' + postId, JSON.stringify(blogPost), this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.errorHandler));
     }
     deleteBlogPost(postId) {
-        return this.http.delete(this.myApiUrl + postId)
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["catchError"])(this.errorHandler));
+        return this.http.delete(this.myApiUrl + '/api/BlogPosts/' + postId)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.errorHandler));
     }
     errorHandler(error) {
         let errorMessage = '';
@@ -2053,7 +2061,7 @@ let BlogPostService = class BlogPostService {
             errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
         }
         console.log(errorMessage);
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["throwError"])(errorMessage);
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(errorMessage);
     }
 };
 BlogPostService.ctorParameters = () => [
@@ -2153,7 +2161,7 @@ __webpack_require__.r(__webpack_exports__);
 let RepositoryService = class RepositoryService {
     constructor(http) {
         this.http = http;
-        this.urlAddress = '.';
+        this.urlAddress = ".";
         this.getData = (route) => {
             return this.http.get(this.createCompleteRoute(route, this.urlAddress));
         };

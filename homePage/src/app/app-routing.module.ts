@@ -8,6 +8,7 @@ import { NotFoundComponent } from "./error-pages/not-found/not-found.component";
 import { ServerErrorComponent } from "./error-pages/server-error/server-error.component";
 import { BlogPostAddEditComponent } from "./modules/posts/blog-post-add-edit/blog-post-add-edit.component";
 import { BlogPostComponent } from "./modules/posts/blog-post/blog-post.component";
+import { AuthService as authGuard} from "./shared/services/auth.service";
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
       {
         path: "posts",
         component: PostsComponent,
+        canActivate: [authGuard],
         children: [
 
         ]
