@@ -9,6 +9,7 @@ import { ServerErrorComponent } from "./error-pages/server-error/server-error.co
 import { BlogPostAddEditComponent } from "./modules/posts/blog-post-add-edit/blog-post-add-edit.component";
 import { BlogPostComponent } from "./modules/posts/blog-post/blog-post.component";
 import { AuthService as authGuard} from "./shared/services/auth.service";
+import { TestlayoutComponent } from './shared/components/testlayout/testlayout.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,7 @@ const routes: Routes = [
       { path: 'blogpost/:id', component: BlogPostComponent },
       { path: 'add', component: BlogPostAddEditComponent },
       { path: 'blogpost/edit/:id', component: BlogPostAddEditComponent },
+      { path: 'testlayout', component: TestlayoutComponent }
     ]
   },
   { path: "404", component: NotFoundComponent },

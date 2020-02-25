@@ -7,7 +7,6 @@ namespace homeApi.Model
         {
         }
 
-
         public linkContext(DbContextOptions<linkContext> options)
        : base(options)
         {
@@ -17,6 +16,8 @@ namespace homeApi.Model
 
           public DbSet<BlogPost> BlogPosts { get; set; }
 
+
+          public DbSet<calendarM> calendar { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

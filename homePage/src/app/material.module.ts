@@ -24,10 +24,13 @@ import { MatSortModule } from '@angular/material/sort';
 import {MatProgressBarModule } from '@angular/material';
 import {MatProgressSpinnerModule } from '@angular/material';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-
+import {MatRadioModule} from '@angular/material/radio';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
+
    imports: [
+    MatMenuModule,
       MatDatepickerModule,
       MatNativeDateModule,
       MatFormFieldModule,
@@ -47,10 +50,11 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
       MatTabsModule,
       MatProgressBarModule,
       MatProgressSpinnerModule,
-      MatButtonToggleModule
-
+      MatButtonToggleModule,
+      MatRadioModule
    ],
    exports: [
+    MatMenuModule,
       MatDatepickerModule,
       MatNativeDateModule,
       MatInputModule,
@@ -70,7 +74,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
      MatTabsModule,
      MatProgressBarModule,
      MatProgressSpinnerModule,
-     MatButtonToggleModule
+     MatButtonToggleModule,
+     MatRadioModule
    ],
    providers: [
     {

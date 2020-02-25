@@ -1,0 +1,54 @@
+<div class="form-group">
+
+  <h2 >Event planning</h2>
+
+<hr>
+
+  <div class="container" fxLayout="row"  fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+
+
+    <div fxFlex="50%">
+
+  <ngb-datepicker #dp [(ngModel)]="modelod" (navigate)="date = $event.next"></ngb-datepicker>
+  <ngb-timepicker [(ngModel)]="timeod" [minuteStep]="15"></ngb-timepicker>
+
+</div>
+
+
+<div fxFlex="100%">
+  <ngb-datepicker #dp1 [(ngModel)]="modeldo" (navigate)="date = $event.next"></ngb-datepicker>
+  <ngb-timepicker [(ngModel)]="timedo" [minuteStep]="15"></ngb-timepicker>
+
+</div>
+</div>
+
+
+<div class="container" fxLayout="row"  fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+
+  <div fxFlex="100%">
+<label for="firstName">Title</label>
+<input type="text" class="form-control" name="stitle" [(ngModel)]="stitle"  />
+<mat-checkbox class="example-margin" [(ngModel)]="checked">All day</mat-checkbox>
+  </div>
+<div fxFlex="50%">
+<!-- <label id="example-radio-group-label">Event types :</label> -->
+<mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group"
+  [(ngModel)]="favoriteSeason">
+  <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
+    {{season}}
+  </mat-radio-button>
+</mat-radio-group>
+<div> Selected event :->  {{favoriteSeason}}</div>
+</div>
+</div>
+
+<hr>
+  <button mat-button color="primary" (click)="onCloseClick()">Close</button>
+  <button mat-button color="primary" (click)="onSave()">Save</button>
+
+</div>
+
+<!-- <pre>Selected time: {{time | json}}</pre>
+<pre>Model: {{ model | json }}</pre> -->

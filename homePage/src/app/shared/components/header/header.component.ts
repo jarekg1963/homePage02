@@ -1,3 +1,4 @@
+import { CalendarComponent } from './../../../modules/calendar/calendar.component';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AuthService } from "./../../services/auth.service";
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
@@ -5,6 +6,7 @@ import { MatDialogConfig, MatDialog } from "@angular/material";
 import { ArticlelistComponent } from "src/app/modules/articlelist/articlelist.component";
 import { LoginComponent } from "../../login/login.component";
 import { ToastrService } from "ngx-toastr";
+import { FullcalendarComponent } from 'src/app/modules/fullcalendar/fullcalendar.component';
 
 @Component({
   selector: "app-header",
@@ -77,4 +79,33 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem("currentUser");
     this.userName = this.aut.loggedname();
   }
+
+  calendar() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.width = "1000px";
+    dialogConfig.height = "800px";
+    dialogConfig.autoFocus = true;
+    // dane transportowane do formularza
+    // dialogConfig.data = this.data;
+
+    let dialogRef = this.dialog.open(CalendarComponent, dialogConfig);
+
+  }
+
+  fullcalendar() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.width = "1000px";
+    dialogConfig.height = "800px";
+    dialogConfig.autoFocus = true;
+    // dane transportowane do formularza
+    // dialogConfig.data = this.data;
+
+    let dialogRef = this.dialog.open(FullcalendarComponent, dialogConfig);
+
+  }
+
 }

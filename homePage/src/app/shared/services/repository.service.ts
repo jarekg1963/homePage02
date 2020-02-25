@@ -23,7 +23,7 @@ export class RepositoryService {
     .pipe(
       retry(1),
       catchError(this.errorHandl)
-    )
+    );
   }
 
   public Addnew = (route: string, body) => {

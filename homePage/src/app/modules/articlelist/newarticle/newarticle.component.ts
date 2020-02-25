@@ -8,7 +8,7 @@ import {
   MAT_DATE_LOCALE
 } from "@angular/material/core";
 import { DatePipe } from "@angular/common";
-import { ConfirmationdialogComponent } from "src/app/shared/tools/confirmationdialog/confirmationdialog.component";
+
 import { RepositoryService } from "src/app/shared/services/repository.service";
 import { ToastrService } from "ngx-toastr";
 

@@ -85,7 +85,7 @@ export class ArticlelistComponent implements OnInit {
 
     dialogConfig.disableClose = true;
     dialogConfig.width = "1150px";
-    dialogConfig.height = "680px";
+    dialogConfig.height = "750px";
     dialogConfig.autoFocus = true;
     // dane transportowane do formularza
     dialogConfig.data = this.data;
@@ -117,7 +117,7 @@ export class ArticlelistComponent implements OnInit {
     this.dataForUpdate = { id:  pid , url: purl ,  description: pdescription,
        createddate: pcreateddate, note: pnote, group: pgroup, remarks: premarks};
 
-    console.log(this.dataForUpdate);
+
 
     const dialogConfig = new MatDialogConfig();
 

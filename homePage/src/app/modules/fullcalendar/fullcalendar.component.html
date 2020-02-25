@@ -1,0 +1,19 @@
+<p>fullcalendar works!</p>
+
+<table class="table table-striped table-bordered table-sm row-border hover" datatable [dtOptions]="dtOptions">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Website</th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr *ngFor="let group of data">
+         <td>{{group.name}}</td>
+         <td>{{group.email}}</td>
+         <td>{{group.website}}</td>
+     </tr>
+  </tbody>
+</table>
+<button class="btn btn-primary pull-right"  (click)="onCloseClick()">Close</button>

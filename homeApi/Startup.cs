@@ -44,6 +44,8 @@ namespace homeApi
       });
 
       services.AddScoped(typeof(IDataRepository<>), typeof(DataRepository<>));
+      services.AddScoped(typeof(IcalendarRepository<>), typeof(calendarRepository<>));
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
                 {

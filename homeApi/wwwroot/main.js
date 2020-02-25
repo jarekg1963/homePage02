@@ -85,7 +85,7 @@ module.exports = "<div fxFlex fxLayout=\"column\"  fxLayoutGap=\"5px\" style=\"h
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<mat-toolbar color=\"primary\">\n  <span>Arcicle links</span>\n  <span class=\"example-fill-remaining-space\"></span>\n  <span>Description aligned right</span>\n</mat-toolbar>\n<mat-grid-list cols=\"2\" rowHeight=\"8:1\">\n  <mat-grid-tile>\n    <div fxLayout fxLayoutAlign=\"center center\">\n      <mat-form-field style=\"width:400px !important\" >\n        <input matInput type=\"text\" (keyup)=\"doFilter($event.target.value)\" placeholder=\"Filter\">\n      </mat-form-field>\n    </div>\n  </mat-grid-tile>\n  <mat-grid-tile>\n    <button mat-button color=\"primary\" (click)=\"onaddNewClick()\" >Add new</button>\n  </mat-grid-tile>\n</mat-grid-list>\n\n<div class=\"mat-elevation-z8\">\n<table mat-table [dataSource]=\"dataSource\"matSort matSortStart=\"desc\">\n\n  <ng-container matColumnDef=\"id\">\n    <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.id}} </td>\n  </ng-container>\n\n  <ng-container matColumnDef=\"createddate\" >\n    <th mat-header-cell *matHeaderCellDef mat-sort-header style=\"width:100px !important\"> Date  </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.createddate | date}} </td>\n  </ng-container>\n\n  <ng-container matColumnDef=\"url\">\n    <th mat-header-cell *matHeaderCellDef mat-sort-header> url </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.url}} </td>\n  </ng-container>\n\n  <ng-container matColumnDef=\"description\">\n    <th mat-header-cell *matHeaderCellDef mat-sort-header> description </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.description}} </td>\n  </ng-container>\n\n  <ng-container matColumnDef=\"remarks\">\n    <th mat-header-cell *matHeaderCellDef mat-sort-header> remarks </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.remarks}} </td>\n  </ng-container>\n\n  <ng-container matColumnDef=\"note\">\n    <th mat-header-cell *matHeaderCellDef mat-sort-header> note </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.note}} </td>\n  </ng-container>\n\n\n\n  <ng-container matColumnDef=\"group\">\n    <th mat-header-cell *matHeaderCellDef mat-sort-header> description </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.group}} </td>\n  </ng-container>\n\n  <ng-container matColumnDef=\"details\">\n    <th mat-header-cell *matHeaderCellDef> Details </th>\n    <td mat-cell *matCellDef=\"let element\">\n      <button mat-icon-button color=\"primary\" >\n          <mat-icon class=\"mat-18\">reorder</mat-icon>\n      </button>\n    </td>\n  </ng-container>\n\n  <ng-container matColumnDef=\"update\">\n      <th mat-header-cell *matHeaderCellDef> Update </th>\n      <td mat-cell *matCellDef=\"let element\">\n\n        <button mat-icon-button color=\"accent\"  (click)=\"updateArticle(element.id , element.url, element.description, element.remarks, element.createddate, element.note, element.group)\">\n            <mat-icon class=\"mat-18\">system_update</mat-icon>\n        </button>\n      </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"delete\">\n        <th mat-header-cell *matHeaderCellDef> Delete </th>\n        <td mat-cell *matCellDef=\"let element\">\n          <button mat-icon-button color=\"warn\" (click)=\"deleteArticle(element.id)\">\n              <mat-icon class=\"mat-18\">delete</mat-icon>\n          </button>\n        </td>\n      </ng-container>\n\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n</table>\n\n<mat-paginator [pageSizeOptions]=\"[ 10, 20 , 30]\" showFirstLastButtons></mat-paginator>\n\n</div>\n<button mat-button color=\"primary\" (click)=\"onCloseClick()\">Close</button>\n"
+module.exports = "\n\n\n\n<mat-toolbar color=\"primary\">\n  <span>Arcicle links</span>\n  <span class=\"example-fill-remaining-space\"></span>\n  <span>Description aligned right</span>\n</mat-toolbar>\n<mat-grid-list cols=\"2\" rowHeight=\"8:1\">\n  <mat-grid-tile>\n    <div fxLayout fxLayoutAlign=\"center center\">\n      <mat-form-field style=\"width:400px !important\" >\n        <input matInput type=\"text\" (keyup)=\"doFilter($event.target.value)\" placeholder=\"Filter\">\n      </mat-form-field>\n    </div>\n  </mat-grid-tile>\n  <mat-grid-tile>\n    <button mat-button color=\"primary\" (click)=\"onaddNewClick()\" >Add new</button>\n  </mat-grid-tile>\n</mat-grid-list>\n\n<div class=\"mat-elevation-z8\">\n<table mat-table [dataSource]=\"dataSource\"matSort matSortStart=\"desc\">\n\n  <ng-container matColumnDef=\"id\">\n    <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.id}} </td>\n  </ng-container>\n\n  <ng-container matColumnDef=\"createddate\" >\n    <th mat-header-cell *matHeaderCellDef mat-sort-header style=\"width:100px !important\"> Date  </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.createddate | date}} </td>\n  </ng-container>\n\n  <ng-container matColumnDef=\"url\">\n    <th mat-header-cell *matHeaderCellDef mat-sort-header> url </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.url}} </td>\n  </ng-container>\n\n  <ng-container matColumnDef=\"description\">\n    <th mat-header-cell *matHeaderCellDef mat-sort-header> description </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.description}} </td>\n  </ng-container>\n\n  <ng-container matColumnDef=\"remarks\">\n    <th mat-header-cell *matHeaderCellDef mat-sort-header> remarks </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.remarks}} </td>\n  </ng-container>\n\n  <ng-container matColumnDef=\"note\">\n    <th mat-header-cell *matHeaderCellDef mat-sort-header> note </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.note}} </td>\n  </ng-container>\n\n\n\n  <ng-container matColumnDef=\"group\">\n    <th mat-header-cell *matHeaderCellDef mat-sort-header> description </th>\n    <td mat-cell *matCellDef=\"let element\"> {{element.group}} </td>\n  </ng-container>\n\n  <ng-container matColumnDef=\"details\">\n    <th mat-header-cell *matHeaderCellDef> Details </th>\n    <td mat-cell *matCellDef=\"let element\">\n      <button mat-icon-button color=\"primary\" >\n          <mat-icon class=\"mat-18\">reorder</mat-icon>\n      </button>\n    </td>\n  </ng-container>\n\n  <ng-container matColumnDef=\"update\">\n      <th mat-header-cell *matHeaderCellDef> Update </th>\n      <td mat-cell *matCellDef=\"let element\">\n\n        <button mat-icon-button color=\"accent\"  (click)=\"updateArticle(element.id , element.url, element.description, element.remarks, element.createddate, element.note, element.group)\">\n            <mat-icon class=\"mat-18\">system_update</mat-icon>\n        </button>\n      </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"delete\">\n        <th mat-header-cell *matHeaderCellDef> Delete </th>\n        <td mat-cell *matCellDef=\"let element\">\n          <button mat-icon-button color=\"warn\" (click)=\"deleteArticle(element.id)\">\n              <mat-icon class=\"mat-18\">delete</mat-icon>\n          </button>\n        </td>\n      </ng-container>\n\n  <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n  <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n</table>\n\n<mat-paginator [pageSizeOptions]=\"[ 10, 20 , 30]\" showFirstLastButtons></mat-paginator>\n\n</div>\n<button mat-button color=\"primary\" (click)=\"onCloseClick()\">Close</button>\n"
 
 /***/ }),
 
@@ -111,6 +111,39 @@ module.exports = "<mat-toolbar color=\"primary\">\n  <span>New arcicle links</sp
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/modules/calendar/addeditevent/addeditevent.component.html":
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/modules/calendar/addeditevent/addeditevent.component.html ***!
+  \*****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"form-group\">\n\n  <h2 >Event planning</h2>\n\n<hr>\n\n  <div class=\"container\" fxLayout=\"row\"  fxLayoutWrap fxLayoutGap=\"0.5%\" fxLayoutAlign=\"center\">\n\n\n    <div fxFlex=\"50%\">\n\n  <ngb-datepicker #dp [(ngModel)]=\"modelod\" (navigate)=\"date = $event.next\"></ngb-datepicker>\n  <ngb-timepicker [(ngModel)]=\"timeod\" [minuteStep]=\"15\"></ngb-timepicker>\n\n</div>\n\n\n<div fxFlex=\"100%\">\n  <ngb-datepicker #dp1 [(ngModel)]=\"modeldo\" (navigate)=\"date = $event.next\"></ngb-datepicker>\n  <ngb-timepicker [(ngModel)]=\"timedo\" [minuteStep]=\"15\"></ngb-timepicker>\n\n</div>\n</div>\n\n\n<div class=\"container\" fxLayout=\"row\"  fxLayoutWrap fxLayoutGap=\"0.5%\" fxLayoutAlign=\"center\">\n\n  <div fxFlex=\"100%\">\n<label for=\"firstName\">Title</label>\n<input type=\"text\" class=\"form-control\" name=\"stitle\" [(ngModel)]=\"stitle\"  />\n<mat-checkbox class=\"example-margin\" [(ngModel)]=\"checked\">All day</mat-checkbox>\n  </div>\n<div fxFlex=\"50%\">\n<!-- <label id=\"example-radio-group-label\">Event types :</label> -->\n<mat-radio-group\n  aria-labelledby=\"example-radio-group-label\"\n  class=\"example-radio-group\"\n  [(ngModel)]=\"favoriteSeason\">\n  <mat-radio-button class=\"example-radio-button\" *ngFor=\"let season of seasons\" [value]=\"season\">\n    {{season}}\n  </mat-radio-button>\n</mat-radio-group>\n<div> Selected event :->  {{favoriteSeason}}</div>\n</div>\n</div>\n\n<hr>\n  <button mat-button color=\"primary\" (click)=\"onCloseClick()\">Close</button>\n  <button mat-button color=\"primary\" (click)=\"onSave()\">Save</button>\n\n</div>\n\n<!-- <pre>Selected time: {{time | json}}</pre>\n<pre>Model: {{ model | json }}</pre> -->\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/modules/calendar/calendar.component.html":
+/*!************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/modules/calendar/calendar.component.html ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<div class=\"row text-center\">\n  <div class=\"col-md-4\">\n    <div class=\"btn-group\">\n      <div\n        class=\"btn btn-primary\"\n        mwlCalendarPreviousView\n        [view]=\"view\"\n        [(viewDate)]=\"viewDate\"\n        (viewDateChange)=\"closeOpenMonthViewDay()\"\n      >\n        Previous\n      </div>\n      <div\n        class=\"btn btn-outline-secondary\"\n        mwlCalendarToday\n        [(viewDate)]=\"viewDate\"\n      >\n        Today\n      </div>\n      <div\n        class=\"btn btn-primary\"\n        mwlCalendarNextView\n        [view]=\"view\"\n        [(viewDate)]=\"viewDate\"\n        (viewDateChange)=\"closeOpenMonthViewDay()\"\n      >\n        Next\n      </div>\n    </div>\n  </div>\n  <div class=\"col-md-4\">\n    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>\n  </div>\n  <div class=\"col-md-4\">\n    <div class=\"btn-group\">\n      <div\n        class=\"btn btn-primary\"\n        (click)=\"setView(CalendarView.Month)\"\n        [class.active]=\"view === CalendarView.Month\"\n      >\n        Month\n      </div>\n      <div\n        class=\"btn btn-primary\"\n        (click)=\"setView(CalendarView.Week)\"\n        [class.active]=\"view === CalendarView.Week\"\n      >\n        Week\n      </div>\n      <div\n        class=\"btn btn-primary\"\n        (click)=\"setView(CalendarView.Day)\"\n        [class.active]=\"view === CalendarView.Day\"\n      >\n        Day\n      </div>\n    </div>\n  </div>\n</div>\n<br />\n<div [ngSwitch]=\"view\">\n  <mwl-calendar-month-view\n    *ngSwitchCase=\"CalendarView.Month\"\n    [viewDate]=\"viewDate\"\n    [events]=\"events\"\n    [refresh]=\"refresh\"\n    [activeDayIsOpen]=\"activeDayIsOpen\"\n    (dayClicked)=\"dayClicked($event.day)\"\n    (eventClicked)=\"handleEvent('Clicked', $event.event)\"\n    (eventTimesChanged)=\"eventTimesChanged($event)\"\n  >\n  </mwl-calendar-month-view>\n  <mwl-calendar-week-view\n    *ngSwitchCase=\"CalendarView.Week\"\n    [viewDate]=\"viewDate\"\n    [events]=\"events\"\n    [refresh]=\"refresh\"\n    (eventClicked)=\"handleEvent('Clicked', $event.event)\"\n    (eventTimesChanged)=\"eventTimesChanged($event)\"\n  >\n  </mwl-calendar-week-view>\n  <mwl-calendar-day-view\n    *ngSwitchCase=\"CalendarView.Day\"\n    [viewDate]=\"viewDate\"\n    [events]=\"events\"\n    [refresh]=\"refresh\"\n    (eventClicked)=\"handleEvent('Clicked', $event.event)\"\n    (eventTimesChanged)=\"eventTimesChanged($event)\"\n  >\n  </mwl-calendar-day-view>\n</div>\n\n<br /><br /><br />\n\n<h4>\n\n  <button class=\"btn btn-primary pull-right\" (click)=\"addEvent()\">Add new</button>\n  <button class=\"btn btn-primary pull-right\" (click)=\"listEvents()\">Events list</button>\n\n  <button class=\"btn btn-primary pull-right\"  (click)=\"onCloseClick()\">Close</button>\n</h4>\n\n\n<!-- <div class=\"table-responsive\">\n  <table class=\"table table-bordered\">\n    <thead>\n      <tr>\n        <th>Title</th>\n        <th>Primary color</th>\n        <th>Secondary color</th>\n        <th>Starts at</th>\n        <th>Ends at</th>\n        <th>Remove</th>\n      </tr>\n    </thead>\n\n    <tbody>\n      <tr *ngFor=\"let event of events\">\n        <td>\n          <input\n            type=\"text\"\n            class=\"form-control\"\n            [(ngModel)]=\"event.title\"\n            (keyup)=\"refresh.next()\"\n          />\n        </td>\n        <td>\n          <input\n            type=\"color\"\n            [(ngModel)]=\"event.color.primary\"\n            (change)=\"refresh.next()\"\n          />\n        </td>\n        <td>\n          <input\n            type=\"color\"\n            [(ngModel)]=\"event.color.secondary\"\n            (change)=\"refresh.next()\"\n          />\n        </td>\n        <td>\n          <input\n            class=\"form-control\"\n            type=\"text\"\n            mwlFlatpickr\n            [(ngModel)]=\"event.start\"\n            (ngModelChange)=\"refresh.next()\"\n            [altInput]=\"true\"\n            [convertModelValue]=\"true\"\n            [enableTime]=\"true\"\n            dateFormat=\"Y-m-dTH:i\"\n            altFormat=\"F j, Y H:i\"\n            placeholder=\"Not set\"\n          />\n        </td>\n        <td>\n          <input\n            class=\"form-control\"\n            type=\"text\"\n            mwlFlatpickr\n            [(ngModel)]=\"event.end\"\n            (ngModelChange)=\"refresh.next()\"\n            [altInput]=\"true\"\n            [convertModelValue]=\"true\"\n            [enableTime]=\"true\"\n            dateFormat=\"Y-m-dTH:i\"\n            altFormat=\"F j, Y H:i\"\n            placeholder=\"Not set\"\n          />\n        </td>\n        <td>\n          <button class=\"btn btn-danger\" (click)=\"deleteEvent(event)\">\n            Delete\n          </button>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div> -->\n\n<ng-template #modalContent let-close=\"close\">\n  <div class=\"modal-header\">\n    <h5 class=\"modal-title\">Event action occurred</h5>\n    <button type=\"button\" class=\"close\" (click)=\"close()\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body\">\n    <div>\n      Action:\n      <pre>{{ modalData?.action }}</pre>\n    </div>\n    <div>\n      Event:\n      <pre>{{ modalData?.event | json }}</pre>\n    </div>\n  </div>\n  <div class=\"modal-footer\">\n    <button type=\"button\" class=\"btn btn-outline-secondary\" (click)=\"close()\">\n      OK\n    </button>\n  </div>\n</ng-template>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/modules/calendar/eventslist/eventslist.component.html":
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/modules/calendar/eventslist/eventslist.component.html ***!
+  \*************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<mat-toolbar color=\"primary\">\n  <span>Events </span>\n  <span class=\"example-fill-remaining-space\"></span>\n  <span>Description aligned right</span>\n</mat-toolbar>\n\n<mat-grid-list cols=\"2\" rowHeight=\"8:1\">\n  <mat-grid-tile>\n    <div fxLayout fxLayoutAlign=\"center center\">\n      <mat-form-field style=\"width:400px !important\" >\n        <input matInput type=\"text\" (keyup)=\"doFilter($event.target.value)\" placeholder=\"Filter\">\n      </mat-form-field>\n    </div>\n  </mat-grid-tile>\n  <mat-grid-tile>\n    <button mat-button color=\"primary\" (click)=\"onaddNewClick()\" >Add new</button>\n  </mat-grid-tile>\n</mat-grid-list>\n\n<div class=\"mat-elevation-z8\">\n  <table mat-table [dataSource]=\"dataSource\"matSort matSortStart=\"desc\">\n    <ng-container matColumnDef=\"id\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.id}} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"start\" >\n      <th mat-header-cell *matHeaderCellDef mat-sort-header style=\"width:180 !important\"> From  </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.start }} </td>\n    </ng-container>\n\n\n\n    <ng-container matColumnDef=\"end\" >\n      <th mat-header-cell *matHeaderCellDef mat-sort-header style=\"width:180px !important\"> To  </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.end }} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"title\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header  style=\"width:400px !important\"> Title </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.title}} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"actions\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.description}} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"allDay\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> AllDay </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.allDay}} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"draggable\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> draggable </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.resizable}} </td>\n    </ng-container>\n\n\n\n    <ng-container matColumnDef=\"resizable\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Color </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.color}} </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"color\">\n      <th mat-header-cell *matHeaderCellDef mat-sort-header> Color </th>\n      <td mat-cell *matCellDef=\"let element\"> {{element.color}} </td>\n    </ng-container>\n\n\n    <ng-container matColumnDef=\"details\">\n      <th mat-header-cell *matHeaderCellDef> Details </th>\n      <td mat-cell *matCellDef=\"let element\">\n        <button mat-icon-button color=\"primary\" >\n            <mat-icon class=\"mat-18\">reorder</mat-icon>\n        </button>\n      </td>\n    </ng-container>\n\n    <ng-container matColumnDef=\"update\">\n        <th mat-header-cell *matHeaderCellDef> Update </th>\n        <td mat-cell *matCellDef=\"let element\">\n\n          <button mat-icon-button color=\"accent\"  (click)=\"updateArticle(element.id , element.url, element.description, element.remarks, element.createddate, element.note, element.group)\">\n              <mat-icon class=\"mat-18\">system_update</mat-icon>\n          </button>\n        </td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"delete\">\n          <th mat-header-cell *matHeaderCellDef> Delete </th>\n          <td mat-cell *matCellDef=\"let element\">\n            <button mat-icon-button color=\"warn\" (click)=\"deleteArticle(element.id)\">\n                <mat-icon class=\"mat-18\">delete</mat-icon>\n            </button>\n          </td>\n        </ng-container>\n\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n  </table>\n\n  <mat-paginator [pageSizeOptions]=\"[ 10, 20 , 30]\" showFirstLastButtons></mat-paginator>\n\n  </div>\n  <button mat-button color=\"primary\" (click)=\"onCloseClick()\">Close</button>\n"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/modules/dashboard/dashboard.component.html":
 /*!**************************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/modules/dashboard/dashboard.component.html ***!
@@ -118,7 +151,18 @@ module.exports = "<mat-toolbar color=\"primary\">\n  <span>New arcicle links</sp
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n    <app-widget-area [data]=\"bigChart\"></app-widget-area>\n</div>\n\n<br>\n\n<mat-divider></mat-divider>\n\n<br>\n\n<div fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"20px\" class=\"stats-cards\">\n    <mat-card fxFlex=\"25\">\n        <app-widget-card label=\"New Users\" total=\"12k\" percentage=\"50\" [data]=\"cards\"></app-widget-card>\n    </mat-card>\n    <mat-card fxFlex=\"25\">\n        <app-widget-card label=\"Users retention\" total=\"10k\" percentage=\"40\" [data]=\"cards\"></app-widget-card>\n    </mat-card>\n    <mat-card fxFlex=\"25\">\n        <app-widget-card label=\"Users engagement\" total=\"8k\" percentage=\"30\" [data]=\"cards\"></app-widget-card>\n    </mat-card>\n    <mat-card fxFlex=\"25\">\n        <app-widget-card label=\"Referral\" total=\"6k\" percentage=\"20\" [data]=\"cards\"></app-widget-card>\n    </mat-card>\n</div>\n\n<br>\n\n<mat-divider></mat-divider>\n\n<br>\n\n<div fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"20px\">\n    <div fxFlex=\"60\">\n        <div class=\"mat-elevation-z8\">\n            <table mat-table [dataSource]=\"dataSource\">\n\n                <!-- Position Column -->\n                <ng-container matColumnDef=\"position\">\n                    <th mat-header-cell *matHeaderCellDef> No. </th>\n                    <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\n                </ng-container>\n\n                <!-- Name Column -->\n                <ng-container matColumnDef=\"name\">\n                    <th mat-header-cell *matHeaderCellDef> Name </th>\n                    <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n                </ng-container>\n\n                <!-- Weight Column -->\n                <ng-container matColumnDef=\"weight\">\n                    <th mat-header-cell *matHeaderCellDef> Weight </th>\n                    <td mat-cell *matCellDef=\"let element\"> {{element.weight}} </td>\n                </ng-container>\n\n                <!-- Symbol Column -->\n                <ng-container matColumnDef=\"symbol\">\n                    <th mat-header-cell *matHeaderCellDef> Symbol </th>\n                    <td mat-cell *matCellDef=\"let element\"> {{element.symbol}} </td>\n                </ng-container>\n\n                <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n                <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n            </table>\n\n            <mat-paginator [pageSizeOptions]=\"[5, 10, 20]\"></mat-paginator>\n        </div>\n\n    </div>\n    <div fxFlex=\"40\">\n        <app-widget-pie [data]=\"pieChart\"></app-widget-pie>\n    </div>\n</div>\n\n<br>\n<br>\n<br>"
+module.exports = "<div>\n    <app-widget-area [data]=\"bigChart\"></app-widget-area>\n</div>\n\n<br>\n\n<mat-divider></mat-divider>\n\n<br>\n\n\n\n\n\n<div fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"20px\" class=\"stats-cards\">\n    <mat-card fxFlex=\"25\">\n        <app-widget-card label=\"New Users\" total=\"12k\" percentage=\"50\" [data]=\"cards\"></app-widget-card>\n    </mat-card>\n    <mat-card fxFlex=\"25\">\n        <app-widget-card label=\"Users retention\" total=\"10k\" percentage=\"40\" [data]=\"cards\"></app-widget-card>\n    </mat-card>\n    <mat-card fxFlex=\"25\">\n        <app-widget-card label=\"Users engagement\" total=\"8k\" percentage=\"30\" [data]=\"cards\"></app-widget-card>\n    </mat-card>\n    <mat-card fxFlex=\"25\">\n        <app-widget-card label=\"Referral\" total=\"6k\" percentage=\"20\" [data]=\"cards\"></app-widget-card>\n    </mat-card>\n</div>\n\n<br>\n\n<mat-divider></mat-divider>\n\n<br>\n\n<div fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"20px\">\n    <div fxFlex=\"60\">\n        <div class=\"mat-elevation-z8\">\n            <table mat-table [dataSource]=\"dataSource\">\n\n                <!-- Position Column -->\n                <ng-container matColumnDef=\"position\">\n                    <th mat-header-cell *matHeaderCellDef> No. </th>\n                    <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\n                </ng-container>\n\n                <!-- Name Column -->\n                <ng-container matColumnDef=\"name\">\n                    <th mat-header-cell *matHeaderCellDef> Name </th>\n                    <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n                </ng-container>\n\n                <!-- Weight Column -->\n                <ng-container matColumnDef=\"weight\">\n                    <th mat-header-cell *matHeaderCellDef> Weight </th>\n                    <td mat-cell *matCellDef=\"let element\"> {{element.weight}} </td>\n                </ng-container>\n\n                <!-- Symbol Column -->\n                <ng-container matColumnDef=\"symbol\">\n                    <th mat-header-cell *matHeaderCellDef> Symbol </th>\n                    <td mat-cell *matCellDef=\"let element\"> {{element.symbol}} </td>\n                </ng-container>\n\n                <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n                <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n            </table>\n\n            <mat-paginator [pageSizeOptions]=\"[5, 10, 20]\"></mat-paginator>\n        </div>\n\n    </div>\n    <div fxFlex=\"40\">\n        <app-widget-pie [data]=\"pieChart\"></app-widget-pie>\n    </div>\n</div>\n\n<br>\n<br>\n<br>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/modules/fullcalendar/fullcalendar.component.html":
+/*!********************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/modules/fullcalendar/fullcalendar.component.html ***!
+  \********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>fullcalendar works!</p>\n\n<table class=\"table table-striped table-bordered table-sm row-border hover\" datatable [dtOptions]=\"dtOptions\">\n  <thead>\n    <tr>\n      <th>Name</th>\n      <th>Email</th>\n      <th>Website</th>\n    </tr>\n  </thead>\n  <tbody>\n   <tr *ngFor=\"let group of data\">\n         <td>{{group.name}}</td>\n         <td>{{group.email}}</td>\n         <td>{{group.website}}</td>\n     </tr>\n  </tbody>\n</table>\n<button class=\"btn btn-primary pull-right\"  (click)=\"onCloseClick()\">Close</button>\n"
 
 /***/ }),
 
@@ -162,7 +206,7 @@ module.exports = "<h1>Blog posts</h1>\n\n<mat-card>\n<p *ngIf=\"!(blogPosts$ | a
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-divider></mat-divider>\n<footer>\n    &copy; All rights reserved 2019\n</footer>"
+module.exports = "<mat-divider></mat-divider>\n<footer>\n    &copy; All rights reserved 2019\n</footer>\n\n"
 
 /***/ }),
 
@@ -173,7 +217,7 @@ module.exports = "<mat-divider></mat-divider>\n<footer>\n    &copy; All rights r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\">\n    <mat-toolbar-row>\n        <button mat-icon-button (click)=\"toggleSideBar()\">\n            <mat-icon>menu</mat-icon>\n        </button>\n\n        <span>\n\n\n  <a class=\"navbar-brand\" href=\"#\">\n    <span class=\"logo logo-left\">J</span>\n    <span class=\"logo logo-right\">G</span>\n  </a>\n        </span>\n\n        <div fxFlex fxLayout=\"row\" fxLayoutAlign=\"flex-end\">\n          <p> {{ userName }} </p>\n          <ul fxLayout=\"row\" fxLayoutGap=\"20px\">\n\n              <li>\n\n\n                    <button mat-button [matMenuTriggerFor]=\"menuS\">\n                      <mat-icon>settings</mat-icon>\n                  </button>\n                  <mat-menu #menuS=\"matMenu\">\n                      <button mat-menu-item (click)=\"articleList()\">\n                          <mat-icon>list</mat-icon>\n                          Aricles\n                      </button>\n                      <button mat-menu-item>\n                        <mat-icon>toc</mat-icon>\n                        Pages\n                    </button>\n\n                  </mat-menu>\n                </li>\n                <li>\n                    <button mat-icon-button (click)=\"help()\">\n                        <mat-icon>help_outline</mat-icon>\n                    </button>\n                </li>\n                <li>\n                    <button mat-button [matMenuTriggerFor]=\"menu\">\n                        <mat-icon>person_outline</mat-icon>\n                    </button>\n                    <mat-menu #menu=\"matMenu\">\n                      <button mat-menu-item (click)=\"login()\">\n                        <mat-icon>input</mat-icon>\n                        login\n                    </button>\n                      <button mat-menu-item (click)=\"logout()\">\n                            <mat-icon>backspace</mat-icon>\n                            Sign out\n                        </button>\n\n                    </mat-menu>\n\n                </li>\n            </ul>\n        </div>\n    </mat-toolbar-row>\n</mat-toolbar>\n"
+module.exports = "\n\n<mat-toolbar color=\"primary\">\n    <mat-toolbar-row>\n        <button mat-icon-button (click)=\"toggleSideBar()\">\n            <mat-icon>menu</mat-icon>\n        </button>\n\n        <span>\n\n\n  <a class=\"navbar-brand\" href=\"#\">\n    <span class=\"logo logo-left\">J</span>\n    <span class=\"logo logo-right\">G</span>\n  </a>\n        </span>\n\n        <div fxFlex fxLayout=\"row\" fxLayoutAlign=\"flex-end\">\n          <p> {{ userName }} </p>\n          <ul fxLayout=\"row\" fxLayoutGap=\"20px\">\n              <li>\n                    <button mat-button [matMenuTriggerFor]=\"menuS\">\n                      <mat-icon>settings</mat-icon>\n                  </button>\n                  <mat-menu #menuS=\"matMenu\">\n                      <button mat-menu-item (click)=\"articleList()\">\n                          <mat-icon>list</mat-icon>\n                          Aricles\n                      </button>\n                      <button mat-menu-item>\n                        <mat-icon>toc</mat-icon>\n                        Pages\n                    </button>\n\n                    <button mat-menu-item (click)=\"calendar()\">\n                      <mat-icon>toc</mat-icon>\n                      Calendar\n                  </button>\n\n\n                  <button mat-menu-item (click)=\"fullcalendar()\">\n                    <mat-icon>toc</mat-icon>\n                 Projects\n                </button>\n\n                  </mat-menu>\n                </li>\n                <li>\n                    <button mat-icon-button (click)=\"help()\">\n                        <mat-icon>help_outline</mat-icon>\n                    </button>\n                </li>\n                <li>\n                    <button mat-button [matMenuTriggerFor]=\"menu\">\n                        <mat-icon>person_outline</mat-icon>\n                    </button>\n                    <mat-menu #menu=\"matMenu\">\n                      <button mat-menu-item (click)=\"login()\">\n                        <mat-icon>input</mat-icon>\n                        login\n                    </button>\n                      <button mat-menu-item (click)=\"logout()\">\n                            <mat-icon>backspace</mat-icon>\n                            Sign out\n                        </button>\n\n                    </mat-menu>\n\n                </li>\n            </ul>\n        </div>\n    </mat-toolbar-row>\n</mat-toolbar>\n"
 
 /***/ }),
 
@@ -184,7 +228,18 @@ module.exports = "<mat-toolbar color=\"primary\">\n    <mat-toolbar-row>\n      
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-nav-list>\n    <div class=\"profile-card\">\n        <div class=\"header\">\n            <h2>JG</h2>\n            <h4>jarekg@test.com.pl</h4>\n        </div>\n        <img  src=\"assets/jg.jpg\" alt=\"image\">\n    </div>\n\n    <mat-divider></mat-divider>\n\n    <h2 matSubheader>Pages</h2>\n\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/\">Dashboard</a>\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/posts\">Posts</a>\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/articles\">Articles</a>\n\n    <mat-divider></mat-divider>\n\n    <h2 matSubheader>Tools</h2>\n\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/contacts\">\n        <mat-icon>import_contacts</mat-icon>\n        Contacts\n    </a>\n\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/contacts\">\n        <mat-icon>contact_phone</mat-icon>\n        Leads\n    </a>\n\n</mat-nav-list>\n"
+module.exports = "<mat-nav-list>\n    <div class=\"profile-card\">\n        <div class=\"header\">\n            <h2>JG</h2>\n            <h4>jarekg@test.com.pl</h4>\n        </div>\n        <img  src=\"assets/jg.jpg\" alt=\"image\">\n    </div>\n\n    <mat-divider></mat-divider>\n\n    <h2 matSubheader>Pages</h2>\n\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/\">Dashboard</a>\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/posts\">Posts</a>\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/articles\">Articles</a>\n\n    <mat-divider></mat-divider>\n\n    <h2 matSubheader>Tools</h2>\n\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/contacts\">\n        <mat-icon>import_contacts</mat-icon>\n        Contacts\n    </a>\n\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/contacts\">\n        <mat-icon>contact_phone</mat-icon>\n        Leads\n    </a>\n\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/testlayout\">\n      <mat-icon>contact_phone</mat-icon>\n      Test page\n  </a>\n\n</mat-nav-list>\n\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/shared/components/testlayout/testlayout.component.html":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/shared/components/testlayout/testlayout.component.html ***!
+  \**************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<div class=\"grid-container\">\n  <h1 class=\"mat-h1\">Dashboard</h1>\n  <mat-grid-list cols=\"2\" rowHeight=\"350px\">\n    <mat-grid-tile  [colspan]=\"2\" [rowspan]=\"1\">\n      <mat-card class=\"dashboard-card\">\n        <mat-card-header>\n          <mat-card-title>\n            Card 1\n\n          </mat-card-title>\n        </mat-card-header>\n        <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\">\n        <mat-card-content class=\"dashboard-card-content\">\n          <div>Card Content Here</div>\n        </mat-card-content>\n      </mat-card>\n    </mat-grid-tile>\n\n    <mat-grid-tile  [colspan]=\"1\" [rowspan]=\"1\">\n      <mat-card class=\"dashboard-card\">\n        <mat-card-header>\n          <mat-card-title>\n            Card 2\n\n\n          </mat-card-title>\n        </mat-card-header>\n        <mat-card-content class=\"dashboard-card-content\">\n          <div>Card Content Here</div>\n        </mat-card-content>\n      </mat-card>\n    </mat-grid-tile>\n\n\n    <mat-grid-tile  [colspan]=\"1\" [rowspan]=\"2\">\n      <mat-card class=\"dashboard-card\">\n        <mat-card-header>\n          <mat-card-title>\n            Card 3\n\n          </mat-card-title>\n        </mat-card-header>\n        <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\">\n        <mat-card-content class=\"dashboard-card-content\">\n          <div>Card Content Here</div>\n        </mat-card-content>\n      </mat-card>\n    </mat-grid-tile>\n\n\n    <mat-grid-tile  [colspan]=\"1\" [rowspan]=\"1\">\n      <mat-card class=\"dashboard-card\">\n        <mat-card-header>\n          <mat-card-title>\n            Card 4\n\n          </mat-card-title>\n        </mat-card-header>\n        <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\">\n        <mat-card-content class=\"dashboard-card-content\">\n          <div>Card Content Here</div>\n        </mat-card-content>\n      </mat-card>\n    </mat-grid-tile>\n\n    <mat-grid-tile  [colspan]=\"1\" [rowspan]=\"1\">\n      <mat-card class=\"dashboard-card\">\n        <mat-card-header>\n          <mat-card-title>\n            Card 4\n\n          </mat-card-title>\n        </mat-card-header>\n        <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\">\n        <mat-card-content class=\"dashboard-card-content\">\n          <div>Card Content Here</div>\n        </mat-card-content>\n      </mat-card>\n    </mat-grid-tile>\n\n\n    <mat-grid-tile  [colspan]=\"1\" [rowspan]=\"1\">\n      <mat-card class=\"dashboard-card\">\n        <mat-card-header>\n          <mat-card-title>\n            Card 4\n\n          </mat-card-title>\n        </mat-card-header>\n        <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\">\n        <mat-card-content class=\"dashboard-card-content\">\n          <div>Card Content Here</div>\n        </mat-card-content>\n      </mat-card>\n    </mat-grid-tile>\n\n\n  </mat-grid-list>\n</div>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<!--\n<div class=\"grid-container\">\n  <h1 class=\"mat-h1\">Dashboard</h1>\n  <mat-grid-list cols=\"2\" rowHeight=\"350px\">\n    <mat-grid-tile *ngFor=\"let card of cards\" [colspan]=\"card.cols\" [rowspan]=\"card.rows\">\n      <mat-card class=\"dashboard-card\">\n        <mat-card-header>\n          <mat-card-title>\n            {{card.title}}\n            <button mat-icon-button class=\"more-button\" [matMenuTriggerFor]=\"menu\" aria-label=\"Toggle menu\">\n              <mat-icon>more_vert</mat-icon>\n            </button>\n            <mat-menu #menu=\"matMenu\" xPosition=\"before\">\n              <button mat-menu-item>Expand</button>\n              <button mat-menu-item>Remove</button>\n            </mat-menu>\n          </mat-card-title>\n        </mat-card-header>\n        <mat-card-content class=\"dashboard-card-content\">\n          <div>Card Content Here</div>\n        </mat-card-content>\n      </mat-card>\n    </mat-grid-tile>\n  </mat-grid-list>\n</div> -->\n"
 
 /***/ }),
 
@@ -265,6 +320,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_posts_blog_post_add_edit_blog_post_add_edit_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/posts/blog-post-add-edit/blog-post-add-edit.component */ "./src/app/modules/posts/blog-post-add-edit/blog-post-add-edit.component.ts");
 /* harmony import */ var _modules_posts_blog_post_blog_post_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/posts/blog-post/blog-post.component */ "./src/app/modules/posts/blog-post/blog-post.component.ts");
 /* harmony import */ var _shared_services_auth_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./shared/services/auth.service */ "./src/app/shared/services/auth.service.ts");
+/* harmony import */ var _shared_components_testlayout_testlayout_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./shared/components/testlayout/testlayout.component */ "./src/app/shared/components/testlayout/testlayout.component.ts");
+
 
 
 
@@ -299,6 +356,7 @@ const routes = [
             { path: 'blogpost/:id', component: _modules_posts_blog_post_blog_post_component__WEBPACK_IMPORTED_MODULE_10__["BlogPostComponent"] },
             { path: 'add', component: _modules_posts_blog_post_add_edit_blog_post_add_edit_component__WEBPACK_IMPORTED_MODULE_9__["BlogPostAddEditComponent"] },
             { path: 'blogpost/edit/:id', component: _modules_posts_blog_post_add_edit_blog_post_add_edit_component__WEBPACK_IMPORTED_MODULE_9__["BlogPostAddEditComponent"] },
+            { path: 'testlayout', component: _shared_components_testlayout_testlayout_component__WEBPACK_IMPORTED_MODULE_12__["TestlayoutComponent"] }
         ]
     },
     { path: "404", component: _error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_7__["NotFoundComponent"] },
@@ -392,6 +450,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_articlelist_updatearticle_updatearticle_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./modules/articlelist/updatearticle/updatearticle.component */ "./src/app/modules/articlelist/updatearticle/updatearticle.component.ts");
 /* harmony import */ var _modules_posts_blog_post_blog_post_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./modules/posts/blog-post/blog-post.component */ "./src/app/modules/posts/blog-post/blog-post.component.ts");
 /* harmony import */ var _modules_posts_blog_post_add_edit_blog_post_add_edit_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./modules/posts/blog-post-add-edit/blog-post-add-edit.component */ "./src/app/modules/posts/blog-post-add-edit/blog-post-add-edit.component.ts");
+/* harmony import */ var _modules_calendar_calendar_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./modules/calendar/calendar.component */ "./src/app/modules/calendar/calendar.component.ts");
+/* harmony import */ var angular_calendar_date_adapters_date_fns__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! angular-calendar/date-adapters/date-fns */ "./node_modules/angular-calendar/date-adapters/date-fns/index.js");
+/* harmony import */ var angular_calendar_date_adapters_date_fns__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(angular_calendar_date_adapters_date_fns__WEBPACK_IMPORTED_MODULE_24__);
+/* harmony import */ var angular_calendar__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! angular-calendar */ "./node_modules/angular-calendar/fesm2015/angular-calendar.js");
+/* harmony import */ var angularx_flatpickr__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! angularx-flatpickr */ "./node_modules/angularx-flatpickr/fesm2015/angularx-flatpickr.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
+/* harmony import */ var _modules_calendar_addeditevent_addeditevent_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./modules/calendar/addeditevent/addeditevent.component */ "./src/app/modules/calendar/addeditevent/addeditevent.component.ts");
+/* harmony import */ var ng_pick_datetime__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ng-pick-datetime */ "./node_modules/ng-pick-datetime/picker.js");
+/* harmony import */ var _modules_calendar_eventslist_eventslist_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./modules/calendar/eventslist/eventslist.component */ "./src/app/modules/calendar/eventslist/eventslist.component.ts");
+/* harmony import */ var _shared_components_testlayout_testlayout_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./shared/components/testlayout/testlayout.component */ "./src/app/shared/components/testlayout/testlayout.component.ts");
+/* harmony import */ var _modules_fullcalendar_fullcalendar_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./modules/fullcalendar/fullcalendar.component */ "./src/app/modules/fullcalendar/fullcalendar.component.ts");
+/* harmony import */ var angular_datatables__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! angular-datatables */ "./node_modules/angular-datatables/index.js");
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -430,10 +511,16 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _modules_articlelist_updatearticle_updatearticle_component__WEBPACK_IMPORTED_MODULE_20__["UpdatearticleComponent"],
             _shared_login_login_component__WEBPACK_IMPORTED_MODULE_1__["LoginComponent"],
             _modules_posts_blog_post_blog_post_component__WEBPACK_IMPORTED_MODULE_21__["BlogPostComponent"],
-            _modules_posts_blog_post_add_edit_blog_post_add_edit_component__WEBPACK_IMPORTED_MODULE_22__["BlogPostAddEditComponent"]
+            _modules_posts_blog_post_add_edit_blog_post_add_edit_component__WEBPACK_IMPORTED_MODULE_22__["BlogPostAddEditComponent"],
+            _modules_calendar_calendar_component__WEBPACK_IMPORTED_MODULE_23__["CalendarComponent"],
+            _modules_calendar_addeditevent_addeditevent_component__WEBPACK_IMPORTED_MODULE_28__["AddediteventComponent"],
+            _modules_calendar_eventslist_eventslist_component__WEBPACK_IMPORTED_MODULE_30__["EventslistComponent"],
+            _shared_components_testlayout_testlayout_component__WEBPACK_IMPORTED_MODULE_31__["TestlayoutComponent"],
+            _modules_fullcalendar_fullcalendar_component__WEBPACK_IMPORTED_MODULE_32__["FullcalendarComponent"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
+            angular_datatables__WEBPACK_IMPORTED_MODULE_33__["DataTablesModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
             _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__["BrowserAnimationsModule"],
             _layouts_default_default_module__WEBPACK_IMPORTED_MODULE_7__["DefaultModule"],
@@ -443,11 +530,21 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_forms__WEBPACK_IMPORTED_MODULE_16__["ReactiveFormsModule"],
             _angular_flex_layout__WEBPACK_IMPORTED_MODULE_11__["FlexLayoutModule"],
             ngx_toastr__WEBPACK_IMPORTED_MODULE_19__["ToastrModule"].forRoot(),
+            angular_calendar__WEBPACK_IMPORTED_MODULE_25__["CalendarModule"].forRoot({
+                provide: angular_calendar__WEBPACK_IMPORTED_MODULE_25__["DateAdapter"],
+                useFactory: angular_calendar_date_adapters_date_fns__WEBPACK_IMPORTED_MODULE_24__["adapterFactory"],
+            }),
+            angularx_flatpickr__WEBPACK_IMPORTED_MODULE_26__["FlatpickrModule"].forRoot(),
+            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_27__["NgbModule"],
+            ng_pick_datetime__WEBPACK_IMPORTED_MODULE_29__["OwlDateTimeModule"],
+            ng_pick_datetime__WEBPACK_IMPORTED_MODULE_29__["OwlNativeDateTimeModule"]
         ],
-        providers: [_angular_common__WEBPACK_IMPORTED_MODULE_17__["DatePipe"]],
+        providers: [_angular_common__WEBPACK_IMPORTED_MODULE_17__["DatePipe"]
+        ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
         entryComponents: [_modules_articlelist_articlelist_component__WEBPACK_IMPORTED_MODULE_8__["ArticlelistComponent"], _modules_articlelist_newarticle_newarticle_component__WEBPACK_IMPORTED_MODULE_12__["NewarticleComponent"], _shared_tools_confirmationdialog_confirmationdialog_component__WEBPACK_IMPORTED_MODULE_18__["ConfirmationdialogComponent"],
-            _modules_articlelist_updatearticle_updatearticle_component__WEBPACK_IMPORTED_MODULE_20__["UpdatearticleComponent"], _shared_login_login_component__WEBPACK_IMPORTED_MODULE_1__["LoginComponent"]]
+            _modules_articlelist_updatearticle_updatearticle_component__WEBPACK_IMPORTED_MODULE_20__["UpdatearticleComponent"], _shared_login_login_component__WEBPACK_IMPORTED_MODULE_1__["LoginComponent"], _modules_calendar_calendar_component__WEBPACK_IMPORTED_MODULE_23__["CalendarComponent"], _modules_calendar_addeditevent_addeditevent_component__WEBPACK_IMPORTED_MODULE_28__["AddediteventComponent"], _modules_calendar_eventslist_eventslist_component__WEBPACK_IMPORTED_MODULE_30__["EventslistComponent"],
+            _modules_fullcalendar_fullcalendar_component__WEBPACK_IMPORTED_MODULE_32__["FullcalendarComponent"]]
     })
 ], AppModule);
 
@@ -690,6 +787,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_paginator__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/paginator */ "./node_modules/@angular/material/esm2015/paginator.js");
 /* harmony import */ var _angular_material_sort__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/sort */ "./node_modules/@angular/material/esm2015/sort.js");
 /* harmony import */ var _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/material/button-toggle */ "./node_modules/@angular/material/esm2015/button-toggle.js");
+/* harmony import */ var _angular_material_radio__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/material/radio */ "./node_modules/@angular/material/esm2015/radio.js");
+/* harmony import */ var _angular_material_menu__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/menu */ "./node_modules/@angular/material/esm2015/menu.js");
 
 
 
@@ -709,11 +808,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 let MaterialModule = class MaterialModule {
 };
 MaterialModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         imports: [
+            _angular_material_menu__WEBPACK_IMPORTED_MODULE_16__["MatMenuModule"],
             _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDatepickerModule"],
             _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatNativeDateModule"],
             _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatFormFieldModule"],
@@ -733,9 +835,11 @@ MaterialModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTabsModule"],
             _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatProgressBarModule"],
             _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatProgressSpinnerModule"],
-            _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_14__["MatButtonToggleModule"]
+            _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_14__["MatButtonToggleModule"],
+            _angular_material_radio__WEBPACK_IMPORTED_MODULE_15__["MatRadioModule"]
         ],
         exports: [
+            _angular_material_menu__WEBPACK_IMPORTED_MODULE_16__["MatMenuModule"],
             _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDatepickerModule"],
             _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatNativeDateModule"],
             _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatInputModule"],
@@ -755,7 +859,8 @@ MaterialModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTabsModule"],
             _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatProgressBarModule"],
             _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatProgressSpinnerModule"],
-            _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_14__["MatButtonToggleModule"]
+            _angular_material_button_toggle__WEBPACK_IMPORTED_MODULE_14__["MatButtonToggleModule"],
+            _angular_material_radio__WEBPACK_IMPORTED_MODULE_15__["MatRadioModule"]
         ],
         providers: [
             {
@@ -954,7 +1059,7 @@ let ArticlelistComponent = class ArticlelistComponent {
         const dialogConfig = new _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogConfig"]();
         dialogConfig.disableClose = true;
         dialogConfig.width = "1150px";
-        dialogConfig.height = "680px";
+        dialogConfig.height = "750px";
         dialogConfig.autoFocus = true;
         // dane transportowane do formularza
         dialogConfig.data = this.data;
@@ -980,7 +1085,6 @@ let ArticlelistComponent = class ArticlelistComponent {
     updateArticle(pid, purl, pdescription, premarks, pcreateddate, pnote, pgroup) {
         this.dataForUpdate = { id: pid, url: purl, description: pdescription,
             createddate: pcreateddate, note: pnote, group: pgroup, remarks: premarks };
-        console.log(this.dataForUpdate);
         const dialogConfig = new _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogConfig"]();
         dialogConfig.disableClose = true;
         dialogConfig.width = "1150px";
@@ -1260,6 +1364,404 @@ UpdatearticleComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/modules/calendar/addeditevent/addeditevent.component.scss":
+/*!***************************************************************************!*\
+  !*** ./src/app/modules/calendar/addeditevent/addeditevent.component.scss ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "p {\n  font-family: Lato;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9jYWxlbmRhci9hZGRlZGl0ZXZlbnQvQzpcXHByb2dyYW1vd2FuaWVcXGhvbWUwMlxcaG9tZVBhZ2Uvc3JjXFxhcHBcXG1vZHVsZXNcXGNhbGVuZGFyXFxhZGRlZGl0ZXZlbnRcXGFkZGVkaXRldmVudC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvbW9kdWxlcy9jYWxlbmRhci9hZGRlZGl0ZXZlbnQvYWRkZWRpdGV2ZW50LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsaUJBQUE7QUNDRiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvY2FsZW5kYXIvYWRkZWRpdGV2ZW50L2FkZGVkaXRldmVudC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbInAge1xyXG4gIGZvbnQtZmFtaWx5OiBMYXRvO1xyXG59XHJcblxyXG5cclxuIiwicCB7XG4gIGZvbnQtZmFtaWx5OiBMYXRvO1xufSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/modules/calendar/addeditevent/addeditevent.component.ts":
+/*!*************************************************************************!*\
+  !*** ./src/app/modules/calendar/addeditevent/addeditevent.component.ts ***!
+  \*************************************************************************/
+/*! exports provided: AddediteventComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddediteventComponent", function() { return AddediteventComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _shared_services_calendar_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../shared/services/calendar.service */ "./src/app/shared/services/calendar.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+
+
+
+
+
+
+
+let AddediteventComponent = class AddediteventComponent {
+    constructor(dialogRef, toastr, calendar, serv, formBuilder) {
+        this.dialogRef = dialogRef;
+        this.toastr = toastr;
+        this.calendar = calendar;
+        this.serv = serv;
+        this.formBuilder = formBuilder;
+        this.seasons = ['Private', 'Company', 'Entertaiment', 'Others'];
+        this.checked = false;
+        this.timeod = { hour: 8, minute: 18 };
+        this.timedo = { hour: 8, minute: 18 };
+    }
+    ngOnInit() {
+        this.modelod = this.calendar.getToday();
+        this.modeldo = this.calendar.getToday();
+        const date = new Date();
+        const minutes = date.getMinutes();
+        const hourNow = date.getHours();
+        this.timeod = { hour: hourNow, minute: minutes };
+        this.timedo = { hour: hourNow, minute: minutes };
+    }
+    onSave() {
+        if (this.favoriteSeason = "Private") {
+            this.scolor = "{primary:'#e3bc08',  secondary: '#FDF1BA'}";
+        }
+        ;
+        this.sstart = this.modelod.day + "/" + this.modelod.month + "/" + this.modelod.year + " "
+            + this.timeod.hour + ":" + this.timeod.minute + ":" + "00";
+        this.send = this.modeldo.day + "/" + this.modeldo.month + "/" + this.modeldo.year + " " +
+            this.timedo.hour + ":" + this.timedo.minute + ":" + "00";
+        let evzm = { start: this.sstart, end: this.send, title: this.stitle, allDay: this.checked ? "true" : "false",
+            color: this.scolor };
+        this.serv.saveBEvent(evzm).subscribe(data => {
+            this.toastr.success("Saved ", "OK");
+        }, err => {
+            console.log(err);
+        });
+        this.dialogRef.close();
+    }
+    onCloseClick() {
+        this.dialogRef.close();
+    }
+    selectToday() {
+        this.modelod = this.calendar.getToday();
+        this.modeldo = this.calendar.getToday();
+    }
+};
+AddediteventComponent.ctorParameters = () => [
+    { type: _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogRef"] },
+    { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"] },
+    { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__["NgbCalendar"] },
+    { type: _shared_services_calendar_service__WEBPACK_IMPORTED_MODULE_1__["CalendarService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"] }
+];
+AddediteventComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+        selector: "app-addeditevent",
+        template: __webpack_require__(/*! raw-loader!./addeditevent.component.html */ "./node_modules/raw-loader/index.js!./src/app/modules/calendar/addeditevent/addeditevent.component.html"),
+        styles: [__webpack_require__(/*! ./addeditevent.component.scss */ "./src/app/modules/calendar/addeditevent/addeditevent.component.scss")]
+    })
+], AddediteventComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/calendar/calendar.component.scss":
+/*!**********************************************************!*\
+  !*** ./src/app/modules/calendar/calendar.component.scss ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "h3 {\n  margin: 0 0 10px;\n}\n\npre {\n  background-color: #f5f5f5;\n  padding: 15px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9jYWxlbmRhci9DOlxccHJvZ3JhbW93YW5pZVxcaG9tZTAyXFxob21lUGFnZS9zcmNcXGFwcFxcbW9kdWxlc1xcY2FsZW5kYXJcXGNhbGVuZGFyLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9tb2R1bGVzL2NhbGVuZGFyL2NhbGVuZGFyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZ0JBQUE7QUNDRjs7QURFQTtFQUNFLHlCQUFBO0VBQ0EsYUFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvbW9kdWxlcy9jYWxlbmRhci9jYWxlbmRhci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImgzIHtcclxuICBtYXJnaW46IDAgMCAxMHB4O1xyXG59XHJcblxyXG5wcmUge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNmNWY1ZjU7XHJcbiAgcGFkZGluZzogMTVweDtcclxufVxyXG4iLCJoMyB7XG4gIG1hcmdpbjogMCAwIDEwcHg7XG59XG5cbnByZSB7XG4gIGJhY2tncm91bmQtY29sb3I6ICNmNWY1ZjU7XG4gIHBhZGRpbmc6IDE1cHg7XG59Il19 */"
+
+/***/ }),
+
+/***/ "./src/app/modules/calendar/calendar.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/modules/calendar/calendar.component.ts ***!
+  \********************************************************/
+/*! exports provided: CalendarComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CalendarComponent", function() { return CalendarComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _shared_services_calendar_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../shared/services/calendar.service */ "./src/app/shared/services/calendar.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/esm/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
+/* harmony import */ var angular_calendar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! angular-calendar */ "./node_modules/angular-calendar/fesm2015/angular-calendar.js");
+/* harmony import */ var _addeditevent_addeditevent_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./addeditevent/addeditevent.component */ "./src/app/modules/calendar/addeditevent/addeditevent.component.ts");
+/* harmony import */ var _eventslist_eventslist_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./eventslist/eventslist.component */ "./src/app/modules/calendar/eventslist/eventslist.component.ts");
+
+
+
+
+
+
+
+
+
+
+
+const colors = {
+    red: {
+        primary: '#ad2121',
+        secondary: '#FAE3E3'
+    },
+    blue: {
+        primary: '#1e90ff',
+        secondary: '#D1E8FF'
+    },
+    yellow: {
+        primary: '#e3bc08',
+        secondary: '#FDF1BA'
+    }
+};
+let CalendarComponent = class CalendarComponent {
+    constructor(modal, dialogRef, calendarService, dialog) {
+        this.modal = modal;
+        this.dialogRef = dialogRef;
+        this.calendarService = calendarService;
+        this.dialog = dialog;
+        this.view = angular_calendar__WEBPACK_IMPORTED_MODULE_7__["CalendarView"].Month;
+        this.CalendarView = angular_calendar__WEBPACK_IMPORTED_MODULE_7__["CalendarView"];
+        this.viewDate = new Date();
+        this.actions = [
+            {
+                label: '<i class="fa fa-fw fa-pencil"></i>',
+                a11yLabel: 'Edit',
+                onClick: ({ event }) => {
+                    this.handleEvent('Edited', event);
+                }
+            },
+            {
+                label: '<i class="fa fa-fw fa-times"></i>',
+                a11yLabel: 'Delete',
+                onClick: ({ event }) => {
+                    this.events = this.events.filter(iEvent => iEvent !== event);
+                    this.handleEvent('Deleted', event);
+                }
+            }
+        ];
+        this.refresh = new rxjs__WEBPACK_IMPORTED_MODULE_5__["Subject"]();
+        this.activeDayIsOpen = true;
+        this.data = [];
+        this.events = [];
+        this.getAllevents = () => this.calendarService.Getcalendarevents().subscribe(res => {
+            this.data = res;
+            for (var i = 0; i < this.data.length; i++) {
+                this.events.push({
+                    start: Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["parse"])(this.data[i].start, 'd/M/yyyy HH:mm:ss', new Date()),
+                    end: Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["parse"])(this.data[i].end, 'd/M/yyyy HH:mm:ss', new Date()),
+                    title: this.data[i].title,
+                    color: this.data[i].color,
+                    actions: this.actions,
+                    allDay: false,
+                    resizable: this.data[i].resizable,
+                    draggable: true
+                });
+            }
+        });
+    }
+    ngOnInit() {
+        this.getAllevents();
+    }
+    dayClicked({ date, events }) {
+        if (Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["isSameMonth"])(date, this.viewDate)) {
+            if ((Object(date_fns__WEBPACK_IMPORTED_MODULE_4__["isSameDay"])(this.viewDate, date) && this.activeDayIsOpen === true) ||
+                events.length === 0) {
+                this.activeDayIsOpen = false;
+            }
+            else {
+                this.activeDayIsOpen = true;
+            }
+            this.viewDate = date;
+        }
+    }
+    eventTimesChanged({ event, newStart, newEnd }) {
+        this.events = this.events.map(iEvent => {
+            if (iEvent === event) {
+                return Object.assign({}, event, { start: newStart, end: newEnd });
+            }
+            return iEvent;
+        });
+        this.handleEvent('Dropped or resized', event);
+    }
+    handleEvent(action, event) {
+        this.modalData = { event, action };
+        this.modal.open(this.modalContent, { size: 'lg' });
+    }
+    addEvent() {
+        const dialogConfig = new _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogConfig"]();
+        dialogConfig.disableClose = true;
+        dialogConfig.width = "750px";
+        dialogConfig.height = "750px";
+        dialogConfig.autoFocus = true;
+        // dane transportowane do formularza
+        dialogConfig.data = this.data;
+        let dialogRef = this.dialog.open(_addeditevent_addeditevent_component__WEBPACK_IMPORTED_MODULE_8__["AddediteventComponent"], dialogConfig);
+        dialogRef.afterClosed().subscribe(result => {
+            // this.getAllArticles();
+        });
+    }
+    deleteEvent(eventToDelete) {
+        this.events = this.events.filter(event => event !== eventToDelete);
+    }
+    setView(view) {
+        this.view = view;
+    }
+    closeOpenMonthViewDay() {
+        this.activeDayIsOpen = false;
+    }
+    onCloseClick() {
+        this.dialogRef.close();
+    }
+    listEvents() {
+        const dialogConfig = new _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogConfig"]();
+        dialogConfig.disableClose = true;
+        dialogConfig.width = "1100";
+        dialogConfig.height = "800px";
+        dialogConfig.autoFocus = true;
+        // dane transportowane do formularza
+        dialogConfig.data = this.data;
+        let dialogRef = this.dialog.open(_eventslist_eventslist_component__WEBPACK_IMPORTED_MODULE_9__["EventslistComponent"], dialogConfig);
+        dialogRef.afterClosed().subscribe(result => {
+            // this.getAllArticles();
+        });
+    }
+};
+CalendarComponent.ctorParameters = () => [
+    { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__["NgbModal"] },
+    { type: _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogRef"] },
+    { type: _shared_services_calendar_service__WEBPACK_IMPORTED_MODULE_1__["CalendarService"] },
+    { type: _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"] }
+];
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ViewChild"])('modalContent', { static: true })
+], CalendarComponent.prototype, "modalContent", void 0);
+CalendarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+        selector: 'app-calendar',
+        template: __webpack_require__(/*! raw-loader!./calendar.component.html */ "./node_modules/raw-loader/index.js!./src/app/modules/calendar/calendar.component.html"),
+        styles: [__webpack_require__(/*! ./calendar.component.scss */ "./src/app/modules/calendar/calendar.component.scss")]
+    })
+], CalendarComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/calendar/eventslist/eventslist.component.scss":
+/*!***********************************************************************!*\
+  !*** ./src/app/modules/calendar/eventslist/eventslist.component.scss ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "table {\n  width: 100%;\n  overflow-x: auto;\n  overflow-y: hidden;\n}\n\nth.mat-header-cell {\n  text-align: left;\n}\n\ntd, th {\n  white-space: normal;\n  word-wrap: break-word;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9jYWxlbmRhci9ldmVudHNsaXN0L0M6XFxwcm9ncmFtb3dhbmllXFxob21lMDJcXGhvbWVQYWdlL3NyY1xcYXBwXFxtb2R1bGVzXFxjYWxlbmRhclxcZXZlbnRzbGlzdFxcZXZlbnRzbGlzdC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvbW9kdWxlcy9jYWxlbmRhci9ldmVudHNsaXN0L2V2ZW50c2xpc3QuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBRUE7RUFDRSxXQUFBO0VBQ0EsZ0JBQUE7RUFDQSxrQkFBQTtBQ0RGOztBREtBO0VBQ0UsZ0JBQUE7QUNGRjs7QURTQTtFQUNBLG1CQUFBO0VBQ0EscUJBQUE7QUNOQSIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvY2FsZW5kYXIvZXZlbnRzbGlzdC9ldmVudHNsaXN0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXHJcblxyXG50YWJsZSB7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgb3ZlcmZsb3cteDogYXV0bztcclxuICBvdmVyZmxvdy15OiBoaWRkZW47XHJcblxyXG59XHJcblxyXG50aC5tYXQtaGVhZGVyLWNlbGwge1xyXG4gIHRleHQtYWxpZ246IGxlZnQ7XHJcblxyXG59XHJcblxyXG5cclxuXHJcblxyXG50ZCAsIHRoIHtcclxud2hpdGUtc3BhY2U6IG5vcm1hbDtcclxud29yZC13cmFwOiBicmVhay13b3JkO1xyXG59XHJcbiIsInRhYmxlIHtcbiAgd2lkdGg6IDEwMCU7XG4gIG92ZXJmbG93LXg6IGF1dG87XG4gIG92ZXJmbG93LXk6IGhpZGRlbjtcbn1cblxudGgubWF0LWhlYWRlci1jZWxsIHtcbiAgdGV4dC1hbGlnbjogbGVmdDtcbn1cblxudGQsIHRoIHtcbiAgd2hpdGUtc3BhY2U6IG5vcm1hbDtcbiAgd29yZC13cmFwOiBicmVhay13b3JkO1xufSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/modules/calendar/eventslist/eventslist.component.ts":
+/*!*********************************************************************!*\
+  !*** ./src/app/modules/calendar/eventslist/eventslist.component.ts ***!
+  \*********************************************************************/
+/*! exports provided: EventslistComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EventslistComponent", function() { return EventslistComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+/* harmony import */ var src_app_shared_services_calendar_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/calendar.service */ "./src/app/shared/services/calendar.service.ts");
+/* harmony import */ var src_app_shared_services_error_handler_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/error-handler.service */ "./src/app/shared/services/error-handler.service.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+
+
+
+
+
+
+let EventslistComponent = class EventslistComponent {
+    constructor(dialogRef, calendarService, dialog, errorService, toastr) {
+        this.dialogRef = dialogRef;
+        this.calendarService = calendarService;
+        this.dialog = dialog;
+        this.errorService = errorService;
+        this.toastr = toastr;
+        this.displayedColumns = [
+            "id",
+            "start",
+            "end",
+            "title",
+            "actions",
+            "allDay",
+            "draggable",
+            "color",
+            "resizable",
+            "details",
+            "update",
+            "delete"
+        ];
+        this.data = [];
+        this.dataSource = new _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatTableDataSource"]();
+        this.getAllEvents = () => {
+            this.calendarService.getEventsToList().subscribe(res => {
+                this.dataSource.data = res;
+                this.data = res;
+                console.table(this.data);
+            }, error => {
+                this.errorService.handleError(error);
+            });
+        };
+        this.doFilter = (value) => {
+            this.dataSource.filter = value.trim().toLocaleLowerCase();
+        };
+    }
+    ngOnInit() {
+        this.getAllEvents();
+    }
+    onCloseClick() {
+        this.dialogRef.close();
+    }
+    ngAfterViewInit() {
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+    }
+    onaddNewClick() {
+    }
+};
+EventslistComponent.ctorParameters = () => [
+    { type: _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"] },
+    { type: src_app_shared_services_calendar_service__WEBPACK_IMPORTED_MODULE_3__["CalendarService"] },
+    { type: _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
+    { type: src_app_shared_services_error_handler_service__WEBPACK_IMPORTED_MODULE_4__["ErrorHandlerService"] },
+    { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"] }
+];
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"], { static: false })
+], EventslistComponent.prototype, "sort", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"], { static: false })
+], EventslistComponent.prototype, "paginator", void 0);
+EventslistComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-eventslist',
+        template: __webpack_require__(/*! raw-loader!./eventslist.component.html */ "./node_modules/raw-loader/index.js!./src/app/modules/calendar/eventslist/eventslist.component.html"),
+        styles: [__webpack_require__(/*! ./eventslist.component.scss */ "./src/app/modules/calendar/eventslist/eventslist.component.scss")]
+    })
+], EventslistComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/modules/dashboard.service.ts":
 /*!**********************************************!*\
   !*** ./src/app/modules/dashboard.service.ts ***!
@@ -1420,6 +1922,71 @@ DashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [__webpack_require__(/*! ./dashboard.component.scss */ "./src/app/modules/dashboard/dashboard.component.scss")]
     })
 ], DashboardComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/fullcalendar/fullcalendar.component.scss":
+/*!******************************************************************!*\
+  !*** ./src/app/modules/fullcalendar/fullcalendar.component.scss ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".app-top {\n  margin: 0 0 3em;\n}\n\n.app-calendar {\n  margin: 0 auto;\n  max-width: 900px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9mdWxsY2FsZW5kYXIvQzpcXHByb2dyYW1vd2FuaWVcXGhvbWUwMlxcaG9tZVBhZ2Uvc3JjXFxhcHBcXG1vZHVsZXNcXGZ1bGxjYWxlbmRhclxcZnVsbGNhbGVuZGFyLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9tb2R1bGVzL2Z1bGxjYWxlbmRhci9mdWxsY2FsZW5kYXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0E7RUFDRSxlQUFBO0FDQUY7O0FER0E7RUFDRSxjQUFBO0VBQ0EsZ0JBQUE7QUNBRiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvZnVsbGNhbGVuZGFyL2Z1bGxjYWxlbmRhci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG4uYXBwLXRvcCB7XHJcbiAgbWFyZ2luOiAwIDAgM2VtO1xyXG59XHJcblxyXG4uYXBwLWNhbGVuZGFyIHtcclxuICBtYXJnaW46IDAgYXV0bztcclxuICBtYXgtd2lkdGg6IDkwMHB4O1xyXG59XHJcbiIsIi5hcHAtdG9wIHtcbiAgbWFyZ2luOiAwIDAgM2VtO1xufVxuXG4uYXBwLWNhbGVuZGFyIHtcbiAgbWFyZ2luOiAwIGF1dG87XG4gIG1heC13aWR0aDogOTAwcHg7XG59Il19 */"
+
+/***/ }),
+
+/***/ "./src/app/modules/fullcalendar/fullcalendar.component.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/modules/fullcalendar/fullcalendar.component.ts ***!
+  \****************************************************************/
+/*! exports provided: FullcalendarComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FullcalendarComponent", function() { return FullcalendarComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+
+
+
+let FullcalendarComponent = class FullcalendarComponent {
+    constructor(dialogRef) {
+        this.dialogRef = dialogRef;
+        this.data = [
+            { name: 'therichpost', email: 'therichpost@gmail.com', website: 'therichpost.com' },
+            { name: 'therichpost', email: 'therichpost@gmail.com', website: 'therichpost.com' },
+            { name: 'therichpost', email: 'therichpost@gmail.com', website: 'therichpost.com' },
+            { name: 'therichpost', email: 'therichpost@gmail.com', website: 'therichpost.com' },
+        ];
+        this.title = 'angulardatatables';
+        this.dtOptions = {};
+    }
+    ngOnInit() {
+        this.dtOptions = {
+            pagingType: 'full_numbers',
+            pageLength: 5,
+            processing: true
+        };
+    }
+    onCloseClick() {
+        this.dialogRef.close();
+    }
+};
+FullcalendarComponent.ctorParameters = () => [
+    { type: _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"] }
+];
+FullcalendarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-fullcalendar',
+        template: __webpack_require__(/*! raw-loader!./fullcalendar.component.html */ "./node_modules/raw-loader/index.js!./src/app/modules/fullcalendar/fullcalendar.component.html"),
+        styles: [__webpack_require__(/*! ./fullcalendar.component.scss */ "./src/app/modules/fullcalendar/fullcalendar.component.scss")]
+    })
+], FullcalendarComponent);
 
 
 
@@ -1729,12 +2296,16 @@ module.exports = "ul li {\n  list-style: none;\n}\n\n.logo {\n  color: #fff;\n  
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../services/auth.service */ "./src/app/shared/services/auth.service.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
-/* harmony import */ var src_app_modules_articlelist_articlelist_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/modules/articlelist/articlelist.component */ "./src/app/modules/articlelist/articlelist.component.ts");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../login/login.component */ "./src/app/shared/login/login.component.ts");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+/* harmony import */ var _modules_calendar_calendar_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../modules/calendar/calendar.component */ "./src/app/modules/calendar/calendar.component.ts");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../services/auth.service */ "./src/app/shared/services/auth.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+/* harmony import */ var src_app_modules_articlelist_articlelist_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/modules/articlelist/articlelist.component */ "./src/app/modules/articlelist/articlelist.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../login/login.component */ "./src/app/shared/login/login.component.ts");
+/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+/* harmony import */ var src_app_modules_fullcalendar_fullcalendar_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/modules/fullcalendar/fullcalendar.component */ "./src/app/modules/fullcalendar/fullcalendar.component.ts");
+
+
 
 
 
@@ -1747,7 +2318,7 @@ let HeaderComponent = class HeaderComponent {
         this.dialog = dialog;
         this.aut = aut;
         this.toastr = toastr;
-        this.toggleSideBarForMe = new _angular_core__WEBPACK_IMPORTED_MODULE_2__["EventEmitter"]();
+        this.toggleSideBarForMe = new _angular_core__WEBPACK_IMPORTED_MODULE_3__["EventEmitter"]();
         this.userName = '';
     }
     ngOnInit() {
@@ -1762,28 +2333,28 @@ let HeaderComponent = class HeaderComponent {
     articleList() {
         //    console.log(" srticle list " + this.aut.canActivate());
         if (this.aut.canActivate() === true) {
-            const dialogConfig = new _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogConfig"]();
+            const dialogConfig = new _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialogConfig"]();
             dialogConfig.disableClose = true;
             dialogConfig.width = "1200px";
             dialogConfig.height = "700px";
             dialogConfig.autoFocus = true;
             // dane transportowane do formularza
             // dialogConfig.data = this.data;
-            this.dialog.open(src_app_modules_articlelist_articlelist_component__WEBPACK_IMPORTED_MODULE_4__["ArticlelistComponent"], dialogConfig);
+            this.dialog.open(src_app_modules_articlelist_articlelist_component__WEBPACK_IMPORTED_MODULE_5__["ArticlelistComponent"], dialogConfig);
         }
         else {
             this.toastr.error("Not logged in ", "OK");
         }
     }
     login() {
-        const dialogConfig = new _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialogConfig"]();
+        const dialogConfig = new _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialogConfig"]();
         dialogConfig.disableClose = true;
         dialogConfig.width = "500px";
         dialogConfig.height = "400px";
         dialogConfig.autoFocus = true;
         // dane transportowane do formularza
         // dialogConfig.data = this.data;
-        let dialogRef = this.dialog.open(_login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"], dialogConfig);
+        let dialogRef = this.dialog.open(_login_login_component__WEBPACK_IMPORTED_MODULE_6__["LoginComponent"], dialogConfig);
         dialogRef.afterClosed().subscribe(result => this.userName = this.aut.loggedname());
     }
     help() {
@@ -1794,17 +2365,37 @@ let HeaderComponent = class HeaderComponent {
         localStorage.removeItem("currentUser");
         this.userName = this.aut.loggedname();
     }
+    calendar() {
+        const dialogConfig = new _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialogConfig"]();
+        dialogConfig.disableClose = true;
+        dialogConfig.width = "1000px";
+        dialogConfig.height = "800px";
+        dialogConfig.autoFocus = true;
+        // dane transportowane do formularza
+        // dialogConfig.data = this.data;
+        let dialogRef = this.dialog.open(_modules_calendar_calendar_component__WEBPACK_IMPORTED_MODULE_1__["CalendarComponent"], dialogConfig);
+    }
+    fullcalendar() {
+        const dialogConfig = new _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialogConfig"]();
+        dialogConfig.disableClose = true;
+        dialogConfig.width = "1000px";
+        dialogConfig.height = "800px";
+        dialogConfig.autoFocus = true;
+        // dane transportowane do formularza
+        // dialogConfig.data = this.data;
+        let dialogRef = this.dialog.open(src_app_modules_fullcalendar_fullcalendar_component__WEBPACK_IMPORTED_MODULE_8__["FullcalendarComponent"], dialogConfig);
+    }
 };
 HeaderComponent.ctorParameters = () => [
-    { type: _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"] },
-    { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"] },
-    { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_6__["ToastrService"] }
+    { type: _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialog"] },
+    { type: _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] },
+    { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_7__["ToastrService"] }
 ];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Output"])()
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Output"])()
 ], HeaderComponent.prototype, "toggleSideBarForMe", void 0);
 HeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
         selector: "app-header",
         template: __webpack_require__(/*! raw-loader!./header.component.html */ "./node_modules/raw-loader/index.js!./src/app/shared/components/header/header.component.html"),
         styles: [__webpack_require__(/*! ./header.component.scss */ "./src/app/shared/components/header/header.component.scss")]
@@ -1852,6 +2443,55 @@ SidebarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [__webpack_require__(/*! ./sidebar.component.scss */ "./src/app/shared/components/sidebar/sidebar.component.scss")]
     })
 ], SidebarComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/components/testlayout/testlayout.component.scss":
+/*!************************************************************************!*\
+  !*** ./src/app/shared/components/testlayout/testlayout.component.scss ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".grid-container {\n  margin: 20px;\n}\n\n.dashboard-card {\n  position: absolute;\n  top: 15px;\n  left: 15px;\n  right: 15px;\n  bottom: 15px;\n}\n\n.more-button {\n  position: absolute;\n  top: 5px;\n  right: 10px;\n}\n\n.dashboard-card-content {\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2hhcmVkL2NvbXBvbmVudHMvdGVzdGxheW91dC9DOlxccHJvZ3JhbW93YW5pZVxcaG9tZTAyXFxob21lUGFnZS9zcmNcXGFwcFxcc2hhcmVkXFxjb21wb25lbnRzXFx0ZXN0bGF5b3V0XFx0ZXN0bGF5b3V0LmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9zaGFyZWQvY29tcG9uZW50cy90ZXN0bGF5b3V0L3Rlc3RsYXlvdXQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxZQUFBO0FDQ0Y7O0FESUE7RUFDRSxrQkFBQTtFQUNBLFNBQUE7RUFDQSxVQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7QUNERjs7QURNQTtFQUNFLGtCQUFBO0VBQ0EsUUFBQTtFQUNBLFdBQUE7QUNIRjs7QURRQTtFQUNFLGtCQUFBO0FDTEYiLCJmaWxlIjoic3JjL2FwcC9zaGFyZWQvY29tcG9uZW50cy90ZXN0bGF5b3V0L3Rlc3RsYXlvdXQuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZ3JpZC1jb250YWluZXIge1xyXG4gIG1hcmdpbjogMjBweDtcclxufVxyXG5cclxuXHJcblxyXG4uZGFzaGJvYXJkLWNhcmQge1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICB0b3A6IDE1cHg7XHJcbiAgbGVmdDogMTVweDtcclxuICByaWdodDogMTVweDtcclxuICBib3R0b206IDE1cHg7XHJcbn1cclxuXHJcblxyXG5cclxuLm1vcmUtYnV0dG9uIHtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgdG9wOiA1cHg7XHJcbiAgcmlnaHQ6IDEwcHg7XHJcbn1cclxuXHJcblxyXG5cclxuLmRhc2hib2FyZC1jYXJkLWNvbnRlbnQge1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4iLCIuZ3JpZC1jb250YWluZXIge1xuICBtYXJnaW46IDIwcHg7XG59XG5cbi5kYXNoYm9hcmQtY2FyZCB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgdG9wOiAxNXB4O1xuICBsZWZ0OiAxNXB4O1xuICByaWdodDogMTVweDtcbiAgYm90dG9tOiAxNXB4O1xufVxuXG4ubW9yZS1idXR0b24ge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHRvcDogNXB4O1xuICByaWdodDogMTBweDtcbn1cblxuLmRhc2hib2FyZC1jYXJkLWNvbnRlbnQge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59Il19 */"
+
+/***/ }),
+
+/***/ "./src/app/shared/components/testlayout/testlayout.component.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/shared/components/testlayout/testlayout.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: TestlayoutComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TestlayoutComponent", function() { return TestlayoutComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let TestlayoutComponent = class TestlayoutComponent {
+    constructor() {
+        this.cards = [
+            { title: 'Card 1', cols: 2, rows: 1 },
+            { title: 'Card 2', cols: 1, rows: 1 },
+            { title: 'Card 3', cols: 1, rows: 2 },
+            { title: 'Card 4', cols: 1, rows: 1 }
+        ];
+    }
+    ngOnInit() {
+    }
+};
+TestlayoutComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-testlayout',
+        template: __webpack_require__(/*! raw-loader!./testlayout.component.html */ "./node_modules/raw-loader/index.js!./src/app/shared/components/testlayout/testlayout.component.html"),
+        styles: [__webpack_require__(/*! ./testlayout.component.scss */ "./src/app/shared/components/testlayout/testlayout.component.scss")]
+    })
+], TestlayoutComponent);
 
 
 
@@ -2077,6 +2717,87 @@ BlogPostService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/shared/services/calendar.service.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/shared/services/calendar.service.ts ***!
+  \*****************************************************/
+/*! exports provided: CalendarService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CalendarService", function() { return CalendarService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
+
+
+let CalendarService = class CalendarService {
+    constructor(http) {
+        this.http = http;
+        this.urlAddress = ".";
+        this.httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                'Content-Type': 'application/json; charset=utf-8'
+            })
+        };
+        this.getEventsToList = () => {
+            return this.http.get(this.urlAddress + '/api/calendar/');
+        };
+    }
+    Getcalendarevents() {
+        return this.http.get(this.urlAddress + '/api/calendar/')
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.errorHandl));
+    }
+    errorHandl(error) {
+        let errorMessage = '';
+        if (error.error instanceof ErrorEvent) {
+            // Get client-side error
+            errorMessage = error.error.message;
+        }
+        else {
+            // Get server-side error
+            errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+        }
+        console.log(errorMessage);
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(errorMessage);
+    }
+    saveBEvent(calEvent) {
+        return this.http.post(this.urlAddress + '/api/calendar/', JSON.stringify(calEvent), this.httpOptions)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.errorHandler));
+    }
+    errorHandler(error) {
+        let errorMessage = '';
+        if (error.error instanceof ErrorEvent) {
+            // Get client-side error
+            errorMessage = error.error.message;
+        }
+        else {
+            // Get server-side error
+            errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+        }
+        console.log(errorMessage);
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(errorMessage);
+    }
+};
+CalendarService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+CalendarService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], CalendarService);
+
+
+
+/***/ }),
+
 /***/ "./src/app/shared/services/error-handler.service.ts":
 /*!**********************************************************!*\
   !*** ./src/app/shared/services/error-handler.service.ts ***!
@@ -2261,7 +2982,7 @@ SharedModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _components_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_8__["SidebarComponent"],
             _widgets_area_area_component__WEBPACK_IMPORTED_MODULE_9__["AreaComponent"],
             _widgets_card_card_component__WEBPACK_IMPORTED_MODULE_11__["CardComponent"],
-            _widgets_pie_pie_component__WEBPACK_IMPORTED_MODULE_12__["PieComponent"],
+            _widgets_pie_pie_component__WEBPACK_IMPORTED_MODULE_12__["PieComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],

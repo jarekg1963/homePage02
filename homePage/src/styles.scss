@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
-
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';
 // regular style toast
 @import '~ngx-toastr/toastr';
 
@@ -8,7 +9,11 @@
 // or import a bootstrap 4 alert styled design (SASS ONLY)
 // should be after your bootstrap imports, it uses bs4 variables, mixins, functions
 
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
 
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+
+@import "~ng-pick-datetime/assets/style/picker.min.css";
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

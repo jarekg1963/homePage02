@@ -41,7 +41,7 @@ export class BlogPostAddEditComponent implements OnInit {
         body: ['', [Validators.required]],
         creator: ['', [Validators.required]]
       }
-    )
+    );
   }
 
   ngOnInit() {

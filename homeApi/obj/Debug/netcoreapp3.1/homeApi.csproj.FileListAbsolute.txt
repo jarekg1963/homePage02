@@ -27,10 +27,14 @@ C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Log
 C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
 C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
 C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
 C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\SQLitePCLRaw.batteries_v2.dll
 C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\SQLitePCLRaw.nativelibrary.dll
 C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\SQLitePCLRaw.core.dll
 C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\SQLitePCLRaw.provider.dynamic_cdecl.dll
+C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\runtimes\alpine-x64\native\libe_sqlite3.so
 C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\runtimes\linux-arm\native\libe_sqlite3.so
 C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\runtimes\linux-arm64\native\libe_sqlite3.so
@@ -46,6 +50,7 @@ C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\
 C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\homeApi.csprojAssemblyReference.cache
 C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\staticwebassets\homeApi.StaticWebAssets.Manifest.cache
 C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\staticwebassets\homeApi.StaticWebAssets.xml
+C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\homeApi.MvcApplicationPartsAssemblyInfo.cs
 C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\homeApi.MvcApplicationPartsAssemblyInfo.cache
 C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\homeApi.AssemblyInfoInputs.cache
 C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\homeApi.AssemblyInfo.cs
@@ -53,8 +58,3 @@ C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\homeApi.RazorTargetAssem
 C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\homeApi.csproj.CopyComplete
 C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\homeApi.dll
 C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\homeApi.pdb
-C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
-C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
-C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\homeApi.MvcApplicationPartsAssemblyInfo.cs

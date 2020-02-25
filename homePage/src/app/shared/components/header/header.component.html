@@ -1,3 +1,5 @@
+
+
 <mat-toolbar color="primary">
     <mat-toolbar-row>
         <button mat-icon-button (click)="toggleSideBar()">
@@ -16,10 +18,7 @@
         <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
           <p> {{ userName }} </p>
           <ul fxLayout="row" fxLayoutGap="20px">
-
               <li>
-
-
                     <button mat-button [matMenuTriggerFor]="menuS">
                       <mat-icon>settings</mat-icon>
                   </button>
@@ -32,6 +31,17 @@
                         <mat-icon>toc</mat-icon>
                         Pages
                     </button>
+
+                    <button mat-menu-item (click)="calendar()">
+                      <mat-icon>toc</mat-icon>
+                      Calendar
+                  </button>
+
+
+                  <button mat-menu-item (click)="fullcalendar()">
+                    <mat-icon>toc</mat-icon>
+                 Projects
+                </button>
 
                   </mat-menu>
                 </li>
