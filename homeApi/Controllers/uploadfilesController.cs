@@ -1,5 +1,6 @@
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace homeApi.Controllers
     [Route("api/[controller]")]
     public class uploadfilesController : ControllerBase
     {
-        private readonly string[] ACCEPTED_FILE_TYPES = new[] { ".jpg", ".jpeg", ".png" , ".pdf"};
+        private readonly string[] ACCEPTED_FILE_TYPES = new[] { ".jpg", ".jpeg", ".png", ".pdf" };
         private readonly IWebHostEnvironment host;
         private readonly linkContext context;
 
@@ -67,8 +68,29 @@ namespace homeApi.Controllers
 
         }
 
+        [HttpGet]
+        public IEnumerable<file> GetFiles()
+        {
+            return context.files.OrderByDescending(p => p.id);
+        }
 
 
+
+        [HttpGet("{id}")]
+        public IEnumerable<file> GetFiles(int id)
+        {
+            return context.files.Where(d => d.idPostu == id);
+
+        }
+
+
+        [HttpGet("getOneFile/{id}")]
+      
+        public IActionResult getOneFile(int id)
+        {
+            var response = context.files.FirstOrDefault(d => d.id == id);
+            return Ok(response);
+        }
 
     }
 }

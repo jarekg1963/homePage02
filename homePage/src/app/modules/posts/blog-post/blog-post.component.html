@@ -1,7 +1,7 @@
 <mat-card>
 <ng-container *ngIf="(blogPost$ | async) as blogPost; else loading">
   <mat-card-title>
-  <h1>{{ blogPost.title }}</h1>
+  <h1>{{ blogPost.title }}  | {{ postId }}</h1>
 </mat-card-title>
 <mat-card-content>
   <div>{{ blogPost.body }}</div>
@@ -18,3 +18,7 @@
 
 <ng-template #loading>Loading…</ng-template>
 </mat-card>
+
+<mat-card>
+  <app-documents [idPostu]="postId"></app-documents>
+  </mat-card>

@@ -32,6 +32,7 @@ import { TestlayoutComponent } from './shared/components/testlayout/testlayout.c
 
 import {DataTablesModule} from 'angular-datatables';
 import { ProjectsComponent } from './modules/projects/projects.component';
+import { DocumentsComponent } from './modules/posts/documents/documents.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { ProjectsComponent } from './modules/projects/projects.component';
  EventslistComponent,
  TestlayoutComponent,
  ProjectsComponent,
+ DocumentsComponent,
 
 
   ],

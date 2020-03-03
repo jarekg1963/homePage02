@@ -162,7 +162,7 @@ module.exports = "<div>\n    <app-widget-area [data]=\"bigChart\"></app-widget-a
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<h1>{{actionType}} blog post</h1>\n<form [formGroup]=\"form\" (ngSubmit)=\"save()\" #formDir=\"ngForm\" novalidate>\n  <mat-card>\n    <mat-card-title>\n  <div class=\"form-group row\">\n    <label class=\" control-label col-md-12\">Title</label>\n    <div class=\"col-md-12\">\n      <input class=\"form-control\" type=\"text\" formControlName=\"title\">\n    </div>\n    <span class=\"text-danger ml-3\" *ngIf=\"title.invalid && formDir.submitted\">\n      Title is required.\n    </span>\n  </div>\n</mat-card-title>\n<mat-card-subtitle>\n  <div class=\"form-group row\">\n    <label class=\" control-label col-md-12\">Subject</label>\n    <div class=\"col-md-12\">\n      <input class=\"form-control\" type=\"text\" formControlName=\"creator\">\n    </div>\n    <span class=\"text-danger ml-3\" *ngIf=\"creator.invalid && formDir.submitted\">\n      Subject is required.\n    </span>\n  </div>\n</mat-card-subtitle>\n<mat-card-content>\n  <div class=\"form-group row\">\n    <label class=\"control-label col-md-12\" for=\"Body\">Body text</label>\n    <div class=\"col-md-12\">\n      <textarea class=\"form-control\" rows=\"15\" formControlName=\"body\"></textarea>\n    </div>\n    <span class=\"text-danger ml-3\" *ngIf=\"body.invalid && formDir.submitted\">\n      Body is required.\n    </span>\n  </div>\n</mat-card-content>\n<mat-card-actions>\n\n    <button type=\"submit\" class=\"btn btn-success float-right\">Save</button>\n    <button class=\"btn btn-secondary float-left\" (click)=\"cancel()\">Cancel</button>\n\n</mat-card-actions>\n</mat-card>\n</form>\n\n"
+module.exports = "\n<h1>{{actionType}} blog post</h1>\n<form [formGroup]=\"form\" (ngSubmit)=\"save()\" #formDir=\"ngForm\" novalidate>\n  <mat-card>\n    <mat-card-title>\n  <div class=\"form-group row\">\n    <label class=\" control-label col-md-12\">Title</label>\n    <div class=\"col-md-12\">\n      <input class=\"form-control\" type=\"text\" formControlName=\"title\">\n    </div>\n    <span class=\"text-danger ml-3\" *ngIf=\"title.invalid && formDir.submitted\">\n      Title is required.\n    </span>\n  </div>\n</mat-card-title>\n<mat-card-subtitle>\n  <div class=\"form-group row\">\n    <label class=\" control-label col-md-12\">Subject</label>\n    <div class=\"col-md-12\">\n      <input class=\"form-control\" type=\"text\" formControlName=\"creator\">\n    </div>\n    <span class=\"text-danger ml-3\" *ngIf=\"creator.invalid && formDir.submitted\">\n      Subject is required.\n    </span>\n  </div>\n</mat-card-subtitle>\n<mat-card-content>\n  <div class=\"form-group row\">\n    <label class=\"control-label col-md-12\" for=\"Body\">Body text</label>\n    <div class=\"col-md-12\">\n      <textarea class=\"form-control\" rows=\"15\" formControlName=\"body\"></textarea>\n    </div>\n    <span class=\"text-danger ml-3\" *ngIf=\"body.invalid && formDir.submitted\">\n      Body is required.\n    </span>\n  </div>\n</mat-card-content>\n<mat-card-actions>\n\n    <button type=\"submit\" class=\"btn btn-success float-right\">Save</button>\n    <button class=\"btn btn-secondary float-left\" (click)=\"cancel()\">Cancel</button>\n\n</mat-card-actions>\n</mat-card>\n\n\n</form>\n\n"
 
 /***/ }),
 
@@ -173,7 +173,18 @@ module.exports = "\n<h1>{{actionType}} blog post</h1>\n<form [formGroup]=\"form\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card>\n<ng-container *ngIf=\"(blogPost$ | async) as blogPost; else loading\">\n  <mat-card-title>\n  <h1>{{ blogPost.title }}</h1>\n</mat-card-title>\n<mat-card-content>\n  <div>{{ blogPost.body }}</div>\n</mat-card-content>\n<hr>\n<mat-card-footer>\n\n  <ul>\n    <li>{{ blogPost.creator }}</li>\n    <li>{{ blogPost.dt }}</li>\n  </ul>\n</mat-card-footer>\n</ng-container>\n\n<ng-template #loading>Loading…</ng-template>\n</mat-card>\n"
+module.exports = "<mat-card>\n<ng-container *ngIf=\"(blogPost$ | async) as blogPost; else loading\">\n  <mat-card-title>\n  <h1>{{ blogPost.title }}  | {{ postId }}</h1>\n</mat-card-title>\n<mat-card-content>\n  <div>{{ blogPost.body }}</div>\n</mat-card-content>\n<hr>\n<mat-card-footer>\n\n  <ul>\n    <li>{{ blogPost.creator }}</li>\n    <li>{{ blogPost.dt }}</li>\n  </ul>\n</mat-card-footer>\n</ng-container>\n\n<ng-template #loading>Loading…</ng-template>\n</mat-card>\n\n<mat-card>\n  <app-documents [idPostu]=\"postId\"></app-documents>\n  </mat-card>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/modules/posts/documents/documents.component.html":
+/*!********************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/modules/posts/documents/documents.component.html ***!
+  \********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>documents works!</p>\n{{ idPostu }}\n"
 
 /***/ }),
 
@@ -465,6 +476,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_components_testlayout_testlayout_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./shared/components/testlayout/testlayout.component */ "./src/app/shared/components/testlayout/testlayout.component.ts");
 /* harmony import */ var angular_datatables__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! angular-datatables */ "./node_modules/angular-datatables/index.js");
 /* harmony import */ var _modules_projects_projects_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./modules/projects/projects.component */ "./src/app/modules/projects/projects.component.ts");
+/* harmony import */ var _modules_posts_documents_documents_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./modules/posts/documents/documents.component */ "./src/app/modules/posts/documents/documents.component.ts");
+
 
 
 
@@ -520,6 +533,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _modules_calendar_eventslist_eventslist_component__WEBPACK_IMPORTED_MODULE_30__["EventslistComponent"],
             _shared_components_testlayout_testlayout_component__WEBPACK_IMPORTED_MODULE_31__["TestlayoutComponent"],
             _modules_projects_projects_component__WEBPACK_IMPORTED_MODULE_33__["ProjectsComponent"],
+            _modules_posts_documents_documents_component__WEBPACK_IMPORTED_MODULE_34__["DocumentsComponent"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
@@ -2103,6 +2117,51 @@ BlogPostComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [__webpack_require__(/*! ./blog-post.component.scss */ "./src/app/modules/posts/blog-post/blog-post.component.scss")]
     })
 ], BlogPostComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/posts/documents/documents.component.scss":
+/*!******************************************************************!*\
+  !*** ./src/app/modules/posts/documents/documents.component.scss ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvcG9zdHMvZG9jdW1lbnRzL2RvY3VtZW50cy5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/modules/posts/documents/documents.component.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/modules/posts/documents/documents.component.ts ***!
+  \****************************************************************/
+/*! exports provided: DocumentsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocumentsComponent", function() { return DocumentsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let DocumentsComponent = class DocumentsComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], DocumentsComponent.prototype, "idPostu", void 0);
+DocumentsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-documents',
+        template: __webpack_require__(/*! raw-loader!./documents.component.html */ "./node_modules/raw-loader/index.js!./src/app/modules/posts/documents/documents.component.html"),
+        styles: [__webpack_require__(/*! ./documents.component.scss */ "./src/app/modules/posts/documents/documents.component.scss")]
+    })
+], DocumentsComponent);
 
 
 
