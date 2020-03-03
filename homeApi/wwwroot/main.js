@@ -155,17 +155,6 @@ module.exports = "<div>\n    <app-widget-area [data]=\"bigChart\"></app-widget-a
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/index.js!./src/app/modules/fullcalendar/fullcalendar.component.html":
-/*!********************************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/modules/fullcalendar/fullcalendar.component.html ***!
-  \********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<p>fullcalendar works!</p>\n\n<table class=\"table table-striped table-bordered table-sm row-border hover\" datatable [dtOptions]=\"dtOptions\">\n  <thead>\n    <tr>\n      <th>Name</th>\n      <th>Email</th>\n      <th>Website</th>\n    </tr>\n  </thead>\n  <tbody>\n   <tr *ngFor=\"let group of data\">\n         <td>{{group.name}}</td>\n         <td>{{group.email}}</td>\n         <td>{{group.website}}</td>\n     </tr>\n  </tbody>\n</table>\n<button class=\"btn btn-primary pull-right\"  (click)=\"onCloseClick()\">Close</button>\n"
-
-/***/ }),
-
 /***/ "./node_modules/raw-loader/index.js!./src/app/modules/posts/blog-post-add-edit/blog-post-add-edit.component.html":
 /*!**************************************************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/modules/posts/blog-post-add-edit/blog-post-add-edit.component.html ***!
@@ -199,6 +188,17 @@ module.exports = "<h1>Blog posts</h1>\n\n<mat-card>\n<p *ngIf=\"!(blogPosts$ | a
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/modules/projects/projects.component.html":
+/*!************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/modules/projects/projects.component.html ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>projects works!</p>\n\n\n"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/shared/components/footer/footer.component.html":
 /*!******************************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/shared/components/footer/footer.component.html ***!
@@ -217,7 +217,7 @@ module.exports = "<mat-divider></mat-divider>\n<footer>\n    &copy; All rights r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n\n<mat-toolbar color=\"primary\">\n    <mat-toolbar-row>\n        <button mat-icon-button (click)=\"toggleSideBar()\">\n            <mat-icon>menu</mat-icon>\n        </button>\n\n        <span>\n\n\n  <a class=\"navbar-brand\" href=\"#\">\n    <span class=\"logo logo-left\">J</span>\n    <span class=\"logo logo-right\">G</span>\n  </a>\n        </span>\n\n        <div fxFlex fxLayout=\"row\" fxLayoutAlign=\"flex-end\">\n          <p> {{ userName }} </p>\n          <ul fxLayout=\"row\" fxLayoutGap=\"20px\">\n              <li>\n                    <button mat-button [matMenuTriggerFor]=\"menuS\">\n                      <mat-icon>settings</mat-icon>\n                  </button>\n                  <mat-menu #menuS=\"matMenu\">\n                      <button mat-menu-item (click)=\"articleList()\">\n                          <mat-icon>list</mat-icon>\n                          Aricles\n                      </button>\n                      <button mat-menu-item>\n                        <mat-icon>toc</mat-icon>\n                        Pages\n                    </button>\n\n                    <button mat-menu-item (click)=\"calendar()\">\n                      <mat-icon>toc</mat-icon>\n                      Calendar\n                  </button>\n\n\n                  <button mat-menu-item (click)=\"fullcalendar()\">\n                    <mat-icon>toc</mat-icon>\n                 Projects\n                </button>\n\n                  </mat-menu>\n                </li>\n                <li>\n                    <button mat-icon-button (click)=\"help()\">\n                        <mat-icon>help_outline</mat-icon>\n                    </button>\n                </li>\n                <li>\n                    <button mat-button [matMenuTriggerFor]=\"menu\">\n                        <mat-icon>person_outline</mat-icon>\n                    </button>\n                    <mat-menu #menu=\"matMenu\">\n                      <button mat-menu-item (click)=\"login()\">\n                        <mat-icon>input</mat-icon>\n                        login\n                    </button>\n                      <button mat-menu-item (click)=\"logout()\">\n                            <mat-icon>backspace</mat-icon>\n                            Sign out\n                        </button>\n\n                    </mat-menu>\n\n                </li>\n            </ul>\n        </div>\n    </mat-toolbar-row>\n</mat-toolbar>\n"
+module.exports = "\n\n<mat-toolbar color=\"primary\">\n    <mat-toolbar-row>\n        <button mat-icon-button (click)=\"toggleSideBar()\">\n            <mat-icon>menu</mat-icon>\n        </button>\n\n        <span>\n\n\n  <a class=\"navbar-brand\" href=\"#\">\n    <span class=\"logo logo-left\">J</span>\n    <span class=\"logo logo-right\">G</span>\n  </a>\n        </span>\n\n        <div fxFlex fxLayout=\"row\" fxLayoutAlign=\"flex-end\">\n          <p> {{ userName }} </p>\n          <ul fxLayout=\"row\" fxLayoutGap=\"20px\">\n              <li>\n                    <button mat-button [matMenuTriggerFor]=\"menuS\">\n                      <mat-icon>settings</mat-icon>\n                  </button>\n                  <mat-menu #menuS=\"matMenu\">\n                      <button mat-menu-item (click)=\"articleList()\">\n                          <mat-icon>list</mat-icon>\n                          Aricles\n                      </button>\n                      <button mat-menu-item>\n                        <mat-icon>toc</mat-icon>\n                        Pages\n                    </button>\n\n                    <button mat-menu-item (click)=\"calendar()\">\n                      <mat-icon>toc</mat-icon>\n                      Calendar\n                  </button>\n\n\n\n                  </mat-menu>\n                </li>\n                <li>\n                    <button mat-icon-button (click)=\"help()\">\n                        <mat-icon>help_outline</mat-icon>\n                    </button>\n                </li>\n                <li>\n                    <button mat-button [matMenuTriggerFor]=\"menu\">\n                        <mat-icon>person_outline</mat-icon>\n                    </button>\n                    <mat-menu #menu=\"matMenu\">\n                      <button mat-menu-item (click)=\"login()\">\n                        <mat-icon>input</mat-icon>\n                        login\n                    </button>\n                      <button mat-menu-item (click)=\"logout()\">\n                            <mat-icon>backspace</mat-icon>\n                            Sign out\n                        </button>\n\n                    </mat-menu>\n\n                </li>\n            </ul>\n        </div>\n    </mat-toolbar-row>\n</mat-toolbar>\n"
 
 /***/ }),
 
@@ -228,7 +228,7 @@ module.exports = "\n\n<mat-toolbar color=\"primary\">\n    <mat-toolbar-row>\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-nav-list>\n    <div class=\"profile-card\">\n        <div class=\"header\">\n            <h2>JG</h2>\n            <h4>jarekg@test.com.pl</h4>\n        </div>\n        <img  src=\"assets/jg.jpg\" alt=\"image\">\n    </div>\n\n    <mat-divider></mat-divider>\n\n    <h2 matSubheader>Pages</h2>\n\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/\">Dashboard</a>\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/posts\">Posts</a>\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/articles\">Articles</a>\n\n    <mat-divider></mat-divider>\n\n    <h2 matSubheader>Tools</h2>\n\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/contacts\">\n        <mat-icon>import_contacts</mat-icon>\n        Contacts\n    </a>\n\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/contacts\">\n        <mat-icon>contact_phone</mat-icon>\n        Leads\n    </a>\n\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/testlayout\">\n      <mat-icon>contact_phone</mat-icon>\n      Test page\n  </a>\n\n</mat-nav-list>\n\n"
+module.exports = "<mat-nav-list>\n    <div class=\"profile-card\">\n        <div class=\"header\">\n            <h2>JG</h2>\n            <h4>jarekg@test.com.pl</h4>\n        </div>\n        <img  src=\"assets/jg.jpg\" alt=\"image\">\n    </div>\n\n    <mat-divider></mat-divider>\n\n    <h2 matSubheader>Pages</h2>\n\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/\">Dashboard</a>\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/posts\">Posts</a>\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/articles\">Articles</a>\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/projects\">Projects</a>\n\n    <mat-divider></mat-divider>\n\n    <h2 matSubheader>Tools</h2>\n\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/contacts\">\n        <mat-icon>import_contacts</mat-icon>\n        Contacts\n    </a>\n\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/contacts\">\n        <mat-icon>contact_phone</mat-icon>\n        Leads\n    </a>\n\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/testlayout\">\n      <mat-icon>contact_phone</mat-icon>\n      Test page\n  </a>\n\n</mat-nav-list>\n\n"
 
 /***/ }),
 
@@ -239,7 +239,7 @@ module.exports = "<mat-nav-list>\n    <div class=\"profile-card\">\n        <div
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"grid-container\">\n  <h1 class=\"mat-h1\">Dashboard</h1>\n  <mat-grid-list cols=\"2\" rowHeight=\"350px\">\n    <mat-grid-tile  [colspan]=\"2\" [rowspan]=\"1\">\n      <mat-card class=\"dashboard-card\">\n        <mat-card-header>\n          <mat-card-title>\n            Card 1\n\n          </mat-card-title>\n        </mat-card-header>\n        <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\">\n        <mat-card-content class=\"dashboard-card-content\">\n          <div>Card Content Here</div>\n        </mat-card-content>\n      </mat-card>\n    </mat-grid-tile>\n\n    <mat-grid-tile  [colspan]=\"1\" [rowspan]=\"1\">\n      <mat-card class=\"dashboard-card\">\n        <mat-card-header>\n          <mat-card-title>\n            Card 2\n\n\n          </mat-card-title>\n        </mat-card-header>\n        <mat-card-content class=\"dashboard-card-content\">\n          <div>Card Content Here</div>\n        </mat-card-content>\n      </mat-card>\n    </mat-grid-tile>\n\n\n    <mat-grid-tile  [colspan]=\"1\" [rowspan]=\"2\">\n      <mat-card class=\"dashboard-card\">\n        <mat-card-header>\n          <mat-card-title>\n            Card 3\n\n          </mat-card-title>\n        </mat-card-header>\n        <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\">\n        <mat-card-content class=\"dashboard-card-content\">\n          <div>Card Content Here</div>\n        </mat-card-content>\n      </mat-card>\n    </mat-grid-tile>\n\n\n    <mat-grid-tile  [colspan]=\"1\" [rowspan]=\"1\">\n      <mat-card class=\"dashboard-card\">\n        <mat-card-header>\n          <mat-card-title>\n            Card 4\n\n          </mat-card-title>\n        </mat-card-header>\n        <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\">\n        <mat-card-content class=\"dashboard-card-content\">\n          <div>Card Content Here</div>\n        </mat-card-content>\n      </mat-card>\n    </mat-grid-tile>\n\n    <mat-grid-tile  [colspan]=\"1\" [rowspan]=\"1\">\n      <mat-card class=\"dashboard-card\">\n        <mat-card-header>\n          <mat-card-title>\n            Card 4\n\n          </mat-card-title>\n        </mat-card-header>\n        <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\">\n        <mat-card-content class=\"dashboard-card-content\">\n          <div>Card Content Here</div>\n        </mat-card-content>\n      </mat-card>\n    </mat-grid-tile>\n\n\n    <mat-grid-tile  [colspan]=\"1\" [rowspan]=\"1\">\n      <mat-card class=\"dashboard-card\">\n        <mat-card-header>\n          <mat-card-title>\n            Card 4\n\n          </mat-card-title>\n        </mat-card-header>\n        <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\">\n        <mat-card-content class=\"dashboard-card-content\">\n          <div>Card Content Here</div>\n        </mat-card-content>\n      </mat-card>\n    </mat-grid-tile>\n\n\n  </mat-grid-list>\n</div>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<!--\n<div class=\"grid-container\">\n  <h1 class=\"mat-h1\">Dashboard</h1>\n  <mat-grid-list cols=\"2\" rowHeight=\"350px\">\n    <mat-grid-tile *ngFor=\"let card of cards\" [colspan]=\"card.cols\" [rowspan]=\"card.rows\">\n      <mat-card class=\"dashboard-card\">\n        <mat-card-header>\n          <mat-card-title>\n            {{card.title}}\n            <button mat-icon-button class=\"more-button\" [matMenuTriggerFor]=\"menu\" aria-label=\"Toggle menu\">\n              <mat-icon>more_vert</mat-icon>\n            </button>\n            <mat-menu #menu=\"matMenu\" xPosition=\"before\">\n              <button mat-menu-item>Expand</button>\n              <button mat-menu-item>Remove</button>\n            </mat-menu>\n          </mat-card-title>\n        </mat-card-header>\n        <mat-card-content class=\"dashboard-card-content\">\n          <div>Card Content Here</div>\n        </mat-card-content>\n      </mat-card>\n    </mat-grid-tile>\n  </mat-grid-list>\n</div> -->\n"
+module.exports = "\n<div class=\"grid-container\">\n  <h1 class=\"mat-h1\">Dashboard</h1>\n  <mat-grid-list cols=\"4\" rowHeight=\"450px\">\n    <mat-grid-tile  [colspan]=\"2\" [rowspan]=\"1\">\n      <mat-card class=\"dashboard-card\">\n        <mat-card-header  >\n          <mat-card-title>\n            Card 1\n\n          </mat-card-title>\n        </mat-card-header>\n        <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\" >\n        <mat-card-content class=\"dashboard-card-content\" >\n          <div>Card Content Here</div>\n        </mat-card-content>\n\n      </mat-card>\n    </mat-grid-tile>\n\n    <mat-grid-tile  [colspan]=\"1\" [rowspan]=\"1\">\n      <mat-card class=\"dashboard-card\">\n        <mat-card-header>\n          <mat-card-title>\n            Card 2\n\n          </mat-card-title>\n        </mat-card-header>\n        <mat-card-content class=\"dashboard-card-content\" >\n          <div>Card Content Here</div>\n        </mat-card-content>\n\n\n      </mat-card>\n    </mat-grid-tile>\n\n\n    <mat-grid-tile  [colspan]=\"1\" [rowspan]=\"2\">\n      <mat-card class=\"dashboard-card\">\n        <mat-card-header>\n          <mat-card-title>\n            Card 3\n\n          </mat-card-title>\n        </mat-card-header>\n        <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\">\n        <mat-card-content class=\"dashboard-card-content\">\n          <div>Card Content Here</div>\n        </mat-card-content>\n      </mat-card>\n    </mat-grid-tile>\n\n\n    <mat-grid-tile  [colspan]=\"1\" [rowspan]=\"1\">\n      <mat-card class=\"dashboard-card\">\n        <mat-card-header>\n          <mat-card-title>\n            Card 4\n\n          </mat-card-title>\n        </mat-card-header>\n        <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\">\n        <mat-card-content class=\"dashboard-card-content\">\n          <div>Card Content Here</div>\n        </mat-card-content>\n      </mat-card>\n    </mat-grid-tile>\n\n    <mat-grid-tile  [colspan]=\"1\" [rowspan]=\"1\">\n      <mat-card class=\"dashboard-card\">\n        <mat-card-header>\n          <mat-card-title>\n            Card 4\n\n          </mat-card-title>\n        </mat-card-header>\n        <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\">\n        <mat-card-content class=\"dashboard-card-content\">\n          <div>Card Content Here</div>\n        </mat-card-content>\n      </mat-card>\n    </mat-grid-tile>\n\n\n    <mat-grid-tile  [colspan]=\"1\" [rowspan]=\"1\">\n      <mat-card class=\"dashboard-card\">\n        <mat-card-header>\n          <mat-card-title>\n            Card 4\n\n          </mat-card-title>\n        </mat-card-header>\n        <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\">\n        <mat-card-content class=\"dashboard-card-content\">\n          <div>Card Content Here</div>\n        </mat-card-content>\n      </mat-card>\n    </mat-grid-tile>\n\n\n  </mat-grid-list>\n</div>\n\n\n<button mat-button  (click)=\"onNavigate()\">Open page</button>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<!--\n<div class=\"grid-container\">\n  <h1 class=\"mat-h1\">Dashboard</h1>\n  <mat-grid-list cols=\"2\" rowHeight=\"350px\">\n    <mat-grid-tile *ngFor=\"let card of cards\" [colspan]=\"card.cols\" [rowspan]=\"card.rows\">\n      <mat-card class=\"dashboard-card\">\n        <mat-card-header>\n          <mat-card-title>\n            {{card.title}}\n            <button mat-icon-button class=\"more-button\" [matMenuTriggerFor]=\"menu\" aria-label=\"Toggle menu\">\n              <mat-icon>more_vert</mat-icon>\n            </button>\n            <mat-menu #menu=\"matMenu\" xPosition=\"before\">\n              <button mat-menu-item>Expand</button>\n              <button mat-menu-item>Remove</button>\n            </mat-menu>\n          </mat-card-title>\n        </mat-card-header>\n        <mat-card-content class=\"dashboard-card-content\">\n          <div>Card Content Here</div>\n        </mat-card-content>\n      </mat-card>\n    </mat-grid-tile>\n  </mat-grid-list>\n</div> -->\n"
 
 /***/ }),
 
@@ -321,6 +321,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_posts_blog_post_blog_post_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/posts/blog-post/blog-post.component */ "./src/app/modules/posts/blog-post/blog-post.component.ts");
 /* harmony import */ var _shared_services_auth_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./shared/services/auth.service */ "./src/app/shared/services/auth.service.ts");
 /* harmony import */ var _shared_components_testlayout_testlayout_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./shared/components/testlayout/testlayout.component */ "./src/app/shared/components/testlayout/testlayout.component.ts");
+/* harmony import */ var _modules_projects_projects_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modules/projects/projects.component */ "./src/app/modules/projects/projects.component.ts");
+
 
 
 
@@ -356,7 +358,8 @@ const routes = [
             { path: 'blogpost/:id', component: _modules_posts_blog_post_blog_post_component__WEBPACK_IMPORTED_MODULE_10__["BlogPostComponent"] },
             { path: 'add', component: _modules_posts_blog_post_add_edit_blog_post_add_edit_component__WEBPACK_IMPORTED_MODULE_9__["BlogPostAddEditComponent"] },
             { path: 'blogpost/edit/:id', component: _modules_posts_blog_post_add_edit_blog_post_add_edit_component__WEBPACK_IMPORTED_MODULE_9__["BlogPostAddEditComponent"] },
-            { path: 'testlayout', component: _shared_components_testlayout_testlayout_component__WEBPACK_IMPORTED_MODULE_12__["TestlayoutComponent"] }
+            { path: 'testlayout', component: _shared_components_testlayout_testlayout_component__WEBPACK_IMPORTED_MODULE_12__["TestlayoutComponent"] },
+            { path: 'projects', component: _modules_projects_projects_component__WEBPACK_IMPORTED_MODULE_13__["ProjectsComponent"] }
         ]
     },
     { path: "404", component: _error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_7__["NotFoundComponent"] },
@@ -460,8 +463,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ng_pick_datetime__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ng-pick-datetime */ "./node_modules/ng-pick-datetime/picker.js");
 /* harmony import */ var _modules_calendar_eventslist_eventslist_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./modules/calendar/eventslist/eventslist.component */ "./src/app/modules/calendar/eventslist/eventslist.component.ts");
 /* harmony import */ var _shared_components_testlayout_testlayout_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./shared/components/testlayout/testlayout.component */ "./src/app/shared/components/testlayout/testlayout.component.ts");
-/* harmony import */ var _modules_fullcalendar_fullcalendar_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./modules/fullcalendar/fullcalendar.component */ "./src/app/modules/fullcalendar/fullcalendar.component.ts");
-/* harmony import */ var angular_datatables__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! angular-datatables */ "./node_modules/angular-datatables/index.js");
+/* harmony import */ var angular_datatables__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! angular-datatables */ "./node_modules/angular-datatables/index.js");
+/* harmony import */ var _modules_projects_projects_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./modules/projects/projects.component */ "./src/app/modules/projects/projects.component.ts");
 
 
 
@@ -516,11 +519,11 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _modules_calendar_addeditevent_addeditevent_component__WEBPACK_IMPORTED_MODULE_28__["AddediteventComponent"],
             _modules_calendar_eventslist_eventslist_component__WEBPACK_IMPORTED_MODULE_30__["EventslistComponent"],
             _shared_components_testlayout_testlayout_component__WEBPACK_IMPORTED_MODULE_31__["TestlayoutComponent"],
-            _modules_fullcalendar_fullcalendar_component__WEBPACK_IMPORTED_MODULE_32__["FullcalendarComponent"],
+            _modules_projects_projects_component__WEBPACK_IMPORTED_MODULE_33__["ProjectsComponent"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
-            angular_datatables__WEBPACK_IMPORTED_MODULE_33__["DataTablesModule"],
+            angular_datatables__WEBPACK_IMPORTED_MODULE_32__["DataTablesModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
             _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__["BrowserAnimationsModule"],
             _layouts_default_default_module__WEBPACK_IMPORTED_MODULE_7__["DefaultModule"],
@@ -543,8 +546,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
         entryComponents: [_modules_articlelist_articlelist_component__WEBPACK_IMPORTED_MODULE_8__["ArticlelistComponent"], _modules_articlelist_newarticle_newarticle_component__WEBPACK_IMPORTED_MODULE_12__["NewarticleComponent"], _shared_tools_confirmationdialog_confirmationdialog_component__WEBPACK_IMPORTED_MODULE_18__["ConfirmationdialogComponent"],
-            _modules_articlelist_updatearticle_updatearticle_component__WEBPACK_IMPORTED_MODULE_20__["UpdatearticleComponent"], _shared_login_login_component__WEBPACK_IMPORTED_MODULE_1__["LoginComponent"], _modules_calendar_calendar_component__WEBPACK_IMPORTED_MODULE_23__["CalendarComponent"], _modules_calendar_addeditevent_addeditevent_component__WEBPACK_IMPORTED_MODULE_28__["AddediteventComponent"], _modules_calendar_eventslist_eventslist_component__WEBPACK_IMPORTED_MODULE_30__["EventslistComponent"],
-            _modules_fullcalendar_fullcalendar_component__WEBPACK_IMPORTED_MODULE_32__["FullcalendarComponent"]]
+            _modules_articlelist_updatearticle_updatearticle_component__WEBPACK_IMPORTED_MODULE_20__["UpdatearticleComponent"], _shared_login_login_component__WEBPACK_IMPORTED_MODULE_1__["LoginComponent"], _modules_calendar_calendar_component__WEBPACK_IMPORTED_MODULE_23__["CalendarComponent"], _modules_calendar_addeditevent_addeditevent_component__WEBPACK_IMPORTED_MODULE_28__["AddediteventComponent"], _modules_calendar_eventslist_eventslist_component__WEBPACK_IMPORTED_MODULE_30__["EventslistComponent"]]
     })
 ], AppModule);
 
@@ -1927,71 +1929,6 @@ DashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
-/***/ "./src/app/modules/fullcalendar/fullcalendar.component.scss":
-/*!******************************************************************!*\
-  !*** ./src/app/modules/fullcalendar/fullcalendar.component.scss ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ".app-top {\n  margin: 0 0 3em;\n}\n\n.app-calendar {\n  margin: 0 auto;\n  max-width: 900px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9mdWxsY2FsZW5kYXIvQzpcXHByb2dyYW1vd2FuaWVcXGhvbWUwMlxcaG9tZVBhZ2Uvc3JjXFxhcHBcXG1vZHVsZXNcXGZ1bGxjYWxlbmRhclxcZnVsbGNhbGVuZGFyLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9tb2R1bGVzL2Z1bGxjYWxlbmRhci9mdWxsY2FsZW5kYXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0E7RUFDRSxlQUFBO0FDQUY7O0FER0E7RUFDRSxjQUFBO0VBQ0EsZ0JBQUE7QUNBRiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvZnVsbGNhbGVuZGFyL2Z1bGxjYWxlbmRhci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG4uYXBwLXRvcCB7XHJcbiAgbWFyZ2luOiAwIDAgM2VtO1xyXG59XHJcblxyXG4uYXBwLWNhbGVuZGFyIHtcclxuICBtYXJnaW46IDAgYXV0bztcclxuICBtYXgtd2lkdGg6IDkwMHB4O1xyXG59XHJcbiIsIi5hcHAtdG9wIHtcbiAgbWFyZ2luOiAwIDAgM2VtO1xufVxuXG4uYXBwLWNhbGVuZGFyIHtcbiAgbWFyZ2luOiAwIGF1dG87XG4gIG1heC13aWR0aDogOTAwcHg7XG59Il19 */"
-
-/***/ }),
-
-/***/ "./src/app/modules/fullcalendar/fullcalendar.component.ts":
-/*!****************************************************************!*\
-  !*** ./src/app/modules/fullcalendar/fullcalendar.component.ts ***!
-  \****************************************************************/
-/*! exports provided: FullcalendarComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FullcalendarComponent", function() { return FullcalendarComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
-
-
-
-let FullcalendarComponent = class FullcalendarComponent {
-    constructor(dialogRef) {
-        this.dialogRef = dialogRef;
-        this.data = [
-            { name: 'therichpost', email: 'therichpost@gmail.com', website: 'therichpost.com' },
-            { name: 'therichpost', email: 'therichpost@gmail.com', website: 'therichpost.com' },
-            { name: 'therichpost', email: 'therichpost@gmail.com', website: 'therichpost.com' },
-            { name: 'therichpost', email: 'therichpost@gmail.com', website: 'therichpost.com' },
-        ];
-        this.title = 'angulardatatables';
-        this.dtOptions = {};
-    }
-    ngOnInit() {
-        this.dtOptions = {
-            pagingType: 'full_numbers',
-            pageLength: 5,
-            processing: true
-        };
-    }
-    onCloseClick() {
-        this.dialogRef.close();
-    }
-};
-FullcalendarComponent.ctorParameters = () => [
-    { type: _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"] }
-];
-FullcalendarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-fullcalendar',
-        template: __webpack_require__(/*! raw-loader!./fullcalendar.component.html */ "./node_modules/raw-loader/index.js!./src/app/modules/fullcalendar/fullcalendar.component.html"),
-        styles: [__webpack_require__(/*! ./fullcalendar.component.scss */ "./src/app/modules/fullcalendar/fullcalendar.component.scss")]
-    })
-], FullcalendarComponent);
-
-
-
-/***/ }),
-
 /***/ "./src/app/modules/posts/blog-post-add-edit/blog-post-add-edit.component.scss":
 /*!************************************************************************************!*\
   !*** ./src/app/modules/posts/blog-post-add-edit/blog-post-add-edit.component.scss ***!
@@ -2232,6 +2169,52 @@ PostsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/modules/projects/projects.component.scss":
+/*!**********************************************************!*\
+  !*** ./src/app/modules/projects/projects.component.scss ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvcHJvamVjdHMvcHJvamVjdHMuY29tcG9uZW50LnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/modules/projects/projects.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/modules/projects/projects.component.ts ***!
+  \********************************************************/
+/*! exports provided: ProjectsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProjectsComponent", function() { return ProjectsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let ProjectsComponent = class ProjectsComponent {
+    constructor() {
+        this.dtOptions = {};
+        this.title = 'angulardatatables';
+        this.message = '';
+    }
+    ngOnInit() {
+    }
+};
+ProjectsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-projects',
+        template: __webpack_require__(/*! raw-loader!./projects.component.html */ "./node_modules/raw-loader/index.js!./src/app/modules/projects/projects.component.html"),
+        styles: [__webpack_require__(/*! ./projects.component.scss */ "./src/app/modules/projects/projects.component.scss")]
+    })
+], ProjectsComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/shared/components/footer/footer.component.scss":
 /*!****************************************************************!*\
   !*** ./src/app/shared/components/footer/footer.component.scss ***!
@@ -2303,8 +2286,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_modules_articlelist_articlelist_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/modules/articlelist/articlelist.component */ "./src/app/modules/articlelist/articlelist.component.ts");
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../login/login.component */ "./src/app/shared/login/login.component.ts");
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
-/* harmony import */ var src_app_modules_fullcalendar_fullcalendar_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/modules/fullcalendar/fullcalendar.component */ "./src/app/modules/fullcalendar/fullcalendar.component.ts");
-
 
 
 
@@ -2374,16 +2355,6 @@ let HeaderComponent = class HeaderComponent {
         // dane transportowane do formularza
         // dialogConfig.data = this.data;
         let dialogRef = this.dialog.open(_modules_calendar_calendar_component__WEBPACK_IMPORTED_MODULE_1__["CalendarComponent"], dialogConfig);
-    }
-    fullcalendar() {
-        const dialogConfig = new _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialogConfig"]();
-        dialogConfig.disableClose = true;
-        dialogConfig.width = "1000px";
-        dialogConfig.height = "800px";
-        dialogConfig.autoFocus = true;
-        // dane transportowane do formularza
-        // dialogConfig.data = this.data;
-        let dialogRef = this.dialog.open(src_app_modules_fullcalendar_fullcalendar_component__WEBPACK_IMPORTED_MODULE_8__["FullcalendarComponent"], dialogConfig);
     }
 };
 HeaderComponent.ctorParameters = () => [
@@ -2482,7 +2453,9 @@ let TestlayoutComponent = class TestlayoutComponent {
             { title: 'Card 4', cols: 1, rows: 1 }
         ];
     }
-    ngOnInit() {
+    ngOnInit() { }
+    onNavigate() {
+        window.open("https://www.test.com.pl", "_blank");
     }
 };
 TestlayoutComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([

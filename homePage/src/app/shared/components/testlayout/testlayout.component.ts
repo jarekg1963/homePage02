@@ -16,7 +16,14 @@ export class TestlayoutComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+
+  ngOnInit() {}
+
+    onNavigate(){
+    window.open("https://www.test.com.pl", "_blank");
+}
+
+
+
 
 }

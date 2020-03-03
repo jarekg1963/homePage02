@@ -29,8 +29,9 @@ import { AddediteventComponent } from './modules/calendar/addeditevent/addeditev
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { EventslistComponent } from './modules/calendar/eventslist/eventslist.component';
 import { TestlayoutComponent } from './shared/components/testlayout/testlayout.component';
-import { FullcalendarComponent } from './modules/fullcalendar/fullcalendar.component';
+
 import {DataTablesModule} from 'angular-datatables';
+import { ProjectsComponent } from './modules/projects/projects.component';
 
 
 @NgModule({
@@ -50,7 +51,7 @@ import {DataTablesModule} from 'angular-datatables';
  AddediteventComponent,
  EventslistComponent,
  TestlayoutComponent,
- FullcalendarComponent,
+ ProjectsComponent,
 
 
   ],
@@ -80,7 +81,6 @@ OwlNativeDateTimeModule
   ],
   bootstrap: [AppComponent],
   entryComponents: [ArticlelistComponent, NewarticleComponent,  ConfirmationdialogComponent,
-    UpdatearticleComponent, LoginComponent, CalendarComponent, AddediteventComponent, EventslistComponent,
-    FullcalendarComponent]
+    UpdatearticleComponent, LoginComponent, CalendarComponent, AddediteventComponent, EventslistComponent]
 })
 export class AppModule { }

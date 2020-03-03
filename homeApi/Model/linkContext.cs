@@ -19,6 +19,8 @@ namespace homeApi.Model
 
           public DbSet<calendarM> calendar { get; set; }
 
+              public DbSet<file> files { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // optionsBuilder.UseSqlite("Filename=c:\\programowanie\\home02\\db.db");

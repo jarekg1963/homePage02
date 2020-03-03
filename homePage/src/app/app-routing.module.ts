@@ -10,6 +10,7 @@ import { BlogPostAddEditComponent } from "./modules/posts/blog-post-add-edit/blo
 import { BlogPostComponent } from "./modules/posts/blog-post/blog-post.component";
 import { AuthService as authGuard} from "./shared/services/auth.service";
 import { TestlayoutComponent } from './shared/components/testlayout/testlayout.component';
+import { ProjectsComponent } from './modules/projects/projects.component';
 
 const routes: Routes = [
   {
@@ -36,7 +37,8 @@ const routes: Routes = [
       { path: 'blogpost/:id', component: BlogPostComponent },
       { path: 'add', component: BlogPostAddEditComponent },
       { path: 'blogpost/edit/:id', component: BlogPostAddEditComponent },
-      { path: 'testlayout', component: TestlayoutComponent }
+      { path: 'testlayout', component: TestlayoutComponent },
+      { path: 'projects', component: ProjectsComponent }
     ]
   },
   { path: "404", component: NotFoundComponent },

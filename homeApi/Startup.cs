@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using homeApi.Data;
@@ -11,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
@@ -32,7 +34,9 @@ namespace homeApi
             services.AddDbContext<linkContext>(options =>
               options.UseSqlite("Data Source=c:\\programowanie\\home02\\homeApi\\db.db"));
 
-
+            services.AddSingleton<IFileProvider>(
+                       new PhysicalFileProvider(
+                           Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")));
 
 
             services.AddMvc();
@@ -43,8 +47,8 @@ namespace homeApi
               c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
       });
 
-      services.AddScoped(typeof(IDataRepository<>), typeof(DataRepository<>));
-      services.AddScoped(typeof(IcalendarRepository<>), typeof(calendarRepository<>));
+            services.AddScoped(typeof(IDataRepository<>), typeof(DataRepository<>));
+            services.AddScoped(typeof(IcalendarRepository<>), typeof(calendarRepository<>));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -76,7 +80,7 @@ namespace homeApi
             app.UseAuthorization();
             app.UseSwagger();
 
-       
+
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
