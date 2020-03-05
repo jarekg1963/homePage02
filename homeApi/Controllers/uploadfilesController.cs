@@ -14,7 +14,7 @@ namespace homeApi.Controllers
     [Route("api/[controller]")]
     public class uploadfilesController : ControllerBase
     {
-        private readonly string[] ACCEPTED_FILE_TYPES = new[] { ".jpg", ".jpeg", ".png", ".pdf" };
+        private readonly string[] ACCEPTED_FILE_TYPES = new[] { ".jpg", ".jpeg", ".png", ".pdf" , ".docx", ".xlsx"};
         private readonly IWebHostEnvironment host;
         private readonly linkContext context;
 
@@ -27,7 +27,7 @@ namespace homeApi.Controllers
 
         [HttpPost]
 
-        public async Task<IActionResult> Upload(IFormFile filesData)
+        public async Task<IActionResult> Upload(IFormFile filesData, int idPost, string fname)
 
         {
 
@@ -46,8 +46,9 @@ namespace homeApi.Controllers
 
                 Directory.CreateDirectory(uploadFilesPath);
 
-            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(filesData.FileName);
+            //  var fileName = Guid.NewGuid().ToString() + Path.GetExtension(filesData.FileName);
 
+            var fileName = fname + Path.GetExtension(filesData.FileName);
             var filePath = Path.Combine(uploadFilesPath, fileName);
 
             using (var stream = new FileStream(filePath, FileMode.Create))
@@ -58,7 +59,7 @@ namespace homeApi.Controllers
 
             }
 
-            var photo = new file { FileName = fileName };
+            var photo = new file { FileName = fileName, idPostu = idPost };
 
             context.files.Add(photo);
 
@@ -85,12 +86,24 @@ namespace homeApi.Controllers
 
 
         [HttpGet("getOneFile/{id}")]
-      
+
         public IActionResult getOneFile(int id)
         {
             var response = context.files.FirstOrDefault(d => d.id == id);
             return Ok(response);
         }
+
+          // DELETE: api/BlogPosts/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteFile([FromRoute] int id)
+        {
+       var entity = context.files.SingleOrDefault(h => h.id == id);
+            if (entity == null) return NotFound("zły numer ID");
+            context.files.Remove(entity);
+            context.SaveChanges();
+            return Ok();
+        }
+
 
     }
 }

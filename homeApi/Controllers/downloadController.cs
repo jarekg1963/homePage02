@@ -1,4 +1,5 @@
 
+using System;
 using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
@@ -17,18 +18,23 @@ namespace filedownload.Controllers
         {
             this.host = host;
         }
-        public async Task<FileStream> DownloadFile(string fileName)
+
+        //  [HttpGet("{fileName}")]
+        public async Task<FileStream> downloadfiles(string fileName)
 
         {
             var currentDirectory = System.IO.Directory.GetCurrentDirectory();
-            currentDirectory = currentDirectory + "\\src\\assets";
+            //   currentDirectory = currentDirectory + "\\src\\assets";
 
+            Console.WriteLine("-----------------------------------------------------------------------------");
+            Console.WriteLine("file name paramente -> " + fileName);
             var downloadFilesPath = Path.Combine(host.WebRootPath, "uploads");
 
-           // var file = Path.Combine(Path.Combine(currentDirectory, "attachments"), fileName);
+
+            // var file = Path.Combine(Path.Combine(currentDirectory, "attachments"), fileName);
             var file = Path.Combine(downloadFilesPath, fileName);
 
-            return new FileStream(file, FileMode.Open, FileAccess.Read);
+            return new FileStream(file, FileMode.Open, FileAccess.ReadWrite);
 
         }
     }

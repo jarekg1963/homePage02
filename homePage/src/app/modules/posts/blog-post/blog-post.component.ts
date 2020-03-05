@@ -22,6 +22,7 @@ export class BlogPostComponent implements OnInit {
 
   ngOnInit() {
     this.loadBlogPost();
+    console.log(this.blogPost$);
   }
 
   loadBlogPost() {

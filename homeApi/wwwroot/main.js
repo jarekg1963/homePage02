@@ -184,7 +184,7 @@ module.exports = "<mat-card>\n<ng-container *ngIf=\"(blogPost$ | async) as blogP
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>documents works!</p>\n{{ idPostu }}\n"
+module.exports = "\n<mat-card>\n  <p *ngIf=\"!(documents$ | async)\"><em>Loading...</em></p>\n  <input id=\"fileInput\" name=\"file\" type=\"file\"  (change)=\"onFileChanged($event)\" class=\"btn btn-primary float-right mb-3\">\n  <p>\n    <mat-form-field class=\"example-full-width\">\n      <mat-label>File name</mat-label>\n      <input matInput placeholder=\"File name\" [(ngModel)]='fname'>\n    </mat-form-field>\n  </p>\n\n  <table class=\"table table-sm table-hover\" *ngIf=\"(documents$ | async)?.length>0\">\n    <thead>\n      <tr>\n        <th>#</th>\n        <th>FileName</th>\n\n      </tr>\n    </thead>\n    <tbody>\n\n      <tr *ngFor=\"let doc of (documents$ | async)\">\n        <td>{{ doc.id }}</td>\n        <!-- <td><a [routerLink]=\"['/blogpost/', blogPost.id]\">{{ blogPost.title }}</a></td> -->\n        <td>{{ doc.fileName }}</td>\n\n        <td> <a class=\"btn btn-primary btn-sm float-right\" (click)=\"showPDF(doc.fileName)\">Show</a></td>\n        <td> <a class=\"btn btn-danger btn-sm float-right\" (click)=\"kasujplik(doc.id)\">Delete</a></td>\n        <!-- <td><a [routerLink]=\"['/blogpost/edit/', blogPost.id]\" class=\"btn btn-primary btn-sm float-right\">Edit</a></td>\n        <td><a [routerLink]=\"\" (click)=\"delete(blogPost.id)\" class=\"btn btn-danger btn-sm float-right\">Delete</a></td> -->\n\n      </tr>\n\n    </tbody>\n\n  </table>\n  </mat-card>\n"
 
 /***/ }),
 
@@ -2101,6 +2101,7 @@ let BlogPostComponent = class BlogPostComponent {
     }
     ngOnInit() {
         this.loadBlogPost();
+        console.log(this.blogPost$);
     }
     loadBlogPost() {
         this.blogPost$ = this.blogPostService.getBlogPost(this.postId);
@@ -2145,19 +2146,88 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocumentsComponent", function() { return DocumentsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var src_app_shared_services_documents_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/services/documents.service */ "./src/app/shared/services/documents.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
 
 
 let DocumentsComponent = class DocumentsComponent {
-    constructor() { }
+    constructor(documentService, http) {
+        this.documentService = documentService;
+        this.http = http;
+        this.urlAddress = ".";
+        this.fileData = null;
+    }
     ngOnInit() {
+        this.loadDocuments();
+    }
+    loadDocuments() {
+        this.documents$ = this.documentService.getAllDocuments(this.idPostu);
+    }
+    pokazDoc(documentName) {
+    }
+    onFileChanged(event) {
+        this.fileData = event.target.files[0];
+        const formData = new FormData();
+        formData.append("filesdata", this.fileData);
+        this.http
+            .post(this.urlAddress +
+            "/api/uploadfiles/" +
+            "?idPost=" +
+            this.idPostu +
+            "&fname=" +
+            this.fname, formData)
+            .subscribe(res => {
+            //     console.log(res);
+            alert("SUCCESS !!");
+            this.loadDocuments();
+        });
+    }
+    kasujplik(idPliku) {
+        this.documentService.deleteBlogPost(idPliku).subscribe(data => {
+            console.log(" skasowano");
+            this.loadDocuments();
+        });
+    }
+    showPDF(nazwaPliku) {
+        this.documentService.getPDF(nazwaPliku)
+            .subscribe(x => {
+            // It is necessary to create a new blob object with mime-type explicitly set
+            // otherwise only Chrome works like it should
+            var newBlob = new Blob([x], { type: "application/pdf" });
+            // IE doesn't allow using a blob object directly as link href
+            // instead it is necessary to use msSaveOrOpenBlob
+            if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+                window.navigator.msSaveOrOpenBlob(newBlob);
+                return;
+            }
+            // For other browsers:
+            // Create a link pointing to the ObjectURL containing the blob.
+            const data = window.URL.createObjectURL(newBlob);
+            var link = document.createElement('a');
+            link.href = data;
+            link.download = nazwaPliku;
+            // this is necessary as link.click() does not work on the latest firefox
+            link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+            setTimeout(function () {
+                // For Firefox it is necessary to delay revoking the ObjectURL
+                window.URL.revokeObjectURL(data);
+                link.remove();
+            }, 100);
+        });
     }
 };
+DocumentsComponent.ctorParameters = () => [
+    { type: src_app_shared_services_documents_service__WEBPACK_IMPORTED_MODULE_2__["DocumentsService"] },
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }
+];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
 ], DocumentsComponent.prototype, "idPostu", void 0);
 DocumentsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-documents',
+        selector: "app-documents",
         template: __webpack_require__(/*! raw-loader!./documents.component.html */ "./node_modules/raw-loader/index.js!./src/app/modules/posts/documents/documents.component.html"),
         styles: [__webpack_require__(/*! ./documents.component.scss */ "./src/app/modules/posts/documents/documents.component.scss")]
     })
@@ -2825,6 +2895,72 @@ CalendarService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         providedIn: 'root'
     })
 ], CalendarService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/services/documents.service.ts":
+/*!******************************************************!*\
+  !*** ./src/app/shared/services/documents.service.ts ***!
+  \******************************************************/
+/*! exports provided: DocumentsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocumentsService", function() { return DocumentsService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
+
+
+let DocumentsService = class DocumentsService {
+    constructor(http) {
+        this.http = http;
+        this.urlAddress = ".";
+    }
+    getAllDocuments(postId) {
+        return this.http.get(this.urlAddress + '/api/uploadfiles/' + postId)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.errorHandler));
+    }
+    deleteBlogPost(idfordelete) {
+        return this.http.delete(this.urlAddress + '/api/uploadfiles/' + idfordelete)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.errorHandler));
+    }
+    errorHandler(error) {
+        let errorMessage = '';
+        if (error.error instanceof ErrorEvent) {
+            // Get client-side error
+            errorMessage = error.error.message;
+        }
+        else {
+            // Get server-side error
+            errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+        }
+        console.log(errorMessage);
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(errorMessage);
+    }
+    getPDF(nazwaPliku) {
+        //const options = { responseType: 'blob' }; there is no use of this
+        let uri = 'http://localhost:80/api/downloadfiles?fileName=' + nazwaPliku;
+        // this.http refers to HttpClient. Note here that you cannot use the generic get<Blob> as it does not compile: instead you "choose" the appropriate API in this way.
+        return this.http.get(uri, { responseType: 'blob' });
+    }
+};
+DocumentsService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+DocumentsService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], DocumentsService);
 
 
 
