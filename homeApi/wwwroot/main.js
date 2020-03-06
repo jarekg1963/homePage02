@@ -184,7 +184,7 @@ module.exports = "<mat-card>\n<ng-container *ngIf=\"(blogPost$ | async) as blogP
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<mat-card>\n  <p *ngIf=\"!(documents$ | async)\"><em>Loading...</em></p>\n  <input id=\"fileInput\" name=\"file\" type=\"file\"  (change)=\"onFileChanged($event)\" class=\"btn btn-primary float-right mb-3\">\n  <p>\n    <mat-form-field class=\"example-full-width\">\n      <mat-label>File name</mat-label>\n      <input matInput placeholder=\"File name\" [(ngModel)]='fname'>\n    </mat-form-field>\n  </p>\n\n  <table class=\"table table-sm table-hover\" *ngIf=\"(documents$ | async)?.length>0\">\n    <thead>\n      <tr>\n        <th>#</th>\n        <th>FileName</th>\n\n      </tr>\n    </thead>\n    <tbody>\n\n      <tr *ngFor=\"let doc of (documents$ | async)\">\n        <td>{{ doc.id }}</td>\n        <!-- <td><a [routerLink]=\"['/blogpost/', blogPost.id]\">{{ blogPost.title }}</a></td> -->\n        <td>{{ doc.fileName }}</td>\n\n        <td> <a class=\"btn btn-primary btn-sm float-right\" (click)=\"showPDF(doc.fileName)\">Show</a></td>\n        <td> <a class=\"btn btn-danger btn-sm float-right\" (click)=\"kasujplik(doc.id)\">Delete</a></td>\n        <!-- <td><a [routerLink]=\"['/blogpost/edit/', blogPost.id]\" class=\"btn btn-primary btn-sm float-right\">Edit</a></td>\n        <td><a [routerLink]=\"\" (click)=\"delete(blogPost.id)\" class=\"btn btn-danger btn-sm float-right\">Delete</a></td> -->\n\n      </tr>\n\n    </tbody>\n\n  </table>\n  </mat-card>\n"
+module.exports = "<mat-card>\n  <p *ngIf=\"!(documents$ | async)\"><em>Loading...</em></p>\n\n\n    <mat-form-field class=\"example-full-width\">\n      <mat-label>File name</mat-label>\n      <input matInput placeholder=\"File name\" [(ngModel)]='fname'>\n    </mat-form-field>\n\n\n  <input id=\"fileInput\" *ngIf=\"fname!=null\" name=\"file\" type=\"file\"  (change)=\"onFileChanged($event)\" class=\"btn btn-primary float-right mb-3\">\n\n  <table class=\"table table-sm table-hover\" *ngIf=\"(documents$ | async)?.length>0\">\n    <thead>\n      <tr>\n        <th>#</th>\n        <th>FileName</th>\n\n      </tr>\n    </thead>\n    <tbody>\n\n      <tr *ngFor=\"let doc of (documents$ | async)\">\n        <td>{{ doc.id }}</td>\n\n        <td>{{ doc.fileName }}</td>\n\n        <td> <a class=\"btn btn-primary btn-sm float-right\" (click)=\"showPDF(doc.fileName)\">Show</a></td>\n        <td> <a class=\"btn btn-danger btn-sm float-right\" (click)=\"deleteDocument(doc.id)\">Delete</a></td>\n\n\n      </tr>\n\n    </tbody>\n\n  </table>\n  </mat-card>\n"
 
 /***/ }),
 
@@ -2148,15 +2148,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var src_app_shared_services_documents_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/services/documents.service */ "./src/app/shared/services/documents.service.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var src_app_shared_tools_confirmationdialog_confirmationdialog_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/tools/confirmationdialog/confirmationdialog.component */ "./src/app/shared/tools/confirmationdialog/confirmationdialog.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+
+
 
 
 
 
 let DocumentsComponent = class DocumentsComponent {
-    constructor(documentService, http) {
+    constructor(documentService, http, dialog) {
         this.documentService = documentService;
         this.http = http;
+        this.dialog = dialog;
         this.urlAddress = ".";
+        this.showfname = true;
         this.fileData = null;
     }
     ngOnInit() {
@@ -2182,6 +2188,17 @@ let DocumentsComponent = class DocumentsComponent {
             //     console.log(res);
             alert("SUCCESS !!");
             this.loadDocuments();
+        });
+    }
+    deleteDocument(idPliku) {
+        const dialogRef = this.dialog.open(src_app_shared_tools_confirmationdialog_confirmationdialog_component__WEBPACK_IMPORTED_MODULE_4__["ConfirmationdialogComponent"], {
+            width: "350px",
+            data: "Do you want delete?"
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                this.kasujplik(idPliku);
+            }
         });
     }
     kasujplik(idPliku) {
@@ -2220,7 +2237,8 @@ let DocumentsComponent = class DocumentsComponent {
 };
 DocumentsComponent.ctorParameters = () => [
     { type: src_app_shared_services_documents_service__WEBPACK_IMPORTED_MODULE_2__["DocumentsService"] },
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] },
+    { type: _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatDialog"] }
 ];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
@@ -2948,7 +2966,7 @@ let DocumentsService = class DocumentsService {
     }
     getPDF(nazwaPliku) {
         //const options = { responseType: 'blob' }; there is no use of this
-        let uri = 'http://localhost:80/api/downloadfiles?fileName=' + nazwaPliku;
+        let uri = this.urlAddress + '/api/downloadfiles?fileName=' + nazwaPliku;
         // this.http refers to HttpClient. Note here that you cannot use the generic get<Blob> as it does not compile: instead you "choose" the appropriate API in this way.
         return this.http.get(uri, { responseType: 'blob' });
     }

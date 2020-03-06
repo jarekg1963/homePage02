@@ -41,12 +41,9 @@ errorHandler(error) {
   return throwError(errorMessage);
 }
 
-
-
-
 public getPDF(nazwaPliku): Observable<Blob> {
   //const options = { responseType: 'blob' }; there is no use of this
-      let uri = 'http://localhost:80/api/downloadfiles?fileName=' + nazwaPliku;
+      let uri = this.urlAddress + '/api/downloadfiles?fileName=' + nazwaPliku;
       // this.http refers to HttpClient. Note here that you cannot use the generic get<Blob> as it does not compile: instead you "choose" the appropriate API in this way.
       return this.http.get(uri, { responseType: 'blob' });
   }

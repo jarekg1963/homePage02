@@ -5,6 +5,8 @@ import { DocumentsService } from "src/app/shared/services/documents.service";
 import { HttpClient } from "@angular/common/http";
 import { FormControl } from "@angular/forms";
 import { saveAs } from "file-saver";
+import { ConfirmationdialogComponent } from 'src/app/shared/tools/confirmationdialog/confirmationdialog.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: "app-documents",
@@ -16,12 +18,14 @@ export class DocumentsComponent implements OnInit {
   documents$: Observable<file[]>;
   fname: string;
   public urlAddress = ".";
+  showfname = true;
 
   files: FileList;
   fileData: File = null;
   constructor(
     private documentService: DocumentsService,
-    private http: HttpClient
+    private http: HttpClient,
+    public dialog: MatDialog,
   ) {}
 
   ngOnInit() {
@@ -57,6 +61,22 @@ export class DocumentsComponent implements OnInit {
         this.loadDocuments();
       });
   }
+
+
+  deleteDocument(idPliku): void {
+    const dialogRef = this.dialog.open(ConfirmationdialogComponent, {
+      width: "350px",
+      data: "Do you want delete?"
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+       this.kasujplik(idPliku);
+      }
+    });
+  }
+
+
 
   kasujplik(idPliku: number) {
     this.documentService.deleteBlogPost(idPliku).subscribe(data => {

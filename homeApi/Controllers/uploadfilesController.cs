@@ -14,7 +14,8 @@ namespace homeApi.Controllers
     [Route("api/[controller]")]
     public class uploadfilesController : ControllerBase
     {
-        private readonly string[] ACCEPTED_FILE_TYPES = new[] { ".jpg", ".jpeg", ".png", ".pdf" , ".docx", ".xlsx"};
+        private readonly string[] ACCEPTED_FILE_TYPES = new[] { ".jpg", ".jpeg", ".png", ".pdf" , ".docx", ".xlsx", 
+        ".pptx", ".doc", ".xls", ".txt", ".csv"};
         private readonly IWebHostEnvironment host;
         private readonly linkContext context;
 

@@ -1,13 +1,14 @@
-
 <mat-card>
   <p *ngIf="!(documents$ | async)"><em>Loading...</em></p>
-  <input id="fileInput" name="file" type="file"  (change)="onFileChanged($event)" class="btn btn-primary float-right mb-3">
-  <p>
+
+
     <mat-form-field class="example-full-width">
       <mat-label>File name</mat-label>
       <input matInput placeholder="File name" [(ngModel)]='fname'>
     </mat-form-field>
-  </p>
+
+
+  <input id="fileInput" *ngIf="fname!=null" name="file" type="file"  (change)="onFileChanged($event)" class="btn btn-primary float-right mb-3">
 
   <table class="table table-sm table-hover" *ngIf="(documents$ | async)?.length>0">
     <thead>
@@ -21,13 +22,12 @@
 
       <tr *ngFor="let doc of (documents$ | async)">
         <td>{{ doc.id }}</td>
-        <!-- <td><a [routerLink]="['/blogpost/', blogPost.id]">{{ blogPost.title }}</a></td> -->
+
         <td>{{ doc.fileName }}</td>
 
         <td> <a class="btn btn-primary btn-sm float-right" (click)="showPDF(doc.fileName)">Show</a></td>
-        <td> <a class="btn btn-danger btn-sm float-right" (click)="kasujplik(doc.id)">Delete</a></td>
-        <!-- <td><a [routerLink]="['/blogpost/edit/', blogPost.id]" class="btn btn-primary btn-sm float-right">Edit</a></td>
-        <td><a [routerLink]="" (click)="delete(blogPost.id)" class="btn btn-danger btn-sm float-right">Delete</a></td> -->
+        <td> <a class="btn btn-danger btn-sm float-right" (click)="deleteDocument(doc.id)">Delete</a></td>
+
 
       </tr>
 
