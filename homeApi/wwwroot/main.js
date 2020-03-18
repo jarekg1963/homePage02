@@ -67,6 +67,17 @@ module.exports = "\n\n\n<app-header (toggleSideBarForMe)=\"sideBarToggler()\"></
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/modules/angulareditor/angulareditor.component.html":
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/modules/angulareditor/angulareditor.component.html ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h1>Editor for html notes </h1>\n\n<!-- <angular-editor [placeholder]=\"'Enter text here...'\" [(ngModel)]=\"htmlContent\"></angular-editor> -->\n<div class=\"container\">\n\n\n  <br><br>\n  <angular-editor id=\"editor1\" [(ngModel)]=\"htmlContent1\" [config]=\"config1\"></angular-editor>\n\n\n</div>\n<br>\n\n<button class=\"btn btn-primary pull-right\"  (click)=\"onCloseClick()\">Close</button>\n<button class=\"btn btn-primary pull-right ml-4 \"  (click)=\"saveText()\">Save</button>\n\n"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/modules/article/article.component.html":
 /*!**********************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/modules/article/article.component.html ***!
@@ -129,7 +140,7 @@ module.exports = "<div class=\"form-group\">\n\n  <h2 >Event planning</h2>\n\n<h
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"row text-center\">\n  <div class=\"col-md-4\">\n    <div class=\"btn-group\">\n      <div\n        class=\"btn btn-primary\"\n        mwlCalendarPreviousView\n        [view]=\"view\"\n        [(viewDate)]=\"viewDate\"\n        (viewDateChange)=\"closeOpenMonthViewDay()\"\n      >\n        Previous\n      </div>\n      <div\n        class=\"btn btn-outline-secondary\"\n        mwlCalendarToday\n        [(viewDate)]=\"viewDate\"\n      >\n        Today\n      </div>\n      <div\n        class=\"btn btn-primary\"\n        mwlCalendarNextView\n        [view]=\"view\"\n        [(viewDate)]=\"viewDate\"\n        (viewDateChange)=\"closeOpenMonthViewDay()\"\n      >\n        Next\n      </div>\n    </div>\n  </div>\n  <div class=\"col-md-4\">\n    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>\n  </div>\n  <div class=\"col-md-4\">\n    <div class=\"btn-group\">\n      <div\n        class=\"btn btn-primary\"\n        (click)=\"setView(CalendarView.Month)\"\n        [class.active]=\"view === CalendarView.Month\"\n      >\n        Month\n      </div>\n      <div\n        class=\"btn btn-primary\"\n        (click)=\"setView(CalendarView.Week)\"\n        [class.active]=\"view === CalendarView.Week\"\n      >\n        Week\n      </div>\n      <div\n        class=\"btn btn-primary\"\n        (click)=\"setView(CalendarView.Day)\"\n        [class.active]=\"view === CalendarView.Day\"\n      >\n        Day\n      </div>\n    </div>\n  </div>\n</div>\n<br />\n<div [ngSwitch]=\"view\">\n  <mwl-calendar-month-view\n    *ngSwitchCase=\"CalendarView.Month\"\n    [viewDate]=\"viewDate\"\n    [events]=\"events\"\n    [refresh]=\"refresh\"\n    [activeDayIsOpen]=\"activeDayIsOpen\"\n    (dayClicked)=\"dayClicked($event.day)\"\n    (eventClicked)=\"handleEvent('Clicked', $event.event)\"\n    (eventTimesChanged)=\"eventTimesChanged($event)\"\n  >\n  </mwl-calendar-month-view>\n  <mwl-calendar-week-view\n    *ngSwitchCase=\"CalendarView.Week\"\n    [viewDate]=\"viewDate\"\n    [events]=\"events\"\n    [refresh]=\"refresh\"\n    (eventClicked)=\"handleEvent('Clicked', $event.event)\"\n    (eventTimesChanged)=\"eventTimesChanged($event)\"\n  >\n  </mwl-calendar-week-view>\n  <mwl-calendar-day-view\n    *ngSwitchCase=\"CalendarView.Day\"\n    [viewDate]=\"viewDate\"\n    [events]=\"events\"\n    [refresh]=\"refresh\"\n    (eventClicked)=\"handleEvent('Clicked', $event.event)\"\n    (eventTimesChanged)=\"eventTimesChanged($event)\"\n  >\n  </mwl-calendar-day-view>\n</div>\n\n<br /><br /><br />\n\n<h4>\n\n  <button class=\"btn btn-primary pull-right\" (click)=\"addEvent()\">Add new</button>\n  <button class=\"btn btn-primary pull-right\" (click)=\"listEvents()\">Events list</button>\n\n  <button class=\"btn btn-primary pull-right\"  (click)=\"onCloseClick()\">Close</button>\n</h4>\n\n\n<!-- <div class=\"table-responsive\">\n  <table class=\"table table-bordered\">\n    <thead>\n      <tr>\n        <th>Title</th>\n        <th>Primary color</th>\n        <th>Secondary color</th>\n        <th>Starts at</th>\n        <th>Ends at</th>\n        <th>Remove</th>\n      </tr>\n    </thead>\n\n    <tbody>\n      <tr *ngFor=\"let event of events\">\n        <td>\n          <input\n            type=\"text\"\n            class=\"form-control\"\n            [(ngModel)]=\"event.title\"\n            (keyup)=\"refresh.next()\"\n          />\n        </td>\n        <td>\n          <input\n            type=\"color\"\n            [(ngModel)]=\"event.color.primary\"\n            (change)=\"refresh.next()\"\n          />\n        </td>\n        <td>\n          <input\n            type=\"color\"\n            [(ngModel)]=\"event.color.secondary\"\n            (change)=\"refresh.next()\"\n          />\n        </td>\n        <td>\n          <input\n            class=\"form-control\"\n            type=\"text\"\n            mwlFlatpickr\n            [(ngModel)]=\"event.start\"\n            (ngModelChange)=\"refresh.next()\"\n            [altInput]=\"true\"\n            [convertModelValue]=\"true\"\n            [enableTime]=\"true\"\n            dateFormat=\"Y-m-dTH:i\"\n            altFormat=\"F j, Y H:i\"\n            placeholder=\"Not set\"\n          />\n        </td>\n        <td>\n          <input\n            class=\"form-control\"\n            type=\"text\"\n            mwlFlatpickr\n            [(ngModel)]=\"event.end\"\n            (ngModelChange)=\"refresh.next()\"\n            [altInput]=\"true\"\n            [convertModelValue]=\"true\"\n            [enableTime]=\"true\"\n            dateFormat=\"Y-m-dTH:i\"\n            altFormat=\"F j, Y H:i\"\n            placeholder=\"Not set\"\n          />\n        </td>\n        <td>\n          <button class=\"btn btn-danger\" (click)=\"deleteEvent(event)\">\n            Delete\n          </button>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div> -->\n\n<ng-template #modalContent let-close=\"close\">\n  <div class=\"modal-header\">\n    <h5 class=\"modal-title\">Event action occurred</h5>\n    <button type=\"button\" class=\"close\" (click)=\"close()\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body\">\n    <div>\n      Action:\n      <pre>{{ modalData?.action }}</pre>\n    </div>\n    <div>\n      Event:\n      <pre>{{ modalData?.event | json }}</pre>\n    </div>\n  </div>\n  <div class=\"modal-footer\">\n    <button type=\"button\" class=\"btn btn-outline-secondary\" (click)=\"close()\">\n      OK\n    </button>\n  </div>\n</ng-template>\n"
+module.exports = "\n<div class=\"row text-center\">\n  <div class=\"col-md-4\">\n    <div class=\"btn-group\">\n      <div\n        class=\"btn btn-primary\"\n        mwlCalendarPreviousView\n        [view]=\"view\"\n        [(viewDate)]=\"viewDate\"\n        (viewDateChange)=\"closeOpenMonthViewDay()\"\n      >\n        Previous\n      </div>\n      <div\n        class=\"btn btn-outline-secondary\"\n        mwlCalendarToday\n        [(viewDate)]=\"viewDate\"\n      >\n        Today\n      </div>\n      <div\n        class=\"btn btn-primary\"\n        mwlCalendarNextView\n        [view]=\"view\"\n        [(viewDate)]=\"viewDate\"\n        (viewDateChange)=\"closeOpenMonthViewDay()\"\n      >\n        Next\n      </div>\n    </div>\n  </div>\n  <div class=\"col-md-4\">\n    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>\n  </div>\n  <div class=\"col-md-4\">\n    <div class=\"btn-group\">\n      <div\n        class=\"btn btn-primary\"\n        (click)=\"setView(CalendarView.Month)\"\n        [class.active]=\"view === CalendarView.Month\"\n      >\n        Month\n      </div>\n      <div\n        class=\"btn btn-primary\"\n        (click)=\"setView(CalendarView.Week)\"\n        [class.active]=\"view === CalendarView.Week\"\n      >\n        Week\n      </div>\n      <div\n        class=\"btn btn-primary\"\n        (click)=\"setView(CalendarView.Day)\"\n        [class.active]=\"view === CalendarView.Day\"\n      >\n        Day\n      </div>\n    </div>\n  </div>\n</div>\n<br />\n<div [ngSwitch]=\"view\">\n  <mwl-calendar-month-view\n    *ngSwitchCase=\"CalendarView.Month\"\n    [viewDate]=\"viewDate\"\n    [events]=\"events\"\n    [refresh]=\"refresh\"\n    [activeDayIsOpen]=\"activeDayIsOpen\"\n    (dayClicked)=\"dayClicked($event.day)\"\n    (eventClicked)=\"handleEvent('Clicked', $event.event)\"\n    (eventTimesChanged)=\"eventTimesChanged($event)\"\n  >\n  </mwl-calendar-month-view>\n  <mwl-calendar-week-view\n    *ngSwitchCase=\"CalendarView.Week\"\n    [viewDate]=\"viewDate\"\n    [events]=\"events\"\n    [refresh]=\"refresh\"\n    (eventClicked)=\"handleEvent('Clicked', $event.event)\"\n    (eventTimesChanged)=\"eventTimesChanged($event)\"\n  >\n  </mwl-calendar-week-view>\n  <mwl-calendar-day-view\n    *ngSwitchCase=\"CalendarView.Day\"\n    [viewDate]=\"viewDate\"\n    [events]=\"events\"\n    [refresh]=\"refresh\"\n    (eventClicked)=\"handleEvent('Clicked', $event.event)\"\n    (eventTimesChanged)=\"eventTimesChanged($event)\"\n  >\n  </mwl-calendar-day-view>\n</div>\n\n<br /><br /><br />\n\n<h4>\n\n  <button class=\"btn btn-primary pull-right \" (click)=\"addEvent()\">Add new</button>\n  <button class=\"btn btn-primary pull-right ml-4 mr-4 \" (click)=\"listEvents()\">Events list</button>\n\n  <button class=\"btn btn-primary pull-right\"  (click)=\"onCloseClick()\">Close</button>\n</h4>\n\n\n\n<ng-template #modalContent let-close=\"close\">\n  <div class=\"modal-header\">\n    <h5 class=\"modal-title\">Event action occurred</h5>\n    <button type=\"button\" class=\"close\" (click)=\"close()\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body\">\n    <div>\n      Action:\n      <pre>{{ modalData?.action }}</pre>\n    </div>\n    <div>\n      Event:\n      <pre>{{ modalData?.event | json }}</pre>\n    </div>\n  </div>\n  <div class=\"modal-footer\">\n    <button type=\"button\" class=\"btn btn-outline-secondary\" (click)=\"close()\">\n      OK\n    </button>\n  </div>\n</ng-template>\n"
 
 /***/ }),
 
@@ -152,6 +163,39 @@ module.exports = "<mat-toolbar color=\"primary\">\n  <span>Events </span>\n  <sp
 /***/ (function(module, exports) {
 
 module.exports = "<div>\n    <app-widget-area [data]=\"bigChart\"></app-widget-area>\n</div>\n\n<br>\n\n<mat-divider></mat-divider>\n\n<br>\n\n\n\n\n\n<div fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"20px\" class=\"stats-cards\">\n    <mat-card fxFlex=\"25\">\n        <app-widget-card label=\"New Users\" total=\"12k\" percentage=\"50\" [data]=\"cards\"></app-widget-card>\n    </mat-card>\n    <mat-card fxFlex=\"25\">\n        <app-widget-card label=\"Users retention\" total=\"10k\" percentage=\"40\" [data]=\"cards\"></app-widget-card>\n    </mat-card>\n    <mat-card fxFlex=\"25\">\n        <app-widget-card label=\"Users engagement\" total=\"8k\" percentage=\"30\" [data]=\"cards\"></app-widget-card>\n    </mat-card>\n    <mat-card fxFlex=\"25\">\n        <app-widget-card label=\"Referral\" total=\"6k\" percentage=\"20\" [data]=\"cards\"></app-widget-card>\n    </mat-card>\n</div>\n\n<br>\n\n<mat-divider></mat-divider>\n\n<br>\n\n<div fxLayout=\"row\" fxLayoutAlign=\"space-between center\" fxLayoutGap=\"20px\">\n    <div fxFlex=\"60\">\n        <div class=\"mat-elevation-z8\">\n            <table mat-table [dataSource]=\"dataSource\">\n\n                <!-- Position Column -->\n                <ng-container matColumnDef=\"position\">\n                    <th mat-header-cell *matHeaderCellDef> No. </th>\n                    <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\n                </ng-container>\n\n                <!-- Name Column -->\n                <ng-container matColumnDef=\"name\">\n                    <th mat-header-cell *matHeaderCellDef> Name </th>\n                    <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n                </ng-container>\n\n                <!-- Weight Column -->\n                <ng-container matColumnDef=\"weight\">\n                    <th mat-header-cell *matHeaderCellDef> Weight </th>\n                    <td mat-cell *matCellDef=\"let element\"> {{element.weight}} </td>\n                </ng-container>\n\n                <!-- Symbol Column -->\n                <ng-container matColumnDef=\"symbol\">\n                    <th mat-header-cell *matHeaderCellDef> Symbol </th>\n                    <td mat-cell *matCellDef=\"let element\"> {{element.symbol}} </td>\n                </ng-container>\n\n                <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n                <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n            </table>\n\n            <mat-paginator [pageSizeOptions]=\"[5, 10, 20]\"></mat-paginator>\n        </div>\n\n    </div>\n    <div fxFlex=\"40\">\n        <app-widget-pie [data]=\"pieChart\"></app-widget-pie>\n    </div>\n</div>\n\n<br>\n<br>\n<br>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/modules/news/news.component.html":
+/*!****************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/modules/news/news.component.html ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div\n  class=\"container margin-top\"\n  fxLayout=\"wrap row\"\n  fxLayout.xs=\"column\"\n  fxLayoutGap=\"1%\"\n  fxLayoutAlign=\"center\"\n>\n\n\n  <mat-card class=\"filter\">\n    <form #filternewsForm=\"ngForm\">\n       <mat-form-field>\n        <mat-select\n          placeholder=\"News Source\"\n          [(ngModel)]=\"filterSource\"\n          name=\"source\"\n          required\n        >\n          <mat-option\n            *ngFor=\"let source of newsSources.sources\"\n            [value]=\"source.id\"\n          >\n            {{source.name}} - {{ source.language }}\n          </mat-option>\n        </mat-select>\n      </mat-form-field>\n       <button\n        mat-raised-button\n        color=\"primary\"\n        (click)=\"filterNews()\"\n        [disabled]=\"!filternewsForm.form.valid\"\n      >\n        Filter News to\n        <span style=\"text-transform: capitalize; \">{{filterSource}}</span>\n      </button>\n    </form>\n  </mat-card>\n</div>\n\n<div class=\"loader\" *ngIf=\"!((news.articles)?.length > 0)\">\n  <mat-spinner></mat-spinner>\n</div>\n<div\n  class=\"container\"\n  fxLayout=\"wrap row\"\n  fxLayout.xs=\"column\"\n  fxLayoutGap=\"1%\"\n  fxLayoutAlign=\"center\"\n>\n  <div *ngFor=\"let post of news.articles\" fxFlex=\"16%\">\n    <mat-card class=\"singleNews\">\n      <img\n        mat-card-image\n        src=\"{{post.urlToImage}}\"\n\n      />\n      <div class=\"cardbody\">\n        <mat-card-title>{{post.title}}</mat-card-title>\n        <mat-card-content> <p>{{post.description}}</p> </mat-card-content>\n      </div>\n\n      <mat-card-actions align=\"end\">\n        <a href=\"{{post.url}}\" target=\"_balnk\" mat-raised-button color=\"accent\"\n          >Read More</a\n        >\n      </mat-card-actions>\n    </mat-card>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/modules/notes/note-edit/note-edit.component.html":
+/*!********************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/modules/notes/note-edit/note-edit.component.html ***!
+  \********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>note-edit works!</p>\n<ol class=\"breadcrumb\">\n  <li class=\"breadcrumb-item\"><a routerLink=\"/\">Home</a></li>\n  <li class=\"breadcrumb-item active\">Notes</li>\n</ol>\n<div class=\"card\">\n  <div class=\"card-body\">\n    <h2 class=\"card-title\">Notes Detail</h2>\n    <div class=\"card-text\">\n      <div *ngIf=\"feedback.message\" class=\"alert alert-{{feedback.type}}\" class=\"m-2\">{{ feedback.message }}</div>\n      <form *ngIf=\"note\" #editForm=\"ngForm\" (ngSubmit)=\"save()\">\n        <div class=\"form-group\">\n          <label>Id</label>\n          {{note.id || 'n/a'}}\n        </div>\n\n        <div class=\"form-group\">\n          <label for=\"title\">Title</label>\n          <input [(ngModel)]=\"note.title\" id=\"title\" name=\"title\" class=\"form-control\" required\n                 #name=\"ngModel\" [ngClass]=\"{'is-invalid': name.touched && name.invalid, 'is-valid': name.touched && name.valid}\">\n          <div [hidden]=\"name.valid\" style=\"display: block\" class=\"invalid-feedback\">\n            Title is required\n          </div>\n        </div>\n\n        <div class=\"form-group\">\n          <label for=\"text\">Text</label>\n          <input [(ngModel)]=\"note.text\" id=\"text\" name=\"text\" class=\"form-control\">\n        </div>\n\n        <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!editForm.form.valid\">Save</button>\n        <button type=\"button\" class=\"btn btn-secondary ml-2\" (click)=\"cancel()\">Cancel</button>\n      </form>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/index.js!./src/app/modules/notes/note-list/note-list.component.html":
+/*!********************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/modules/notes/note-list/note-list.component.html ***!
+  \********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n\n\n\n\n\n <ol class=\"breadcrumb\">\n  <li class=\"breadcrumb-item\"><a routerLink=\"/\">Home</a></li>\n  <li class=\"breadcrumb-item active\">Notes</li>\n</ol>\n<div class=\"card\">\n  <div class=\"card-body\">\n    <h2 class=\"card-title\">Notes List</h2>\n    <div class=\"card-text\">\n      <form #f=\"ngForm\" class=\"form-inline\">\n        <div class=\"form-group\">\n          <label for=\"title\">Title:</label>\n          <input [(ngModel)]=\"filter.title\" id=\"title\" name=\"title\" class=\"form-control ml-2 mr-2\">\n        </div>\n\n        <button (click)=\"search()\" [disabled]=\"!f?.valid\" class=\"btn btn-primary\">Search</button>\n        <a [routerLink]=\"['../notes', 'new' ]\" class=\"btn btn-default\">New</a>\n      </form>\n      <div *ngIf=\"noteList.length > 0\">\n        <div *ngIf=\"feedback\" class=\"alert alert-{{feedback.type}} m-2\">{{ feedback.message }}</div>\n        <div class=\"table-responsive\">\n          <table class=\"table table-centered table-hover mb-0\" id=\"datatable\">\n            <thead>\n            <tr>\n              <th class=\"border-top-0\" scope=\"col\">#</th>\n              <th class=\"border-top-0\" scope=\"col\" sortable=\"title\" (sort)=\"onSort($event)\">Title</th>\n              <th class=\"border-top-0\" scope=\"col\" sortable=\"text\" (sort)=\"onSort($event)\">Text</th>\n              <th class=\"border-top-0\" scope=\"col\" style=\"width:120px\"></th>\n            </tr>\n            </thead>\n            <tbody>\n            <tr *ngFor=\"let item of noteList\" [class.active]=\"item === selectedNote\">\n              <td>{{item.id}}</td>\n              <td>{{item.title}}</td>\n              <td>{{item.text}}</td>\n              <td style=\"white-space: nowrap\">\n                <a [routerLink]=\"['../notes', item.id ]\" class=\"btn btn-secondary\">Edit</a>&nbsp;\n                <button (click)=\"delete(item)\" class=\"btn btn-danger\">Delete</button>\n              </td>\n            </tr>\n            </tbody>\n          </table>\n\n          <div class=\"d-flex justify-content-between p-2\">\n            <ngb-pagination [maxSize]=\"10\"\n                            [collectionSize]=\"total$ | async\" [(page)]=\"filter.page\" [pageSize]=\"filter.size\"\n                            (pageChange)=\"onPageChange(filter.page)\">\n            </ngb-pagination>\n\n            <select class=\"custom-select\" style=\"width: auto\" name=\"pageSize\" [(ngModel)]=\"filter.size\"\n                    (ngModelChange)=\"onChange(filter.size)\">\n              <option [ngValue]=\"10\">10 items per page</option>\n              <option [ngValue]=\"20\">20 items per page</option>\n              <option [ngValue]=\"100\">100 items per page</option>\n            </select>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -206,7 +250,7 @@ module.exports = "<h1>Blog posts</h1>\n\n<mat-card>\n<p *ngIf=\"!(blogPosts$ | a
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>projects works!</p>\n\n\n"
+module.exports = "<p>projects works!</p>\n\n<div fxFlex fxLayout=\"column\"  fxLayoutGap=\"5px\" style=\"height: 300px\" >\n  <div fxLayout=\"row wrap\">\n    <div class=\"karta\"\n      *ngFor=\"let card of cardList\"\n      fxFlex=\"25\"\n      fxFlex.md=\"33\"\n      fxFlex.sm=\"50\"\n      fxFlex.xs=\"100\"\n      fxLayout=\"column\"\n      style=\"padding: 20px;\"\n    >\n      <mat-card class=\"mat-elevation-z1\" style=\"height: 300px\">\n        <img\n        mat-card-image class=\"image\"\n        src= \"{{ card.remarks}}\"\n        alt=\"foto\"\n      />\n\n        <mat-card-title> {{ card.note }} </mat-card-title>\n        <mat-card-content> {{ card.description }} </mat-card-content>\n         <!-- <mat-card-footer > -->\n        <a class =\"linkUrl\" href=\"{{ card.url }}\" mat-button>Go to page</a>\n        <!-- </mat-card-footer> -->\n\n      </mat-card>\n    </div>\n  </div>\n</div>\n\n\n<!--\n<mat-grid-list cols=\"4\" rowHeight=\"1:1.4\"    gutterSize=\"10px\"  >\n  <mat-grid-tile\n      *ngFor=\"let tile of tiles\">\n\n      <mat-card class=\"example-card\">\n        <mat-card-header>\n          <div mat-card-avatar class=\"example-header-image\"></div>\n          <mat-card-title>Shiba Inu</mat-card-title>\n          <mat-card-subtitle>Dog Breed</mat-card-subtitle>\n        </mat-card-header>\n        <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\">\n        <mat-card-content>\n          <p>\n            The Shiba Inu\n          </p>\n        </mat-card-content>\n        <mat-card-actions>\n          <button mat-button>LIKE</button>\n          <button mat-button>SHARE</button>\n        </mat-card-actions>\n      </mat-card>\n\n  </mat-grid-tile>\n</mat-grid-list> -->\n\n\n<!--\n<mat-card  >\n  <mat-card-header>\n    <mat-card-title>My Card</mat-card-title>\n  </mat-card-header>\n  <img mat-card-image src=\"https://material.angular.io/assets/img/examples/shiba2.jpg\" alt=\"Photo of a Shiba Inu\">\n  <mat-card-content>\n    {{tile.text}}\n  </mat-card-content>\n  <mat-card-actions>\n    <button mat-button>LIKE</button>\n    <button mat-button>SHARE</button>\n  </mat-card-actions>\n</mat-card> -->\n"
 
 /***/ }),
 
@@ -228,7 +272,7 @@ module.exports = "<mat-divider></mat-divider>\n<footer>\n    &copy; All rights r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n\n<mat-toolbar color=\"primary\">\n    <mat-toolbar-row>\n        <button mat-icon-button (click)=\"toggleSideBar()\">\n            <mat-icon>menu</mat-icon>\n        </button>\n\n        <span>\n\n\n  <a class=\"navbar-brand\" href=\"#\">\n    <span class=\"logo logo-left\">J</span>\n    <span class=\"logo logo-right\">G</span>\n  </a>\n        </span>\n\n        <div fxFlex fxLayout=\"row\" fxLayoutAlign=\"flex-end\">\n          <p> {{ userName }} </p>\n          <ul fxLayout=\"row\" fxLayoutGap=\"20px\">\n              <li>\n                    <button mat-button [matMenuTriggerFor]=\"menuS\">\n                      <mat-icon>settings</mat-icon>\n                  </button>\n                  <mat-menu #menuS=\"matMenu\">\n                      <button mat-menu-item (click)=\"articleList()\">\n                          <mat-icon>list</mat-icon>\n                          Aricles\n                      </button>\n                      <button mat-menu-item>\n                        <mat-icon>toc</mat-icon>\n                        Pages\n                    </button>\n\n                    <button mat-menu-item (click)=\"calendar()\">\n                      <mat-icon>toc</mat-icon>\n                      Calendar\n                  </button>\n\n\n\n                  </mat-menu>\n                </li>\n                <li>\n                    <button mat-icon-button (click)=\"help()\">\n                        <mat-icon>help_outline</mat-icon>\n                    </button>\n                </li>\n                <li>\n                    <button mat-button [matMenuTriggerFor]=\"menu\">\n                        <mat-icon>person_outline</mat-icon>\n                    </button>\n                    <mat-menu #menu=\"matMenu\">\n                      <button mat-menu-item (click)=\"login()\">\n                        <mat-icon>input</mat-icon>\n                        login\n                    </button>\n                      <button mat-menu-item (click)=\"logout()\">\n                            <mat-icon>backspace</mat-icon>\n                            Sign out\n                        </button>\n\n                    </mat-menu>\n\n                </li>\n            </ul>\n        </div>\n    </mat-toolbar-row>\n</mat-toolbar>\n"
+module.exports = "\n\n<mat-toolbar color=\"primary\">\n    <mat-toolbar-row>\n        <button mat-icon-button (click)=\"toggleSideBar()\">\n            <mat-icon>menu</mat-icon>\n        </button>\n\n        <span>\n\n\n  <a class=\"navbar-brand\" href=\"#\">\n    <span class=\"logo logo-left\">J</span>\n    <span class=\"logo logo-right\">G</span>\n  </a>\n        </span>\n\n        <div fxFlex fxLayout=\"row\" fxLayoutAlign=\"flex-end\">\n          <p> {{ userName }} </p>\n          <ul fxLayout=\"row\" fxLayoutGap=\"20px\">\n              <li>\n                    <button mat-button [matMenuTriggerFor]=\"menuS\">\n                      <mat-icon>settings</mat-icon>\n                  </button>\n                  <mat-menu #menuS=\"matMenu\">\n                      <button mat-menu-item (click)=\"articleList()\">\n                          <mat-icon>list</mat-icon>\n                          Aricles\n                      </button>\n                      <button mat-menu-item>\n                        <mat-icon>toc</mat-icon>\n                        Pages\n                    </button>\n\n                    <button mat-menu-item (click)=\"calendar()\">\n                      <mat-icon>calendar_today</mat-icon>\n                      Calendar\n                  </button>\n\n                  <button mat-menu-item (click)=\"angularEditor()\">\n                    <mat-icon>toll</mat-icon>\n                    Editor\n                </button>\n\n\n                  </mat-menu>\n                </li>\n                <li>\n                    <button mat-icon-button (click)=\"help()\">\n                        <mat-icon>help_outline</mat-icon>\n                    </button>\n                </li>\n                <li>\n                    <button mat-button [matMenuTriggerFor]=\"menu\">\n                        <mat-icon>person_outline</mat-icon>\n                    </button>\n                    <mat-menu #menu=\"matMenu\">\n                      <button mat-menu-item (click)=\"login()\">\n                        <mat-icon>input</mat-icon>\n                        login\n                    </button>\n                      <button mat-menu-item (click)=\"logout()\">\n                            <mat-icon>backspace</mat-icon>\n                            Sign out\n                        </button>\n\n                    </mat-menu>\n\n                </li>\n            </ul>\n        </div>\n    </mat-toolbar-row>\n</mat-toolbar>\n"
 
 /***/ }),
 
@@ -239,7 +283,7 @@ module.exports = "\n\n<mat-toolbar color=\"primary\">\n    <mat-toolbar-row>\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-nav-list>\n    <div class=\"profile-card\">\n        <div class=\"header\">\n            <h2>JG</h2>\n            <h4>jarekg@test.com.pl</h4>\n        </div>\n        <img  src=\"assets/jg.jpg\" alt=\"image\">\n    </div>\n\n    <mat-divider></mat-divider>\n\n    <h2 matSubheader>Pages</h2>\n\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/\">Dashboard</a>\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/posts\">Posts</a>\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/articles\">Articles</a>\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/projects\">Projects</a>\n\n    <mat-divider></mat-divider>\n\n    <h2 matSubheader>Tools</h2>\n\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/contacts\">\n        <mat-icon>import_contacts</mat-icon>\n        Contacts\n    </a>\n\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/contacts\">\n        <mat-icon>contact_phone</mat-icon>\n        Leads\n    </a>\n\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/testlayout\">\n      <mat-icon>contact_phone</mat-icon>\n      Test page\n  </a>\n\n</mat-nav-list>\n\n"
+module.exports = "<mat-nav-list>\n    <div class=\"profile-card\">\n        <div class=\"header\">\n            <h2>JG</h2>\n            <h4>jarekg@test.com.pl</h4>\n        </div>\n        <img  src=\"assets/jg.jpg\" alt=\"image\">\n    </div>\n\n    <mat-divider></mat-divider>\n\n    <h2 matSubheader>Pages</h2>\n\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/\">Dashboard</a>\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/posts\">Posts</a>\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/articles\">Articles</a>\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/projects\">Projects</a>\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/notes\">Notes</a>\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/news\">News</a>\n\n\n\n    <mat-divider></mat-divider>\n\n    <h2 matSubheader>Tools</h2>\n\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/contacts\">\n        <mat-icon>import_contacts</mat-icon>\n        Contacts\n    </a>\n\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/contacts\">\n        <mat-icon>contact_phone</mat-icon>\n        Leads\n    </a>\n\n    <a mat-list-item routerLinkActive=\"list-item-active\" routerLink=\"/testlayout\">\n      <mat-icon>contact_phone</mat-icon>\n      Test page\n  </a>\n\n</mat-nav-list>\n\n"
 
 /***/ }),
 
@@ -333,6 +377,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_services_auth_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./shared/services/auth.service */ "./src/app/shared/services/auth.service.ts");
 /* harmony import */ var _shared_components_testlayout_testlayout_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./shared/components/testlayout/testlayout.component */ "./src/app/shared/components/testlayout/testlayout.component.ts");
 /* harmony import */ var _modules_projects_projects_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modules/projects/projects.component */ "./src/app/modules/projects/projects.component.ts");
+/* harmony import */ var _modules_notes_note_list_note_list_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./modules/notes/note-list/note-list.component */ "./src/app/modules/notes/note-list/note-list.component.ts");
+/* harmony import */ var _modules_news_news_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./modules/news/news.component */ "./src/app/modules/news/news.component.ts");
+
+
 
 
 
@@ -370,7 +418,9 @@ const routes = [
             { path: 'add', component: _modules_posts_blog_post_add_edit_blog_post_add_edit_component__WEBPACK_IMPORTED_MODULE_9__["BlogPostAddEditComponent"] },
             { path: 'blogpost/edit/:id', component: _modules_posts_blog_post_add_edit_blog_post_add_edit_component__WEBPACK_IMPORTED_MODULE_9__["BlogPostAddEditComponent"] },
             { path: 'testlayout', component: _shared_components_testlayout_testlayout_component__WEBPACK_IMPORTED_MODULE_12__["TestlayoutComponent"] },
-            { path: 'projects', component: _modules_projects_projects_component__WEBPACK_IMPORTED_MODULE_13__["ProjectsComponent"] }
+            { path: 'projects', component: _modules_projects_projects_component__WEBPACK_IMPORTED_MODULE_13__["ProjectsComponent"] },
+            { path: 'notes', component: _modules_notes_note_list_note_list_component__WEBPACK_IMPORTED_MODULE_14__["NoteListComponent"] },
+            { path: 'news', component: _modules_news_news_component__WEBPACK_IMPORTED_MODULE_15__["NewsComponent"] }
         ]
     },
     { path: "404", component: _error_pages_not_found_not_found_component__WEBPACK_IMPORTED_MODULE_7__["NotFoundComponent"] },
@@ -477,6 +527,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var angular_datatables__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! angular-datatables */ "./node_modules/angular-datatables/index.js");
 /* harmony import */ var _modules_projects_projects_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./modules/projects/projects.component */ "./src/app/modules/projects/projects.component.ts");
 /* harmony import */ var _modules_posts_documents_documents_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./modules/posts/documents/documents.component */ "./src/app/modules/posts/documents/documents.component.ts");
+/* harmony import */ var _modules_angulareditor_angulareditor_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./modules/angulareditor/angulareditor.component */ "./src/app/modules/angulareditor/angulareditor.component.ts");
+/* harmony import */ var _kolkov_angular_editor__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! @kolkov/angular-editor */ "./node_modules/@kolkov/angular-editor/fesm2015/kolkov-angular-editor.js");
+/* harmony import */ var _modules_notes_note_module__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./modules/notes/note.module */ "./src/app/modules/notes/note.module.ts");
+/* harmony import */ var _modules_news_news_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./modules/news/news.component */ "./src/app/modules/news/news.component.ts");
+
+
+
+
 
 
 
@@ -534,6 +592,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _shared_components_testlayout_testlayout_component__WEBPACK_IMPORTED_MODULE_31__["TestlayoutComponent"],
             _modules_projects_projects_component__WEBPACK_IMPORTED_MODULE_33__["ProjectsComponent"],
             _modules_posts_documents_documents_component__WEBPACK_IMPORTED_MODULE_34__["DocumentsComponent"],
+            _modules_angulareditor_angulareditor_component__WEBPACK_IMPORTED_MODULE_35__["AngulareditorComponent"],
+            _modules_news_news_component__WEBPACK_IMPORTED_MODULE_38__["NewsComponent"],
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
@@ -542,6 +602,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__["BrowserAnimationsModule"],
             _layouts_default_default_module__WEBPACK_IMPORTED_MODULE_7__["DefaultModule"],
             _material_module__WEBPACK_IMPORTED_MODULE_9__["MaterialModule"],
+            _modules_notes_note_module__WEBPACK_IMPORTED_MODULE_37__["NoteModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_10__["HttpClientModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_16__["FormsModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_16__["ReactiveFormsModule"],
@@ -554,13 +615,14 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             angularx_flatpickr__WEBPACK_IMPORTED_MODULE_26__["FlatpickrModule"].forRoot(),
             _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_27__["NgbModule"],
             ng_pick_datetime__WEBPACK_IMPORTED_MODULE_29__["OwlDateTimeModule"],
-            ng_pick_datetime__WEBPACK_IMPORTED_MODULE_29__["OwlNativeDateTimeModule"]
+            ng_pick_datetime__WEBPACK_IMPORTED_MODULE_29__["OwlNativeDateTimeModule"],
+            _kolkov_angular_editor__WEBPACK_IMPORTED_MODULE_36__["AngularEditorModule"]
         ],
         providers: [_angular_common__WEBPACK_IMPORTED_MODULE_17__["DatePipe"]
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]],
         entryComponents: [_modules_articlelist_articlelist_component__WEBPACK_IMPORTED_MODULE_8__["ArticlelistComponent"], _modules_articlelist_newarticle_newarticle_component__WEBPACK_IMPORTED_MODULE_12__["NewarticleComponent"], _shared_tools_confirmationdialog_confirmationdialog_component__WEBPACK_IMPORTED_MODULE_18__["ConfirmationdialogComponent"],
-            _modules_articlelist_updatearticle_updatearticle_component__WEBPACK_IMPORTED_MODULE_20__["UpdatearticleComponent"], _shared_login_login_component__WEBPACK_IMPORTED_MODULE_1__["LoginComponent"], _modules_calendar_calendar_component__WEBPACK_IMPORTED_MODULE_23__["CalendarComponent"], _modules_calendar_addeditevent_addeditevent_component__WEBPACK_IMPORTED_MODULE_28__["AddediteventComponent"], _modules_calendar_eventslist_eventslist_component__WEBPACK_IMPORTED_MODULE_30__["EventslistComponent"]]
+            _modules_articlelist_updatearticle_updatearticle_component__WEBPACK_IMPORTED_MODULE_20__["UpdatearticleComponent"], _shared_login_login_component__WEBPACK_IMPORTED_MODULE_1__["LoginComponent"], _modules_calendar_calendar_component__WEBPACK_IMPORTED_MODULE_23__["CalendarComponent"], _modules_calendar_addeditevent_addeditevent_component__WEBPACK_IMPORTED_MODULE_28__["AddediteventComponent"], _modules_calendar_eventslist_eventslist_component__WEBPACK_IMPORTED_MODULE_30__["EventslistComponent"], _modules_angulareditor_angulareditor_component__WEBPACK_IMPORTED_MODULE_35__["AngulareditorComponent"]]
     })
 ], AppModule);
 
@@ -886,6 +948,108 @@ MaterialModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         ],
     })
 ], MaterialModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/angulareditor/angulareditor.component.scss":
+/*!********************************************************************!*\
+  !*** ./src/app/modules/angulareditor/angulareditor.component.scss ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW5ndWxhcmVkaXRvci9hbmd1bGFyZWRpdG9yLmNvbXBvbmVudC5zY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/modules/angulareditor/angulareditor.component.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/modules/angulareditor/angulareditor.component.ts ***!
+  \******************************************************************/
+/*! exports provided: AngulareditorComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AngulareditorComponent", function() { return AngulareditorComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! file-saver */ "./node_modules/file-saver/dist/FileSaver.min.js");
+/* harmony import */ var file_saver__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(file_saver__WEBPACK_IMPORTED_MODULE_4__);
+
+
+
+
+
+let AngulareditorComponent = class AngulareditorComponent {
+    // ,
+    // toolbarHiddenButtons: [
+    //   ['bold', 'italic'],
+    //   ['fontSize']
+    // ]
+    constructor(formBuilder, dialogRef) {
+        this.formBuilder = formBuilder;
+        this.dialogRef = dialogRef;
+        this.htmlContent1 = '';
+        this.config1 = {
+            editable: true,
+            spellcheck: true,
+            minHeight: '5rem',
+            maxHeight: '50rem',
+            placeholder: 'Enter text here...',
+            translate: 'no',
+            sanitize: false,
+            toolbarPosition: 'top',
+            outline: true,
+            defaultFontName: 'Arial',
+            defaultFontSize: '3',
+            showToolbar: true,
+            defaultParagraphSeparator: 'p',
+            customClasses: [
+                {
+                    name: 'quote',
+                    class: 'quote',
+                },
+                {
+                    name: 'redText',
+                    class: 'redText'
+                },
+                {
+                    name: 'titleText',
+                    class: 'titleText',
+                    tag: 'h1',
+                },
+            ]
+        };
+    }
+    ngOnInit() {
+        // this.form = this.formBuilder.group({
+        //   signature: ['', Validators.required]
+        // });
+        console.log(this.htmlContent1);
+    }
+    onCloseClick() {
+        this.dialogRef.close();
+    }
+    saveText() {
+        Object(file_saver__WEBPACK_IMPORTED_MODULE_4__["saveAs"])(new Blob([this.htmlContent1], { type: "html" }), 'data.html');
+    }
+};
+AngulareditorComponent.ctorParameters = () => [
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
+    { type: _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"] }
+];
+AngulareditorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-angulareditor',
+        template: __webpack_require__(/*! raw-loader!./angulareditor.component.html */ "./node_modules/raw-loader/index.js!./src/app/modules/angulareditor/angulareditor.component.html"),
+        styles: [__webpack_require__(/*! ./angulareditor.component.scss */ "./src/app/modules/angulareditor/angulareditor.component.scss")]
+    })
+], AngulareditorComponent);
 
 
 
@@ -1943,6 +2107,659 @@ DashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/modules/news/news.component.scss":
+/*!**************************************************!*\
+  !*** ./src/app/modules/news/news.component.scss ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".singleNews {\n  margin-bottom: 15px;\n}\n.singleNews img {\n  height: 150px;\n}\n.singleNews mat-card-title {\n  font-size: 16px;\n  font-weight: bold;\n}\n.singleNews .cardbody {\n  height: 100px;\n  overflow-y: auto;\n  margin: 0 -15px;\n  padding: 10px;\n}\n.filter {\n  margin-top: 50px;\n  margin-bottom: 50px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9uZXdzL0M6XFxwcm9ncmFtb3dhbmllXFxob21lMDJcXGhvbWVQYWdlL3NyY1xcYXBwXFxtb2R1bGVzXFxuZXdzXFxuZXdzLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9tb2R1bGVzL25ld3MvbmV3cy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLG1CQUFBO0FDQ0Y7QURBRTtFQUNFLGFBQUE7QUNFSjtBREFFO0VBQ0UsZUFBQTtFQUNBLGlCQUFBO0FDRUo7QURBRTtFQUNFLGFBQUE7RUFDQSxnQkFBQTtFQUNBLGVBQUE7RUFDQSxhQUFBO0FDRUo7QURDQTtFQUNFLGdCQUFBO0VBQ0EsbUJBQUE7QUNFRiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvbmV3cy9uZXdzLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnNpbmdsZU5ld3Mge1xyXG4gIG1hcmdpbi1ib3R0b206IDE1cHg7XHJcbiAgaW1nIHtcclxuICAgIGhlaWdodDogMTUwcHg7XHJcbiAgfVxyXG4gIG1hdC1jYXJkLXRpdGxlIHtcclxuICAgIGZvbnQtc2l6ZTogMTZweDtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIH1cclxuICAuY2FyZGJvZHkge1xyXG4gICAgaGVpZ2h0OiAxMDBweDtcclxuICAgIG92ZXJmbG93LXk6IGF1dG87XHJcbiAgICBtYXJnaW46IDAgLTE1cHg7XHJcbiAgICBwYWRkaW5nOiAxMHB4O1xyXG4gIH1cclxufVxyXG4uZmlsdGVyIHtcclxuICBtYXJnaW4tdG9wOiA1MHB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDUwcHg7XHJcbn1cclxuIiwiLnNpbmdsZU5ld3Mge1xuICBtYXJnaW4tYm90dG9tOiAxNXB4O1xufVxuLnNpbmdsZU5ld3MgaW1nIHtcbiAgaGVpZ2h0OiAxNTBweDtcbn1cbi5zaW5nbGVOZXdzIG1hdC1jYXJkLXRpdGxlIHtcbiAgZm9udC1zaXplOiAxNnB4O1xuICBmb250LXdlaWdodDogYm9sZDtcbn1cbi5zaW5nbGVOZXdzIC5jYXJkYm9keSB7XG4gIGhlaWdodDogMTAwcHg7XG4gIG92ZXJmbG93LXk6IGF1dG87XG4gIG1hcmdpbjogMCAtMTVweDtcbiAgcGFkZGluZzogMTBweDtcbn1cblxuLmZpbHRlciB7XG4gIG1hcmdpbi10b3A6IDUwcHg7XG4gIG1hcmdpbi1ib3R0b206IDUwcHg7XG59Il19 */"
+
+/***/ }),
+
+/***/ "./src/app/modules/news/news.component.ts":
+/*!************************************************!*\
+  !*** ./src/app/modules/news/news.component.ts ***!
+  \************************************************/
+/*! exports provided: NewsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewsComponent", function() { return NewsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _news_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./news.service */ "./src/app/modules/news/news.service.ts");
+
+
+
+let NewsComponent = class NewsComponent {
+    constructor(newsService) {
+        this.newsService = newsService;
+        this.news = [];
+        this.newsSources = [];
+        this.filterSource = "google-news";
+    }
+    ngOnInit() {
+        // this.newsService.getTopHeadLines()
+        //  .subscribe(
+        //     response => { this.news = response;
+        //                 console.table(this.news);
+        //     }
+        // );
+        let source = "newsweek";
+        this.newsService.getNewBySource(source).subscribe(response => {
+            this.news = response;
+            console.table(this.news);
+        });
+        this.getnewsSources();
+    }
+    filterNews() {
+        let gazeta = this.filterSource;
+        this.newsService.getNewBySource(gazeta).subscribe(response => {
+            this.news = response;
+            console.table("ffffffffffffffilter " + this.filterSource);
+        });
+    }
+    getnewsSources() {
+        this.newsService.getSources().subscribe(response => {
+            this.newsSources = response;
+            console.table(this.newsSources);
+        });
+    }
+};
+NewsComponent.ctorParameters = () => [
+    { type: _news_service__WEBPACK_IMPORTED_MODULE_2__["NewsService"] }
+];
+NewsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: "app-news",
+        template: __webpack_require__(/*! raw-loader!./news.component.html */ "./node_modules/raw-loader/index.js!./src/app/modules/news/news.component.html"),
+        styles: [__webpack_require__(/*! ./news.component.scss */ "./src/app/modules/news/news.component.scss")]
+    })
+], NewsComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/news/news.service.ts":
+/*!**********************************************!*\
+  !*** ./src/app/modules/news/news.service.ts ***!
+  \**********************************************/
+/*! exports provided: NewsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewsService", function() { return NewsService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+
+
+
+let NewsService = class NewsService {
+    constructor(http) {
+        this.http = http;
+        this.key = 'cc923539a8be40178ac40171df423f31';
+    }
+    // getTopHeadLines(){
+    //   return this.http.get('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=' + this.key);
+    // }
+    getTopHeadLines() {
+        return this.http.get('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=' + this.key)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["catchError"])(this.errorHandler));
+    }
+    getNewBySource(source) {
+        return this.http.get('https://newsapi.org/v2/top-headlines?sources=' + source + '&apiKey=' + this.key)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["catchError"])(this.errorHandler));
+    }
+    getSources() {
+        return this.http.get('https://newsapi.org/v2/sources?apiKey=' + this.key)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["retry"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["catchError"])(this.errorHandler));
+    }
+    errorHandler(error) {
+        let errorMessage = '';
+        if (error.error instanceof ErrorEvent) {
+            // Get client-side error
+            errorMessage = error.error.message;
+        }
+        else {
+            // Get server-side error
+            errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+        }
+        console.log(errorMessage);
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["throwError"])(errorMessage);
+    }
+};
+NewsService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }
+];
+NewsService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Injectable"])({
+        providedIn: 'root'
+    })
+], NewsService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/notes/note-edit/note-edit.component.scss":
+/*!******************************************************************!*\
+  !*** ./src/app/modules/notes/note-edit/note-edit.component.scss ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvbm90ZXMvbm90ZS1lZGl0L25vdGUtZWRpdC5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/modules/notes/note-edit/note-edit.component.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/modules/notes/note-edit/note-edit.component.ts ***!
+  \****************************************************************/
+/*! exports provided: NoteEditComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NoteEditComponent", function() { return NoteEditComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _note__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../note */ "./src/app/modules/notes/note.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _notes_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../notes.service */ "./src/app/modules/notes/notes.service.ts");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+
+
+
+
+
+
+
+let NoteEditComponent = class NoteEditComponent {
+    constructor(route, router, noteService) {
+        this.route = route;
+        this.router = router;
+        this.noteService = noteService;
+        this.feedback = {};
+    }
+    ngOnInit() {
+        this
+            .route
+            .params
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(p => p.id), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(id => {
+            if (id === 'new') {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_6__["of"])(new _note__WEBPACK_IMPORTED_MODULE_2__["Note"]());
+            }
+            // this.id = id;
+            return this.noteService.findById(id);
+        }))
+            .subscribe(note => {
+            this.note = note;
+            // this.note.id = +note.id;
+            this.feedback = {};
+        }, err => {
+            this.feedback = { type: 'warning', message: 'Error loading' };
+        });
+    }
+    save() {
+        this.noteService.save(this.note).subscribe(note => {
+            this.note = note;
+            // this.note.id = +this.id;
+            this.feedback = { type: 'success', message: 'Save was successful!' };
+            setTimeout(() => {
+                this.router.navigate(['/notes']);
+            }, 1000);
+        }, err => {
+            this.feedback = { type: 'warning', message: 'Error saving' };
+        });
+    }
+    cancel() {
+        this.router.navigate(['/notes']);
+    }
+};
+NoteEditComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+    { type: _notes_service__WEBPACK_IMPORTED_MODULE_4__["NotesService"] }
+];
+NoteEditComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-note-edit',
+        template: __webpack_require__(/*! raw-loader!./note-edit.component.html */ "./node_modules/raw-loader/index.js!./src/app/modules/notes/note-edit/note-edit.component.html"),
+        styles: [__webpack_require__(/*! ./note-edit.component.scss */ "./src/app/modules/notes/note-edit/note-edit.component.scss")]
+    })
+], NoteEditComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/notes/note-filter.ts":
+/*!**********************************************!*\
+  !*** ./src/app/modules/notes/note-filter.ts ***!
+  \**********************************************/
+/*! exports provided: NoteFilter */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NoteFilter", function() { return NoteFilter; });
+class NoteFilter {
+    constructor() {
+        this.title = '';
+        this.page = 0;
+        this.size = 20;
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/app/modules/notes/note-list/note-list.component.scss":
+/*!******************************************************************!*\
+  !*** ./src/app/modules/notes/note-list/note-list.component.scss ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvbm90ZXMvbm90ZS1saXN0L25vdGUtbGlzdC5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/modules/notes/note-list/note-list.component.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/modules/notes/note-list/note-list.component.ts ***!
+  \****************************************************************/
+/*! exports provided: NoteListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NoteListComponent", function() { return NoteListComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _sortable_directive__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../sortable.directive */ "./src/app/modules/notes/sortable.directive.ts");
+/* harmony import */ var _notes_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../notes.service */ "./src/app/modules/notes/notes.service.ts");
+/* harmony import */ var _note_filter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../note-filter */ "./src/app/modules/notes/note-filter.ts");
+
+
+
+
+
+let NoteListComponent = class NoteListComponent {
+    constructor(noteService) {
+        this.noteService = noteService;
+        this.filter = new _note_filter__WEBPACK_IMPORTED_MODULE_4__["NoteFilter"]();
+        this.feedback = {};
+    }
+    get noteList() {
+        return this.noteService.noteList;
+    }
+    ngOnInit() {
+        this.search();
+    }
+    search() {
+        this.noteService.load(this.filter);
+        this.total$ = this.noteService.size$;
+    }
+    onPageChange(page) {
+        this.filter.page = page - 1;
+        this.search();
+        this.filter.page = page;
+    }
+    onChange(pageSize) {
+        this.filter.size = pageSize;
+        this.filter.page = 0;
+        this.search();
+    }
+    onSort({ column, direction }) {
+        // reset other headers
+        this.headers.forEach(header => {
+            if (header.sortable !== column) {
+                header.direction = '';
+            }
+        });
+        this.filter.column = column;
+        this.filter.direction = direction;
+        this.filter.page = 0;
+        this.search();
+    }
+    select(selected) {
+        this.selectedNote = selected;
+    }
+    delete(note) {
+        if (confirm('Are you sure?')) {
+            this.noteService.delete(note).subscribe(() => {
+                this.feedback = { type: 'success', message: 'Delete was successful!' };
+                setTimeout(() => {
+                    this.search();
+                }, 1000);
+            }, err => {
+                this.feedback = { type: 'warning', message: 'Error deleting.' };
+            });
+        }
+    }
+};
+NoteListComponent.ctorParameters = () => [
+    { type: _notes_service__WEBPACK_IMPORTED_MODULE_3__["NotesService"] }
+];
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChildren"])(_sortable_directive__WEBPACK_IMPORTED_MODULE_2__["SortableHeaderDirective"])
+], NoteListComponent.prototype, "headers", void 0);
+NoteListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-note',
+        template: __webpack_require__(/*! raw-loader!./note-list.component.html */ "./node_modules/raw-loader/index.js!./src/app/modules/notes/note-list/note-list.component.html"),
+        styles: [__webpack_require__(/*! ./note-list.component.scss */ "./src/app/modules/notes/note-list/note-list.component.scss")]
+    })
+], NoteListComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/notes/note-list/sortable.directive.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/modules/notes/note-list/sortable.directive.ts ***!
+  \***************************************************************/
+/*! exports provided: SortableHeaderDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SortableHeaderDirective", function() { return SortableHeaderDirective; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+const rotate = { asc: 'desc', desc: '', '': 'asc' };
+let SortableHeaderDirective = class SortableHeaderDirective {
+    constructor() {
+        this.direction = '';
+        this.sort = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+    }
+    rotate() {
+        this.direction = rotate[this.direction];
+        this.sort.emit({ column: this.sortable, direction: this.direction });
+    }
+};
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], SortableHeaderDirective.prototype, "sortable", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], SortableHeaderDirective.prototype, "direction", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()
+], SortableHeaderDirective.prototype, "sort", void 0);
+SortableHeaderDirective = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: 'th[sortable]',
+        host: {
+            '[class.asc]': 'direction === "asc"',
+            '[class.desc]': 'direction === "desc"',
+            '(click)': 'rotate()'
+        }
+    })
+], SortableHeaderDirective);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/notes/note.module.ts":
+/*!**********************************************!*\
+  !*** ./src/app/modules/notes/note.module.ts ***!
+  \**********************************************/
+/*! exports provided: NoteModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NoteModule", function() { return NoteModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _note_list_note_list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./note-list/note-list.component */ "./src/app/modules/notes/note-list/note-list.component.ts");
+/* harmony import */ var _note_edit_note_edit_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./note-edit/note-edit.component */ "./src/app/modules/notes/note-edit/note-edit.component.ts");
+/* harmony import */ var _notes_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./notes.service */ "./src/app/modules/notes/notes.service.ts");
+/* harmony import */ var _note_routes__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./note.routes */ "./src/app/modules/notes/note.routes.ts");
+/* harmony import */ var _note_list_sortable_directive__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./note-list/sortable.directive */ "./src/app/modules/notes/note-list/sortable.directive.ts");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
+
+
+
+
+
+
+
+
+
+
+
+let NoteModule = class NoteModule {
+};
+NoteModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [
+            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(_note_routes__WEBPACK_IMPORTED_MODULE_8__["NOTE_ROUTES"], { useHash: true }),
+            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_10__["NgbModule"]
+        ],
+        declarations: [
+            _note_list_note_list_component__WEBPACK_IMPORTED_MODULE_5__["NoteListComponent"],
+            _note_edit_note_edit_component__WEBPACK_IMPORTED_MODULE_6__["NoteEditComponent"],
+            _note_list_sortable_directive__WEBPACK_IMPORTED_MODULE_9__["SortableHeaderDirective"]
+        ],
+        providers: [_notes_service__WEBPACK_IMPORTED_MODULE_7__["NotesService"]],
+        exports: []
+    })
+], NoteModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/notes/note.routes.ts":
+/*!**********************************************!*\
+  !*** ./src/app/modules/notes/note.routes.ts ***!
+  \**********************************************/
+/*! exports provided: NOTE_ROUTES */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NOTE_ROUTES", function() { return NOTE_ROUTES; });
+/* harmony import */ var _note_list_note_list_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./note-list/note-list.component */ "./src/app/modules/notes/note-list/note-list.component.ts");
+/* harmony import */ var _note_edit_note_edit_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./note-edit/note-edit.component */ "./src/app/modules/notes/note-edit/note-edit.component.ts");
+
+
+const NOTE_ROUTES = [
+    {
+        path: 'notes',
+        component: _note_list_note_list_component__WEBPACK_IMPORTED_MODULE_0__["NoteListComponent"]
+    },
+    {
+        path: 'notes/:id',
+        component: _note_edit_note_edit_component__WEBPACK_IMPORTED_MODULE_1__["NoteEditComponent"]
+    }
+];
+
+
+/***/ }),
+
+/***/ "./src/app/modules/notes/note.ts":
+/*!***************************************!*\
+  !*** ./src/app/modules/notes/note.ts ***!
+  \***************************************/
+/*! exports provided: Note */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Note", function() { return Note; });
+class Note {
+}
+
+
+/***/ }),
+
+/***/ "./src/app/modules/notes/notes.service.ts":
+/*!************************************************!*\
+  !*** ./src/app/modules/notes/notes.service.ts ***!
+  \************************************************/
+/*! exports provided: NotesService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotesService", function() { return NotesService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
+
+
+const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set('Accept', 'application/json');
+let NotesService = class NotesService {
+    constructor(http) {
+        this.http = http;
+        this.noteList = [];
+        this.api = 'http://localhost:80/api/notes';
+        this.size$ = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](0);
+    }
+    findById(id) {
+        const url = `${this.api}/${id}`;
+        const params = { id };
+        return this.http.get(url, { params, headers });
+    }
+    load(filter) {
+        this.find(filter).subscribe(result => {
+            this.noteList = result;
+        }, err => {
+            console.error('error loading', err);
+        });
+    }
+    find(filter) {
+        const params = {
+            title: filter.title,
+            sort: `${filter.column},${filter.direction}`,
+            size: filter.size,
+            page: filter.page
+        };
+        if (!filter.direction) {
+            delete params.sort;
+        }
+        const userNotes = 'http://localhost:80/api/notes';
+        return this.http.get(userNotes, { headers }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])((response) => {
+            this.size$.next(response.totalElements);
+            return response;
+        }));
+    }
+    save(entity) {
+        let params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]();
+        let url = '';
+        if (entity.id) {
+            url = `${this.api}/${entity.id.toString()}`;
+            params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]().set('ID', entity.id.toString());
+            return this.http.put(url, entity, { headers, params });
+        }
+        else {
+            url = `${this.api}`;
+            return this.http.post(url, entity, { headers, params });
+        }
+    }
+    delete(entity) {
+        let params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]();
+        let url = '';
+        if (entity.id) {
+            url = `${this.api}/${entity.id.toString()}`;
+            params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpParams"]().set('ID', entity.id.toString());
+            return this.http.delete(url, { headers, params });
+        }
+        return null;
+    }
+};
+NotesService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+NotesService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], NotesService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/notes/sortable.directive.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/modules/notes/sortable.directive.ts ***!
+  \*****************************************************/
+/*! exports provided: SortableHeaderDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SortableHeaderDirective", function() { return SortableHeaderDirective; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+const rotate = { asc: 'desc', desc: '', '': 'asc' };
+let SortableHeaderDirective = class SortableHeaderDirective {
+    constructor() {
+        this.direction = '';
+        this.sort = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+    }
+    rotate() {
+        this.direction = rotate[this.direction];
+        this.sort.emit({ column: this.sortable, direction: this.direction });
+    }
+};
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], SortableHeaderDirective.prototype, "sortable", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], SortableHeaderDirective.prototype, "direction", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()
+], SortableHeaderDirective.prototype, "sort", void 0);
+SortableHeaderDirective = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: 'th[sortable]',
+        host: {
+            '[class.asc]': 'direction === "asc"',
+            '[class.desc]': 'direction === "desc"',
+            '(click)': 'rotate()'
+        }
+    })
+], SortableHeaderDirective);
+
+
+
+/***/ }),
+
 /***/ "./src/app/modules/posts/blog-post-add-edit/blog-post-add-edit.component.scss":
 /*!************************************************************************************!*\
   !*** ./src/app/modules/posts/blog-post-add-edit/blog-post-add-edit.component.scss ***!
@@ -2323,7 +3140,7 @@ PostsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvcHJvamVjdHMvcHJvamVjdHMuY29tcG9uZW50LnNjc3MifQ== */"
+module.exports = ".karta:hover img {\n  -webkit-transform: scale(1.2, 1.2);\n          transform: scale(1.2, 1.2);\n  transition: 700ms;\n  transition-timing-function: ease-in-out;\n  opacity: 0.7;\n}\n\n.mat-card {\n  display: flex;\n  flex-direction: column;\n}\n\n.mat-card-header {\n  flex-shrink: 0;\n}\n\n.mat-card-content {\n  flex-grow: 1;\n  overflow: auto;\n}\n\n.linkUrl {\n  border: 0.1px solid #cde4b4;\n  padding-left: 20px;\n  padding-right: 20px;\n  background: #e4d2b2;\n}\n\n.mat-elevation-z1 {\n  border: 1px solid black;\n  padding-left: 20px;\n  padding-right: 20px;\n  background: #e6ebe9;\n}\n\n.image {\n  height: 150px;\n  /* adjust as needed */\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9wcm9qZWN0cy9DOlxccHJvZ3JhbW93YW5pZVxcaG9tZTAyXFxob21lUGFnZS9zcmNcXGFwcFxcbW9kdWxlc1xccHJvamVjdHNcXHByb2plY3RzLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9tb2R1bGVzL3Byb2plY3RzL3Byb2plY3RzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUVBO0VBQ0Usa0NBQUE7VUFBQSwwQkFBQTtFQUNBLGlCQUFBO0VBQ0EsdUNBQUE7RUFDQSxZQUFBO0FDREY7O0FES0E7RUFDRSxhQUFBO0VBQ0Esc0JBQUE7QUNGRjs7QURLQTtFQUNFLGNBQUE7QUNGRjs7QURLQTtFQUNFLFlBQUE7RUFDQSxjQUFBO0FDRkY7O0FES0E7RUFDRSwyQkFBQTtFQUNBLGtCQUFBO0VBQ0EsbUJBQUE7RUFDQSxtQkFBQTtBQ0ZGOztBRElBO0VBQ0UsdUJBQUE7RUFDQSxrQkFBQTtFQUNBLG1CQUFBO0VBQ0EsbUJBQUE7QUNERjs7QURJQTtFQUNFLGFBQUE7RUFBZSxxQkFBQTtFQUNmLHNCQUFBO0tBQUEsbUJBQUE7QUNBRiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvcHJvamVjdHMvcHJvamVjdHMuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcclxuXHJcbi5rYXJ0YTpob3ZlciBpbWcge1xyXG4gIHRyYW5zZm9ybTogc2NhbGUoMS4yLCAxLjIpO1xyXG4gIHRyYW5zaXRpb246IDcwMG1zO1xyXG4gIHRyYW5zaXRpb24tdGltaW5nLWZ1bmN0aW9uOiBlYXNlLWluLW91dDtcclxuICBvcGFjaXR5OiAwLjc7XHJcbn1cclxuXHJcblxyXG4ubWF0LWNhcmR7XHJcbiAgZGlzcGxheTpmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbn1cclxuXHJcbi5tYXQtY2FyZC1oZWFkZXIge1xyXG4gIGZsZXgtc2hyaW5rOiAwO1xyXG59XHJcblxyXG4ubWF0LWNhcmQtY29udGVudHtcclxuICBmbGV4LWdyb3c6IDE7XHJcbiAgb3ZlcmZsb3c6IGF1dG87XHJcbn1cclxuXHJcbi5saW5rVXJsIHtcclxuICBib3JkZXI6MC4xcHggc29saWQgcmdiKDIwNSwgMjI4LCAxODApO1xyXG4gIHBhZGRpbmctbGVmdDogMjBweDs7XHJcbiAgcGFkZGluZy1yaWdodDoyMHB4O1xyXG4gIGJhY2tncm91bmQ6ICNlNGQyYjI7XHJcbn1cclxuLm1hdC1lbGV2YXRpb24tejEge1xyXG4gIGJvcmRlcjoxcHggc29saWQgYmxhY2s7XHJcbiAgcGFkZGluZy1sZWZ0OiAyMHB4OztcclxuICBwYWRkaW5nLXJpZ2h0OjIwcHg7XHJcbiAgYmFja2dyb3VuZDogI2U2ZWJlOTtcclxufVxyXG5cclxuLmltYWdle1xyXG4gIGhlaWdodDogMTUwcHg7IC8qIGFkanVzdCBhcyBuZWVkZWQgKi9cclxuICBvYmplY3QtZml0OiBjb250YWluO1xyXG59XHJcblxyXG5cclxuLy8gLmV4YW1wbGUtY2FyZCB7XHJcbi8vICAgbWF4LXdpZHRoOiA0MDBweDtcclxuLy8gfVxyXG5cclxuLy8gLmV4YW1wbGUtaGVhZGVyLWltYWdlIHtcclxuLy8gICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoJ2h0dHBzOi8vbWF0ZXJpYWwuYW5ndWxhci5pby9hc3NldHMvaW1nL2V4YW1wbGVzL3NoaWJhMS5qcGcnKTtcclxuLy8gICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xyXG4vLyB9XHJcbiIsIi5rYXJ0YTpob3ZlciBpbWcge1xuICB0cmFuc2Zvcm06IHNjYWxlKDEuMiwgMS4yKTtcbiAgdHJhbnNpdGlvbjogNzAwbXM7XG4gIHRyYW5zaXRpb24tdGltaW5nLWZ1bmN0aW9uOiBlYXNlLWluLW91dDtcbiAgb3BhY2l0eTogMC43O1xufVxuXG4ubWF0LWNhcmQge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xufVxuXG4ubWF0LWNhcmQtaGVhZGVyIHtcbiAgZmxleC1zaHJpbms6IDA7XG59XG5cbi5tYXQtY2FyZC1jb250ZW50IHtcbiAgZmxleC1ncm93OiAxO1xuICBvdmVyZmxvdzogYXV0bztcbn1cblxuLmxpbmtVcmwge1xuICBib3JkZXI6IDAuMXB4IHNvbGlkICNjZGU0YjQ7XG4gIHBhZGRpbmctbGVmdDogMjBweDtcbiAgcGFkZGluZy1yaWdodDogMjBweDtcbiAgYmFja2dyb3VuZDogI2U0ZDJiMjtcbn1cblxuLm1hdC1lbGV2YXRpb24tejEge1xuICBib3JkZXI6IDFweCBzb2xpZCBibGFjaztcbiAgcGFkZGluZy1sZWZ0OiAyMHB4O1xuICBwYWRkaW5nLXJpZ2h0OiAyMHB4O1xuICBiYWNrZ3JvdW5kOiAjZTZlYmU5O1xufVxuXG4uaW1hZ2Uge1xuICBoZWlnaHQ6IDE1MHB4O1xuICAvKiBhZGp1c3QgYXMgbmVlZGVkICovXG4gIG9iamVjdC1maXQ6IGNvbnRhaW47XG59Il19 */"
 
 /***/ }),
 
@@ -2343,11 +3160,48 @@ __webpack_require__.r(__webpack_exports__);
 
 let ProjectsComponent = class ProjectsComponent {
     constructor() {
-        this.dtOptions = {};
-        this.title = 'angulardatatables';
-        this.message = '';
+        this.tiles = [
+            { text: 'Shiba', cols: 1, rows: 2, color: 'lightgreen' },
+            { text: 'Doggy', cols: 1, rows: 2, color: 'lightpink' },
+            { text: 'Dog', cols: 1, rows: 2, color: '#DDBDF1' },
+            { text: 'Doggo', cols: 1, rows: 2, color: '#DDBDF1' },
+            { text: 'Doge', cols: 1, rows: 2, color: '#DDBDF1' },
+            { text: 'Some Dog', cols: 1, rows: 2, color: '#DDBDF1' },
+            { text: 'Text', cols: 1, rows: 2, color: '#DDBDF1' },
+        ];
+        this.cardList = [];
     }
     ngOnInit() {
+        this.wczytajMocka();
+    }
+    wczytajMocka() {
+        this.cardList.push({
+            remarks: "http://via.placeholder.com/300",
+            note: "Card No. ",
+            description: "Angular ",
+            url: "",
+            createddate: "",
+            group: "",
+            id: 1
+        });
+        this.cardList.push({
+            remarks: "http://via.placeholder.com/300",
+            note: "Card No. ",
+            description: "Angular",
+            url: "",
+            createddate: "",
+            group: "",
+            id: 2
+        });
+        this.cardList.push({
+            remarks: "http://via.placeholder.com/300",
+            note: "Card No. ",
+            description: "Angular ",
+            url: "",
+            createddate: "",
+            group: "",
+            id: 3
+        });
     }
 };
 ProjectsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -2433,6 +3287,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_modules_articlelist_articlelist_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/modules/articlelist/articlelist.component */ "./src/app/modules/articlelist/articlelist.component.ts");
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../login/login.component */ "./src/app/shared/login/login.component.ts");
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+/* harmony import */ var src_app_modules_angulareditor_angulareditor_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/modules/angulareditor/angulareditor.component */ "./src/app/modules/angulareditor/angulareditor.component.ts");
+
 
 
 
@@ -2502,6 +3358,16 @@ let HeaderComponent = class HeaderComponent {
         // dane transportowane do formularza
         // dialogConfig.data = this.data;
         let dialogRef = this.dialog.open(_modules_calendar_calendar_component__WEBPACK_IMPORTED_MODULE_1__["CalendarComponent"], dialogConfig);
+    }
+    angularEditor() {
+        const dialogConfig = new _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialogConfig"]();
+        dialogConfig.disableClose = true;
+        dialogConfig.width = "1000px";
+        dialogConfig.height = "800px";
+        dialogConfig.autoFocus = true;
+        // dane transportowane do formularza
+        // dialogConfig.data = this.data;
+        let dialogRef = this.dialog.open(src_app_modules_angulareditor_angulareditor_component__WEBPACK_IMPORTED_MODULE_8__["AngulareditorComponent"], dialogConfig);
     }
 };
 HeaderComponent.ctorParameters = () => [

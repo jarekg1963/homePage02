@@ -46,7 +46,7 @@ namespace homeApi
           opt.AddPolicy("CorsPolicy",
               c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
       });
-
+           services.AddScoped(typeof(InoteRepository<>), typeof(noteRepository<>));
             services.AddScoped(typeof(IDataRepository<>), typeof(DataRepository<>));
             services.AddScoped(typeof(IcalendarRepository<>), typeof(calendarRepository<>));
 

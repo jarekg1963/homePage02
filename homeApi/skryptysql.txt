@@ -1,0 +1,17 @@
+CREATE TABLE "calendar" (
+	"id"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	"start"	TEXT,
+	"end"	TEXT,
+	"title"	TEXT,
+	"actions"	TEXT,
+	"allDay"	TEXT,
+	"draggable"	TEXT,
+	"color"	TEXT,
+	"resizable"	TEXT
+);
+
+CREATE TABLE "files" (
+	"id"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	"FileName"	TEXT,
+	"idPostu"	INTEGER
+);

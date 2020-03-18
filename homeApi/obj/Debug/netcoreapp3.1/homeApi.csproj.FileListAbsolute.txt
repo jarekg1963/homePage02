@@ -1,3 +1,10 @@
+C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\homeApi.csprojAssemblyReference.cache
+C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\staticwebassets\homeApi.StaticWebAssets.Manifest.cache
+C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\staticwebassets\homeApi.StaticWebAssets.xml
+C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\homeApi.MvcApplicationPartsAssemblyInfo.cs
+C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\homeApi.MvcApplicationPartsAssemblyInfo.cache
+C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\homeApi.AssemblyInfoInputs.cache
+C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\homeApi.AssemblyInfo.cs
 C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\appsettings.json
 C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -47,13 +54,6 @@ C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\
 C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\e_sqlite3.dll
 C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\e_sqlite3.dll
 C:\programowanie\home02\homeApi\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
-C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\homeApi.csprojAssemblyReference.cache
-C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\staticwebassets\homeApi.StaticWebAssets.Manifest.cache
-C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\staticwebassets\homeApi.StaticWebAssets.xml
-C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\homeApi.MvcApplicationPartsAssemblyInfo.cs
-C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\homeApi.MvcApplicationPartsAssemblyInfo.cache
-C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\homeApi.AssemblyInfoInputs.cache
-C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\homeApi.AssemblyInfo.cs
 C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\homeApi.RazorTargetAssemblyInfo.cache
 C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\homeApi.csproj.CopyComplete
 C:\programowanie\home02\homeApi\obj\Debug\netcoreapp3.1\homeApi.dll

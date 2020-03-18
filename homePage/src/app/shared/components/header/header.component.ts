@@ -6,6 +6,7 @@ import { MatDialogConfig, MatDialog } from "@angular/material";
 import { ArticlelistComponent } from "src/app/modules/articlelist/articlelist.component";
 import { LoginComponent } from "../../login/login.component";
 import { ToastrService } from "ngx-toastr";
+import { AngulareditorComponent } from 'src/app/modules/angulareditor/angulareditor.component';
 
 
 @Component({
@@ -94,6 +95,19 @@ export class HeaderComponent implements OnInit {
 
   }
 
+  angularEditor() {
 
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.width = "1000px";
+    dialogConfig.height = "800px";
+    dialogConfig.autoFocus = true;
+    // dane transportowane do formularza
+    // dialogConfig.data = this.data;
+
+    let dialogRef = this.dialog.open(AngulareditorComponent, dialogConfig);
+  }
 
 }

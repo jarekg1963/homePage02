@@ -21,6 +21,9 @@ namespace homeApi.Model
 
               public DbSet<file> files { get; set; }
 
+                public DbSet<note> notes { get; set; }
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // optionsBuilder.UseSqlite("Filename=c:\\programowanie\\home02\\db.db");

@@ -15,7 +15,7 @@ namespace homeApi.Controllers
     public class uploadfilesController : ControllerBase
     {
         private readonly string[] ACCEPTED_FILE_TYPES = new[] { ".jpg", ".jpeg", ".png", ".pdf" , ".docx", ".xlsx", 
-        ".pptx", ".doc", ".xls", ".txt", ".csv"};
+        ".pptx", ".doc", ".xls", ".txt", ".csv" , ".html"};
         private readonly IWebHostEnvironment host;
         private readonly linkContext context;
 

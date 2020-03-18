@@ -1,0 +1,16 @@
+<h1>Editor for html notes </h1>
+
+<!-- <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent"></angular-editor> -->
+<div class="container">
+
+
+  <br><br>
+  <angular-editor id="editor1" [(ngModel)]="htmlContent1" [config]="config1"></angular-editor>
+
+
+</div>
+<br>
+
+<button class="btn btn-primary pull-right"  (click)="onCloseClick()">Close</button>
+<button class="btn btn-primary pull-right ml-4 "  (click)="saveText()">Save</button>
+

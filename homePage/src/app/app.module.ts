@@ -33,6 +33,12 @@ import { TestlayoutComponent } from './shared/components/testlayout/testlayout.c
 import {DataTablesModule} from 'angular-datatables';
 import { ProjectsComponent } from './modules/projects/projects.component';
 import { DocumentsComponent } from './modules/posts/documents/documents.component';
+import { AngulareditorComponent } from './modules/angulareditor/angulareditor.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+
+
+import { NoteModule } from './modules/notes/note.module';
+import { NewsComponent } from './modules/news/news.component';
 
 
 @NgModule({
@@ -54,6 +60,9 @@ import { DocumentsComponent } from './modules/posts/documents/documents.componen
  TestlayoutComponent,
  ProjectsComponent,
  DocumentsComponent,
+ AngulareditorComponent,
+ NewsComponent,
+
 
 
   ],
@@ -64,6 +73,7 @@ import { DocumentsComponent } from './modules/posts/documents/documents.componen
     BrowserAnimationsModule,
     DefaultModule,
     MaterialModule,
+    NoteModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
@@ -76,13 +86,14 @@ import { DocumentsComponent } from './modules/posts/documents/documents.componen
 FlatpickrModule.forRoot(),
 NgbModule,
 OwlDateTimeModule,
-OwlNativeDateTimeModule
+OwlNativeDateTimeModule,
+AngularEditorModule
   ],
   providers: [DatePipe
 
   ],
   bootstrap: [AppComponent],
   entryComponents: [ArticlelistComponent, NewarticleComponent,  ConfirmationdialogComponent,
-    UpdatearticleComponent, LoginComponent, CalendarComponent, AddediteventComponent, EventslistComponent]
+    UpdatearticleComponent, LoginComponent, CalendarComponent, AddediteventComponent, EventslistComponent, AngulareditorComponent]
 })
 export class AppModule { }
