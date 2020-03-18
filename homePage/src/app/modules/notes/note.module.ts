@@ -19,7 +19,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     FormsModule,
     RouterModule.forRoot(NOTE_ROUTES, { useHash: true }),
-    NgbModule
   ],
   declarations: [
     NoteListComponent,

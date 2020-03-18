@@ -39,6 +39,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 
 import { NoteModule } from './modules/notes/note.module';
 import { NewsComponent } from './modules/news/news.component';
+import { SortableHeaderDirective } from './modules/notes/sortable.directive';
 
 
 @NgModule({
@@ -61,8 +62,7 @@ import { NewsComponent } from './modules/news/news.component';
  ProjectsComponent,
  DocumentsComponent,
  AngulareditorComponent,
- NewsComponent,
-
+ NewsComponent
 
 
   ],
